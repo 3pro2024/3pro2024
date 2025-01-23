@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "ms-vsliveshare.vsliveshare",
+        "streetsidesoftware.code-spell-checker",
+        "dsznajder.es7-react-js-snippets",
+        "dbaeumer.vscode-eslint",
+        "mhutchie.git-graph",
+        "github.copilot",
+        "github.copilot-chat",
+        "ms-vscode.vscode-typescript-next",
+        "pkief.material-icon-theme",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "knisterpeter.vscode-commitizen",
+        "formulahendry.auto-rename-tag"
+    ]
+}
