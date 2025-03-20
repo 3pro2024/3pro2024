@@ -29,6 +29,14 @@ module.exports = {
       name: "build:    ビルドシステムや外部依存に関する変更",
       value: "build",
     },
+    {
+      name: "wip:      作業中のコミット（コミットメッセージが不完全）",
+      value: "wip",
+    },
+    {
+      name: "update:   既存機能の更新",
+      value: "update",
+    }
   ],
   messages: {
     type: "コミットする変更タイプを選択:\n",
