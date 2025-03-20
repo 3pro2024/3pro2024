@@ -19,8 +19,9 @@ model Shuwa {
   id             Int         @id @default(autoincrement())
   word           String
   level          ShuwaLevel //クイズのレベル
-  class          String //検定の階級
+  grade          String //検定の階級
   prefecture     Prefecture?
+  category       String //カテゴリ
   modelSentences String //例文
   howToDo        String //やり方
   videoUrl       String
@@ -28,23 +29,33 @@ model Shuwa {
   createdAt      DateTime    @default(now())
   updatedBy      String?
   updatedAt      DateTime?   @updatedAt
-  quiz           Quiz?       // 追加：Quizへの逆方向のリレーション
+  quiz           Quiz? // 追加：Quizへの逆方向のリレーション
 }
 
 model Quiz {
-  id      Int       @id @default(autoincrement()) //独自のIdを持つ
-  shuwaId Int       @unique //外部キーとして使用する
-  shuwa   Shuwa     @relation(fields: [shuwaId], references: [id]) //Shuwaへの参照
+  id           Int       @id @default(autoincrement()) //独自のIdを持つ
+  shuwaId      Int       @unique //外部キーとして使用する
+  shuwa        Shuwa     @relation(fields: [shuwaId], references: [id]) //Shuwaへの参照
   question     String //問題文
-  option1      String //選択肢1
-  option2      String //選択肢2
-  option3      String //選択肢3
-  answerNum    Int //正解のインデックス番号
+  options      Option[] //選択肢
+  answerIndex  Int //正解のインデックス番号
   quizVideoUrl String
   createdBy    String
   createdAt    DateTime  @default(now())
   updatedBy    String?
   updatedAt    DateTime? @updatedAt
+}
+
+model Option {
+  id     Int    @id @default(autoincrement())
+  quizId Int    @unique
+  quiz   Quiz   @relation(fields: [quizId], references: [id])
+  text   String //選択肢のテキスト
+  order  Int    //選択肢の順番
+  createdAt DateTime @default(now())
+  createdBy String
+  updatedAt DateTime? @updatedAt
+  updatedBy String?
 }
 
 enum ShuwaLevel {
