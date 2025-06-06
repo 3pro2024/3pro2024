@@ -6,12 +6,12 @@ module.exports = {
     { value: "change", name: "change:   仕様変更により、既存の機能の修正" },
     {
       value: "update",
-      name: "update:   既存の機能に問題がないが、修正を加えたい場合"
+      name: "update:   既存の機能に問題がないが、修正を加えたい場合",
     },
     { value: "docs", name: "docs:     ドキュメント更新" },
     {
       value: "style",
-      name: "style:    コードスタイル修正（機能に影響しない変更）"
+      name: "style:    コードスタイル修正（機能に影響しない変更）",
     },
     { value: "refactor", name: "refactor: コードリファクタリング" },
     { value: "perf", name: "perf:     パフォーマンス改善" },
@@ -24,18 +24,19 @@ module.exports = {
     { value: "improve", name: "improve:  コードの改善" },
     {
       value: "chore",
-      name: "chore:    ビルドなどで自動生成されたもの + その他"
-    }
+      name: "chore:    ビルドなどで自動生成されたもの + その他",
+    },
   ],
   messages: {
     type: "コミットする変更タイプを選択してください:",
-    scope: "変更の影響範囲を記入してください（例: コンポーネント名、ファイル名）:",
+    scope:
+      "変更の影響範囲を記入してください（例: コンポーネント名、ファイル名）:",
     customScope: "変更の影響範囲を記入してください:",
     subject: "変更内容を簡潔に記述してください:\n",
     body: "変更内容の詳細を記述してください（理由や背景など）:\n ",
     breaking: "破壊的変更がある場合、その内容を記述してください:\n",
     footer: "関連するIssue番号を記入してください（例: #123, #456）:\n",
-    confirmCommit: "このコミット内容でよろしいですか?"
+    confirmCommit: "このコミット内容でよろしいですか?",
   },
   allowCustomScopes: true,
   allowBreakingChanges: ["feat", "fix", "refactor"],
@@ -43,5 +44,5 @@ module.exports = {
   subjectLimit: 100,
   upperCaseSubject: false,
   footerPrefix: "ISSUES CLOSED:",
-  breaklineChar: "|"
+  breaklineChar: "|",
 };
