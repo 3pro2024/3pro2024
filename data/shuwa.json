@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "name": "手話",
+    "how_to": "指をくるくるする",
+    "youtube_url": "https://www.youtube.com/watch?v=example1",
+    "example_sentence": "私は手話を勉強しています"
+  }, {
+    "id": 2,
+    "name": "私",
+    "how_to": "自分の胸を指差す",
+    "youtube_url": "https://www.youtube.com/watch?v=example2",
+    "example_sentence": "私の名前は田中です"
+  }, {
+    "id": 3,
+    "name": "あなた",
+    "how_to": "相手を指差す",
+    "youtube_url": "https://www.youtube.com/watch?v=example3",
+    "example_sentence": "あなたはどこに住んでいますか"
+  }, {
+    "id": 4,
+    "name": "ありがとう",
+    "how_to": "手を胸の前で合わせる",
+    "youtube_url": "https://www.youtube.com/watch?v=example4",
+    "example_sentence": "助けてくれてありがとう"
+  }, {
+    "id": 5,
+    "name": "さようなら",
+    "how_to": "手を振る",
+    "youtube_url": "https://www.youtube.com/watch?v=example5",
+    "example_sentence": "さようなら、また会いましょう"
+  }
+]
