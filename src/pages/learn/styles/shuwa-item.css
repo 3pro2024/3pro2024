@@ -1,0 +1,12 @@
+/* 手話アイテムの設定 */
+.shuwa-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 手話アイテムの名前の設定 */
+.shuwa-item-name {
+  color: red;
+}
