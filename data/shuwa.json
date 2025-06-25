@@ -1,37 +1,65 @@
 [
   {
     "id": 1,
-    "name": "手話",
+    "name": "初級・5級",
     "how_to": "指をくるくるする",
     "youtube_url": "https://www.youtube.com/watch?v=example1",
-    "example_sentence": "私は手話を勉強しています"
+    "example_sentence": "私は手話を勉強しています",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
   },
   {
     "id": 2,
-    "name": "私",
+    "name": "初級・4級",
     "how_to": "自分の胸を指差す",
     "youtube_url": "https://www.youtube.com/watch?v=example2",
-    "example_sentence": "私の名前は田中です"
+    "example_sentence": "私の名前は田中です",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
   },
   {
     "id": 3,
-    "name": "あなた",
+    "name": "中級・3級",
     "how_to": "相手を指差す",
     "youtube_url": "https://www.youtube.com/watch?v=example3",
-    "example_sentence": "あなたはどこに住んでいますか"
+    "example_sentence": "あなたはどこに住んでいますか",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
   },
   {
     "id": 4,
-    "name": "ありがとう",
+    "name": "中級・2級",
     "how_to": "手を胸の前で合わせる",
     "youtube_url": "https://www.youtube.com/watch?v=example4",
-    "example_sentence": "助けてくれてありがとう"
+    "example_sentence": "助けてくれてありがとう",
+    "quiz_level": "初級",
+    "shuwa_rank": "2級"
   },
   {
     "id": 5,
-    "name": "さようなら",
+    "name": "中級・1級",
     "how_to": "手を振る",
     "youtube_url": "https://www.youtube.com/watch?v=example5",
-    "example_sentence": "さようなら、また会いましょう"
+    "example_sentence": "さようなら、また会いましょう",
+    "quiz_level": "中級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 6,
+    "name": "方言・2級",
+    "how_to": "手を振る",
+    "youtube_url": "https://www.youtube.com/watch?v=example6",
+    "example_sentence": "こんにちは、お元気ですか",
+    "quiz_level": "方言",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 7,
+    "name": "方言・3級",
+    "how_to": "手を振る",
+    "youtube_url": "https://www.youtube.com/watch?v=example7",
+    "example_sentence": "こんにちは、お元気ですか",
+    "quiz_level": "方言",
+    "shuwa_rank": "3級"
   }
 ]
