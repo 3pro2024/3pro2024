@@ -1,5 +1,8 @@
 import { defineConfig } from "vite";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   root: "./src/pages",
@@ -23,7 +26,6 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, "./src/pages/index.html"),
         learn: path.resolve(__dirname, "./src/pages/learn/index.html"),
-        title: path.resolve(__dirname, "./src/pages/title/index.html"),
         modeselect: path.resolve(
           __dirname,
           "./src/pages/modeselect/index.html",
