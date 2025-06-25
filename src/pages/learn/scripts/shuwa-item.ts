@@ -6,18 +6,21 @@ const shuwaData: ShuwaData[] = data;
 
 const params = new URLSearchParams(window.location.search);
 const currentShuwaId = params.get("id");
-const validShuwaId = currentShuwaId 
-  ? Number(currentShuwaId) 
-  : null;
+// URLに?id=1などがなかった場合は、nullを設定する。ある場合はidの数字を取得する。
+const validShuwaId = currentShuwaId ? Number(currentShuwaId) : null;
 
-const isValidId = validShuwaId !== null 
-  && Number.isInteger(validShuwaId) 
-  && validShuwaId > 0 
-  && validShuwaId <= shuwaData.length;
+/**
+ * 無効なIDかチェックをする, booleanの値を持つ定数
+ * チェック内容：nullチェック, 0以上かつ手話のデータの範囲内、整数値
+ */
+const isValidId =
+  validShuwaId !== null &&
+  Number.isInteger(validShuwaId) &&
+  validShuwaId > 0 &&
+  validShuwaId <= shuwaData.length;
 
-document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML =
-  isValidId
-    ? `
+document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML = isValidId
+  ? `
       <div>
         <h1>単語：${shuwaData[validShuwaId - 1].name}</h1>
         <div>
@@ -27,7 +30,7 @@ document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML =
         </div>
       </div>
     `
-    : `<div class="shuwa-items">
+  : `<div class="shuwa-items">
       ${shuwaData
         .map(
           (shuwa) => `
