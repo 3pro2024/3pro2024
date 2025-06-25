@@ -38,7 +38,7 @@ export function createSearchForm() {
         ${createOption("3級", "3級", urlParams.rank)}
         ${createOption("2級", "2級", urlParams.rank)}
       </select>
-      <select name="level" class="quiz-level-serect">
+      <select name="level" class="quiz-level-select">
         ${createOption("", "クイズのレベルを選択", urlParams.level)}
         ${createOption("初級", "初級", urlParams.level)}
         ${createOption("中級", "中級", urlParams.level)}
