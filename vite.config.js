@@ -10,9 +10,9 @@ export default {
   build: {
     rollupOptions: {
       input: {
-        main: "./src/pages/index.html",
-        guide: "./src/pages/guide/index.html",
-        learn: "./src/pages/learn/index.html",
+        main: "./index.html",
+        learn: "./learn/index.html",
+        modeselect: "./modeselect/index.html",
       },
     },
   },
