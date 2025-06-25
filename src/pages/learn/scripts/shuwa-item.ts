@@ -6,16 +6,24 @@ const shuwaData: ShuwaData[] = data;
 
 const params = new URLSearchParams(window.location.search);
 const currentShuwaId = params.get("id");
+const validShuwaId = currentShuwaId 
+  ? Number(currentShuwaId) 
+  : null;
+
+const isValidId = validShuwaId !== null 
+  && Number.isInteger(validShuwaId) 
+  && validShuwaId > 0 
+  && validShuwaId <= shuwaData.length;
 
 document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML =
-  currentShuwaId
+  isValidId
     ? `
       <div>
-        <h1>単語：${shuwaData[Number(currentShuwaId) - 1].name}</h1>
+        <h1>単語：${shuwaData[validShuwaId - 1].name}</h1>
         <div>
-          <a href=${shuwaData[Number(currentShuwaId) - 1].youtube_url}>動画：${shuwaData[Number(currentShuwaId) - 1].youtube_url}</a>
-          <p>やり方：${shuwaData[Number(currentShuwaId) - 1].how_to}</p>
-          <p>例文：${shuwaData[Number(currentShuwaId) - 1].example_sentence}</p>
+          <a href=${shuwaData[validShuwaId - 1].youtube_url}>動画：${shuwaData[validShuwaId - 1].youtube_url}</a>
+          <p>やり方：${shuwaData[validShuwaId - 1].how_to}</p>
+          <p>例文：${shuwaData[validShuwaId - 1].example_sentence}</p>
         </div>
       </div>
     `
