@@ -1,5 +1,4 @@
 export default {
-  root: "./src/pages",
   appType: "mpa", // マルチページアプリケーションモードを明示的に指定
   server: {
     fs: {
@@ -10,9 +9,13 @@ export default {
   build: {
     rollupOptions: {
       input: {
-        main: "./index.html",
-        learn: "./learn/index.html",
-        modeselect: "./modeselect/index.html",
+        main: "./src/pages/index.html",
+        learn: "./src/pages/learn/index.html",
+        title: "./src/pages/title/index.html",
+        modeselect: "./src/pages/modeselect/index.html",
+        achieve: "./src/pages/achieve/index.html",
+        explain: "./src/pages/explain/index.html",
+        quiz: "./src/pages/quiz/index.html",
       },
     },
   },
