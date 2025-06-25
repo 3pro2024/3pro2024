@@ -1,4 +1,5 @@
 import data from "../../../../data/shuwa.json";
+import { createButtonHTML } from "../../../components/button/button";
 import type { ShuwaData, ShuwaQuizLevel, ShuwaRank } from "../../../types";
 import "../styles/shuwa-item.css";
 import { createSearchForm } from "./search-form";
@@ -48,6 +49,7 @@ document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML = isValidId
           <p>やり方：${shuwaData[validShuwaId - 1].how_to}</p>
           <p>例文：${shuwaData[validShuwaId - 1].example_sentence}</p>
         </div>
+        ${createButtonHTML("戻る", "history.back()")}
       </div>
     `
   : `<div class="shuwa-items">
@@ -63,4 +65,5 @@ document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML = isValidId
           `,
         )
         .join("")}
+      ${createButtonHTML("戻る", "location.href='../'")}
   </div>`;

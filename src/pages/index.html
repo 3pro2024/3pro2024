@@ -1,33 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3Pro 2024</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Title</title>
+    <link rel="stylesheet" href="./title/style.css" />
   </head>
-
   <body>
-    <header>
-      <h1>Welcome to 3Pro 2024</h1>
-    </header>
-    <main>
-      <section id="introduction">
-        <h2>Introduction</h2>
-        <p>This is a sample HTML document for the 3Pro 2024 project.</p>
-      </section>
-      <section id="features">
-        <h2>Features</h2>
-        <ul>
-          <li><a href="./learn/index.html">ゲーム</a></li>
-          <li><a href="./quiz">クイズ</a></li>
-          <li><a href="./mission">クイズ</a></li>
-        </ul>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2024 3Pro Project. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+    <button class="btn" id="achieve" onclick="location.href='./achieve/'">
+      <img src="/trophy.png" width="30px" height="30px" />
+    </button>
+    <div id="title">手話ぷら</div>
+    <button class="btn" id="toQuiz" onclick="location.href='./modeselect/'">
+      クイズ
+    </button>
+    <button class="btn" id="toLearn" onclick="location.href='./learn/'">
+      学習
+    </button>
+    <button class="btn" id="toExplain" onclick="location.href='./explain/'">
+      説明
+    </button>
   </body>
 </html>
