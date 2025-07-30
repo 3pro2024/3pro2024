@@ -134,8 +134,8 @@
                     }
                     params.set('difficulty', selectedDifficulty.value);
                 } else {
-                    // 方言の場合は難易度を「方言」として設定
-                    params.set('difficulty', 'dialect');
+                    // 方言の場合は難易度を「none」として設定
+                    params.set('difficulty', 'none');
                 }
                 
                 // クイズページに遷移（URLパラメータ付き）
