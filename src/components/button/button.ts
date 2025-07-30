@@ -1,3 +1,3 @@
-export function createButtonHTML(label: string, onClicks: string): string{
-    return `<button onclick="${onClicks}">${label}</button>`;
+export function createButtonHTML(label: string, onClicks: string): string {
+  return `<button onclick="${onClicks}">${label}</button>`;
 }
