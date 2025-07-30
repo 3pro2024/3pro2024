@@ -7,18 +7,18 @@
     height:100%;
     text-align: center;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 29px;
     background-color: white;
     z-index: 10;
 }
 
 .menu p {
-    margin-bottom: 30px; /* 「説明」の下に少し広めの余白 */
+    margin-bottom: 0px; /* 「説明」の下に少し広めの余白 */
 }
 
 .menu a {
     display: block; /* リンクをブロック要素にして、marginを有効に */
-    margin-bottom: 80px; /* 各リンクの下に余白を設定 */
+    margin-bottom: 20px; /* 各リンクの下に余白を設定 */
     text-decoration: none; /* 下線を消す */
     color: #333; /* 文字色を少し柔らかく */
 }
