@@ -20,3 +20,10 @@ const difficulty = urlParams.get('difficulty');
 console.log('mode:', mode);
 console.log('difficulty:', difficulty);
 
+const filePath = `./${mode}.ts`;// modeの値を文字列として組み立てる
+
+import(filePath)// 指定されたパス(filePath)を非同期に読み込む
+    .then( module =>{// importの処理が成功したときの処理
+        console.log(filePath + "imported.");
+        module.startQuiz(mode);
+    })
