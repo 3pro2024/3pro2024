@@ -6,18 +6,34 @@ import { createSearchForm } from "./search-form";
 
 const shuwaData: ShuwaData[] = data as ShuwaData[];
 
+/**
+ * 特定の手話単語の詳細なHTMLコンテンツを生成します。（モーダル対応可のコンポーネント）
+ * @param shuwa - 表示する手話のデータオブジェクト
+ * @returns 生成されたHTML文字列
+ */
+export function createShuwaDetailHTML(shuwa: ShuwaData): string {
+  if (!shuwa) return "<p>該当するデータが見つかりませんでした。</p>";
+
+  return `
+    <div class="shuwa-detail">
+      <h1 class="shuwa-item-name">単語：${shuwa.name}</h1>
+      <div class="shuwa-content">
+        <div class="shuwa-video">${VideoPlayer(shuwa.youtube_url)}</div>
+        <div class="shuwa-text">
+          <p class="shuwa-how-to">やり方：${shuwa.how_to}</p>
+          <p class="shuwa-example-sentence">例文：${shuwa.example_sentence}</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 const params = new URLSearchParams(window.location.search);
 const currentLevelId = (params.get("level") as ShuwaQuizLevel) || null;
 const currentRankId = (params.get("rank") as ShuwaRank) || null;
 const currentShuwaId = params.get("id");
-// URLに?id=1などがなかった場合は、nullを設定する。ある場合はidの数字を取得する。
 const validShuwaId = currentShuwaId ? Number(currentShuwaId) : null;
 
-console.log(currentRankId, currentLevelId);
-/**
- * 無効なIDかチェックをする, booleanの値を持つ定数
- * チェック内容：nullチェック, 0以上かつ手話のデータの範囲内、整数値
- */
 const isValidId =
   validShuwaId !== null &&
   Number.isInteger(validShuwaId) &&
@@ -40,32 +56,24 @@ function searchResults(
   });
 }
 
-document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML = isValidId
-  ? `
-      <div class="shuwa-detail">
-        <h1 class="shuwa-item-name">単語：${shuwaData[validShuwaId - 1].name}</h1>
-        <div class="shuwa-content">
-          <div class="shuwa-video">${VideoPlayer(shuwaData[validShuwaId - 1].youtube_url)}</div>
-          <div class="shuwa-text">
-            <p class="shuwa-how-to">やり方：${shuwaData[validShuwaId - 1].how_to}</p>
-            <p class="shuwa-example-sentence">例文：${shuwaData[validShuwaId - 1].example_sentence}</p>
-          </div>
-        </div>
-        <button id="quiz-back" onclick="location.href='../learn/'">戻る</button>
-      </div>
-    `
-  : `${createSearchForm()}
-      ${searchResults(shuwaData, currentLevelId, currentRankId)
-        .map(
-          (shuwa) => `
-            <div class="shuwa-item">
-              <a href="./?id=${shuwa.id}">
-                <h2 class="shuwa-item-name">${shuwa.name}</h2>
-              </a>
-            </div>
-          `,
-        )
-        .join(
-          "",
-        )}     <button id="quiz-back" onclick="location.href='../title/'">戻る</button>
-`;
+// 学習ページが直接表示された場合の処理
+const shuwaItemsContainer =
+  document.querySelector<HTMLDivElement>(".shuwa-items");
+if (shuwaItemsContainer) {
+  shuwaItemsContainer.innerHTML = isValidId
+    ? `${createShuwaDetailHTML(shuwaData[validShuwaId - 1])}
+       <button id="quiz-back" onclick="location.href='../learn/'">戻る</button>`
+    : `${createSearchForm()}
+        ${searchResults(shuwaData, currentLevelId, currentRankId)
+          .map(
+            (shuwa) => `
+              <div class="shuwa-item">
+                <a href="./?id=${shuwa.id}">
+                  <h2 class="shuwa-item-name">${shuwa.name}</h2>
+                </a>
+              </div>
+            `,
+          )
+          .join("")}
+        <button id="quiz-back" onclick="location.href='../title/'">戻る</button>`;
+}
