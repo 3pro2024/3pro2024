@@ -1,21 +1,21 @@
 [
   {
     "id": 1,
-    "name": "初級・5級",
-    "how_to": "指をくるくるする",
-    "youtube_url": "https://www.youtube.com/watch?v=example1",
-    "example_sentence": "私は手話を勉強しています",
+    "name": "起きる",
+    "how_to": "こめかみにあてた右手拳を下ろすと同時に頭をおこす",
+    "youtube_url": "https://youtu.be/4K0XHwj2Rz4",
+    "example_sentence": "6時に起きる。",
     "quiz_level": "初級",
     "shuwa_rank": "5級"
   },
   {
     "id": 2,
-    "name": "初級・4級",
-    "how_to": "自分の胸を指差す",
-    "youtube_url": "https://www.youtube.com/watch?v=example2",
-    "example_sentence": "私の名前は田中です",
+    "name": "寝る",
+    "how_to": "頭をかしげ、こめかみに右手拳をあてる",
+    "youtube_url": "https://youtu.be/4K0XHwj2Rz4",
+    "example_sentence": "10時に寝る。",
     "quiz_level": "初級",
-    "shuwa_rank": "4級"
+    "shuwa_rank": "5級"
   },
   {
     "id": 3,
