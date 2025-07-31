@@ -16,6 +16,7 @@ export default {
         achieve: "./src/pages/achieve/index.html",
         explain: "./src/pages/explain/index.html",
         quiz: "./src/pages/quiz/index.html",
+        result: "./src/pages/result/index.html",
       },
     },
   },
