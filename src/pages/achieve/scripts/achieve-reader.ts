@@ -11,13 +11,13 @@ const unlockChallenge = () => {
   }
 };
 
-if (dakutenTarget && lastQuestion) {
-  // ページ読み込み時にlocalStorageを確認
-  if (localStorage.getItem(storageKey) === "true") {
-    unlockChallenge();
-  }
+// ページ読み込み時にlocalStorageを確認
+if (localStorage.getItem(storageKey) === "true") {
+  unlockChallenge();
+}
 
-  // クリックイベントの設定
+// クリックイベントの設定
+if (dakutenTarget) {
   dakutenTarget.addEventListener("click", () => {
     unlockChallenge();
     localStorage.setItem(storageKey, "true");
