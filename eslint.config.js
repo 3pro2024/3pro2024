@@ -1,17 +1,35 @@
-import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import { defineConfig } from "eslint/config";
 
-export default defineConfig([
+export default tseslint.config(
+  // Global ignores
   {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
-    plugins: { js },
-    extends: ["js/recommended"],
+    ignores: ["dist", "components", ".ropeproject"],
   },
+
+  // Base configs for all files
+  ...tseslint.configs.recommended,
+
+  // Source files (browser)
   {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
-    languageOptions: { globals: globals.browser },
+    files: ['src/**/*.ts'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
+    },
   },
-  tseslint.configs.recommended,
-]);
+
+  // Config files (node)
+  {
+    files: ['*.cjs', '*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      '@typescript-eslint/no-var-requires': 'off', // Allow require() in JS/CJS files
+    }
+  }
+);
