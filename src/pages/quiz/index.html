@@ -1,41 +1,12 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
     <title>Quiz</title>
-    <link rel="stylesheet" href="/static/css/quiz.css" />
-    <script type="module" src="./quiz.ts" defer></script>
   </head>
-
   <body>
-    <div class="quiz-container">
-      <h1>Quiz</h1>
-      <div id="quiz-content">
-        <!-- Quiz content will be dynamically loaded here -->
-      </div>
-      <button id="submit-quiz" class="btn">Submit Quiz</button>
-    </div>
-
-    <script>
-      // Load quiz content dynamically
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("/api/quiz")
-          .then((response) => response.json())
-          .then((data) => {
-            const quizContent = document.getElementById("quiz-content");
-            quizContent.innerHTML = data.questions
-              .map(
-                (q) => `
-                        <div class="question">
-                            <p>${q.question}</p>
-                            ${q.options.map((o) => `<label><input type="radio" name="${q.id}" value="${o}">${o}</label>`).join("")}
-                        </div>
-                    `,
-              )
-              .join("");
-          });
-      });
-    </script>
+    <script type="module" src="quiz.ts" defer></script>
+    <h1>ここはクイズ画面です</h1>
+    <input type="button" value="終了" onclick="retire()">
   </body>
 </html>
