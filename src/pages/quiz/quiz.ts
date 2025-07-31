@@ -4,8 +4,11 @@ function retire(){// 終了ボタンを押したときの処理
         location.href = "../title/index.html";
     }
 }
-// グローバルスコープに関数を公開
-(window as any).retire = retire;
+// ボタンにイベントリスナーを追加
+const retireButton = document.getElementById('retireButton');
+if (retireButton) {
+    retireButton.addEventListener('click', retire);
+}
 
 const urlParams = new URLSearchParams(location.search);
 // URLからクエリ文字列（URLパラメータ）を取得・扱いやすい形に変換
