@@ -99,7 +99,10 @@ function updateAchievementUI(): void {
             "-",
           )[0] as keyof typeof MEMBER_CHARACTERS;
           const charIndex = parseInt(achievementId.split("-")[1]);
-          const hiraganaChar = MEMBER_CHARACTERS[memberName][charIndex - 1];
+          let hiraganaChar = "？";
+          if (Number.isInteger(charIndex) && charIndex > 0 && charIndex <= MEMBER_CHARACTERS[memberName].length) {
+            hiraganaChar = MEMBER_CHARACTERS[memberName][charIndex - 1];
+          }
 
           element.classList.add("completed");
           element.textContent = hiraganaChar;
