@@ -1,3 +1,171 @@
+/* Simple Achievement Page Styles */
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: #333;
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Simple container */
+body > div {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Achievement sections */
+.itoga,
+.imamura,
+.uchimura,
+.reader,
+.kagimoto,
+.fukuda {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Section headers */
+.itoga h2,
+.imamura h2,
+.uchimura h2,
+.reader h2,
+.kagimoto h2,
+.fukuda h2 {
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+  text-align: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Achievement badges - exclude reader-click */
+.itoga span,
+.imamura span,
+.uchimura span,
+.reader span:not(.reader-click),
+.kagimoto span,
+.fukuda span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #ddd;
+  border-radius: 50%;
+  margin: 5px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+/* Completed achievements - exclude reader-click */
+.itoga span.completed,
+.imamura span.completed,
+.uchimura span.completed,
+.reader span.completed:not(.reader-click),
+.kagimoto span.completed,
+.fukuda span.completed {
+  background: #28a745;
+  color: white;
+}
+
+/* Special click element */
 .reader-click {
   cursor: pointer;
+}
+
+.reader-click:hover {
+  color: #0056b3;
+}
+
+/* Simple back button */
+#btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 24px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#btn:hover {
+  background: #0056b3;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .itoga,
+  .imamura,
+  .uchimura,
+  .reader,
+  .kagimoto,
+  .fukuda {
+    padding: 15px;
+  }
+
+  .itoga span,
+  .imamura span,
+  .uchimura span,
+  .reader span:not(.reader-click),
+  .kagimoto span,
+  .fukuda span {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 0.9rem;
+    margin: 3px;
+  }
+  
+  /* Ensure badges wrap nicely on mobile */
+  .itoga,
+  .imamura,
+  .uchimura,
+  .reader,
+  .kagimoto,
+  .fukuda {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .itoga h2,
+  .imamura h2,
+  .uchimura h2,
+  .reader h2,
+  .kagimoto h2,
+  .fukuda h2 {
+    width: 100%;
+    flex-basis: 100%;
+  }
 }
