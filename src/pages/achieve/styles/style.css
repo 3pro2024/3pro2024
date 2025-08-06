@@ -1,3 +1,198 @@
+body {
+  margin: 0;
+  font-family:
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo,
+    sans-serif;
+  background: linear-gradient(135deg, #f8f9fd 0%, #eff2f7 100%);
+  min-height: 100vh;
+  padding: 25px 15px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+header h1 {
+  color: #2c3e50;
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.itoga,
+.imamura,
+.uchimura,
+.reader,
+.kagimoto,
+.fukuda {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(52, 73, 94, 0.08);
+  text-align: center;
+  border: 1px solid rgba(149, 165, 166, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.itoga:hover,
+.imamura:hover,
+.uchimura:hover,
+.reader:hover,
+.kagimoto:hover,
+.fukuda:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 73, 94, 0.12);
+}
+
+.itoga h2,
+.imamura h2,
+.uchimura h2,
+.reader h2,
+.kagimoto h2,
+.fukuda h2 {
+  color: #34495e;
+  font-size: 1.1rem;
+  margin: 0 0 20px 0;
+  text-align: center;
+  border-bottom: 3px solid #e8ecf0;
+  padding-bottom: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.itoga span,
+.imamura span,
+.uchimura span,
+.reader span:not(.reader-click),
+.kagimoto span,
+.fukuda span {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  background: #bdc3c7;
+  border-radius: 50%;
+  margin: 4px 6px;
+  line-height: 42px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  vertical-align: top;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.itoga span.completed,
+.imamura span.completed,
+.uchimura span.completed,
+.reader span.completed:not(.reader-click),
+.kagimoto span.completed,
+.fukuda span.completed {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  color: white;
+  box-shadow: 0 3px 8px rgba(46, 204, 113, 0.3);
+  transform: scale(1.05);
+}
+
 .reader-click {
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.reader-click:hover {
+  color: #e74c3c;
+  text-shadow: 0 0 8px rgba(231, 76, 60, 0.4);
+}
+
+#btn {
+  display: block;
+  margin: 40px auto 0;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+#btn:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+@media (max-width: 650px) {
+  body {
+    padding: 18px 12px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .itoga,
+  .imamura,
+  .uchimura,
+  .reader,
+  .kagimoto,
+  .fukuda {
+    padding: 18px 14px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+  }
+
+  .itoga span,
+  .imamura span,
+  .uchimura span,
+  .reader span:not(.reader-click),
+  .kagimoto span,
+  .fukuda span {
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 0.9rem;
+    margin: 3px 4px;
+  }
+
+  .itoga,
+  .imamura,
+  .uchimura,
+  .reader,
+  .kagimoto,
+  .fukuda {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .itoga h2,
+  .imamura h2,
+  .uchimura h2,
+  .reader h2,
+  .kagimoto h2,
+  .fukuda h2 {
+    width: 100%;
+    flex-basis: 100%;
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+  }
+
+  #btn {
+    margin-top: 32px;
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
 }
