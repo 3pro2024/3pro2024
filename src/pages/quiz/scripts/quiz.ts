@@ -137,6 +137,6 @@ function showFinalResult() {
 // 終了ボタン
 retireButton.addEventListener('click', () => {
   if (confirm('クイズを中断してタイトルに戻りますか？')) {
-    window.location.href = '/'; // タイトル画面のパス
+    window.location.href = '../title/'; // タイトル画面のパス
   }
 });
