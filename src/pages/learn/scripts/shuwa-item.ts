@@ -1,5 +1,6 @@
 import data from "../../../../data/shuwa.json";
 import { createButtonHTML } from "../../../components/button/button";
+import VideoPlayer from "../../../components/video/video-player";
 import type { ShuwaData, ShuwaQuizLevel, ShuwaRank } from "../../../types";
 import "../styles/shuwa-item.css";
 import { createSearchForm } from "./search-form";
@@ -42,18 +43,19 @@ function searchResults(
 
 document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML = isValidId
   ? `
-      <div>
-        <h1>単語：${shuwaData[validShuwaId - 1].name}</h1>
-        <div>
-          <a href=${shuwaData[validShuwaId - 1].youtube_url}>動画：${shuwaData[validShuwaId - 1].youtube_url}</a>
-          <p>やり方：${shuwaData[validShuwaId - 1].how_to}</p>
-          <p>例文：${shuwaData[validShuwaId - 1].example_sentence}</p>
+      <div class="shuwa-detail">
+        <h1 class="shuwa-item-name">単語：${shuwaData[validShuwaId - 1].name}</h1>
+        <div class="shuwa-content">
+          <div class="shuwa-video">${VideoPlayer(shuwaData[validShuwaId - 1].youtube_url)}</div>
+          <div class="shuwa-text">
+            <p class="shuwa-how-to">やり方：${shuwaData[validShuwaId - 1].how_to}</p>
+            <p class="shuwa-example-sentence">例文：${shuwaData[validShuwaId - 1].example_sentence}</p>
+          </div>
         </div>
         ${createButtonHTML("戻る", "history.back()")}
       </div>
     `
-  : `<div class="shuwa-items">
-      ${createSearchForm()}
+  : `${createSearchForm()}
       ${searchResults(shuwaData, currentLevelId, currentRankId)
         .map(
           (shuwa) => `

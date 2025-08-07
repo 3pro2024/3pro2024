@@ -1,14 +1,98 @@
 /* フォーム全体 */
 .shuwa-search-form {
-    display: flex;
-    flex-direction: row;
-    align-items: center; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 検索テキスト入力 */
+.shuwa-search-form input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.shuwa-search-form input[type="text"]:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.shuwa-search-form input[type="text"]::placeholder {
+  color: #6b7280;
+}
+
+/* セレクトボックス共通スタイル */
+.shuwa-search-form select {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.shuwa-search-form select:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
 }
 
 /* 階級選択 */
 .shuwa-rank {
+  color: #374151;
 }
 
-/* クイズレベルボタン */
+/* クイズレベル選択 */
 .shuwa-quiz-level-select {
+  color: #374151;
+}
+
+/* 検索ボタン */
+.shuwa-search-form button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(245, 87, 108, 0.3);
+}
+
+.shuwa-search-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+.shuwa-search-form button:active {
+  transform: translateY(0);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .shuwa-search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .shuwa-search-form input[type="text"],
+  .shuwa-search-form select {
+    min-width: auto;
+  }
 }
