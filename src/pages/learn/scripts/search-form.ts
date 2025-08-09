@@ -25,6 +25,7 @@ function createOption(
   return `<option value="${value}" ${selected}>${text}</option>`;
 }
 
+
 export function createSearchForm() {
   const urlParams = getUrlParams();
 

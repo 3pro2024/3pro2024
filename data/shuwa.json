@@ -4,62 +4,899 @@
     "name": "起きる",
     "how_to": "こめかみにあてた右手拳を下ろすと同時に頭をおこす",
     "youtube_url": "https://youtu.be/4K0XHwj2Rz4",
-    "example_sentence": "6時に起きる。",
+    "example_sentence": "例文：起きるをします。",
     "quiz_level": "初級",
-    "shuwa_rank": "5級"
+    "shuwa_rank": "3級"
   },
   {
     "id": 2,
     "name": "寝る",
     "how_to": "頭をかしげ、こめかみに右手拳をあてる",
     "youtube_url": "https://youtu.be/4K0XHwj2Rz4",
-    "example_sentence": "10時に寝る。",
+    "example_sentence": "例文：寝るをします。",
     "quiz_level": "初級",
-    "shuwa_rank": "5級"
+    "shuwa_rank": "4級"
   },
   {
     "id": 3,
-    "name": "中級・3級",
+    "name": "行く",
     "how_to": "相手を指差す",
     "youtube_url": "https://www.youtube.com/watch?v=example3",
-    "example_sentence": "あなたはどこに住んでいますか",
+    "example_sentence": "例文：行くをします。",
     "quiz_level": "中級",
-    "shuwa_rank": "3級"
-  },
-  {
-    "id": 4,
-    "name": "中級・2級",
-    "how_to": "手を胸の前で合わせる",
-    "youtube_url": "https://www.youtube.com/watch?v=example4",
-    "example_sentence": "助けてくれてありがとう",
-    "quiz_level": "初級",
     "shuwa_rank": "2級"
   },
   {
-    "id": 5,
-    "name": "中級・1級",
-    "how_to": "手を振る",
-    "youtube_url": "https://www.youtube.com/watch?v=example5",
-    "example_sentence": "さようなら、また会いましょう",
+    "id": 4,
+    "name": "来る",
+    "how_to": "手を胸の前で合わせる",
+    "youtube_url": "https://www.youtube.com/watch?v=example4",
+    "example_sentence": "例文：来るをします。",
     "quiz_level": "中級",
     "shuwa_rank": "1級"
   },
   {
+    "id": 5,
+    "name": "食べる",
+    "how_to": "手を振る",
+    "youtube_url": "https://www.youtube.com/watch?v=example5",
+    "example_sentence": "例文：食べるをします。",
+    "quiz_level": "上級",
+    "shuwa_rank": "2級"
+  },
+  {
     "id": 6,
-    "name": "方言・2級",
+    "name": "飲む",
     "how_to": "手を振る",
     "youtube_url": "https://www.youtube.com/watch?v=example6",
-    "example_sentence": "こんにちは、お元気ですか",
+    "example_sentence": "例文：飲むをします。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 7,
+    "name": "見る",
+    "how_to": "右手でパーの形を作る",
+    "youtube_url": "https://www.youtube.com/watch?v=example8",
+    "example_sentence": "例文：見るをします。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 8,
+    "name": "聞く",
+    "how_to": "顔の前で手を三角のように動かす",
+    "youtube_url": "https://www.youtube.com/watch?v=example9",
+    "example_sentence": "例文：聞くをします。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 9,
+    "name": "話す",
+    "how_to": "両手を三角のように動かす",
+    "youtube_url": "https://www.youtube.com/watch?v=example10",
+    "example_sentence": "例文：話すをします。",
+    "quiz_level": "中級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 10,
+    "name": "読む",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example11",
+    "example_sentence": "例文：読むをします。",
+    "quiz_level": "上級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 11,
+    "name": "書く",
+    "how_to": "両手をパーのように動かす",
+    "youtube_url": "https://www.youtube.com/watch?v=example12",
+    "example_sentence": "例文：書くをします。",
+    "quiz_level": "方言",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 12,
+    "name": "買う",
+    "how_to": "両手をチョキのように動かす",
+    "youtube_url": "https://www.youtube.com/watch?v=example13",
+    "example_sentence": "例文：買うをします。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 13,
+    "name": "売る",
+    "how_to": "両手をグーのように動かす",
+    "youtube_url": "https://www.youtube.com/watch?v=example14",
+    "example_sentence": "例文：売るをします。",
+    "quiz_level": "初級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 14,
+    "name": "走る",
+    "how_to": "両手をチョキのように動かす",
+    "youtube_url": "https://www.youtube.com/watch?v=example15",
+    "example_sentence": "例文：走るをします。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 15,
+    "name": "歩く",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example16",
+    "example_sentence": "例文：歩くをします。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 16,
+    "name": "休む",
+    "how_to": "両手をパーのように動かす",
+    "youtube_url": "https://www.youtube.com/watch?v=example17",
+    "example_sentence": "例文：休むをします。",
+    "quiz_level": "上級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 17,
+    "name": "仕事",
+    "how_to": "両手を広げて見せる",
+    "youtube_url": "https://www.youtube.com/watch?v=example18",
+    "example_sentence": "例文：仕事をします。",
+    "quiz_level": "中級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 18,
+    "name": "学ぶ",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example19",
+    "example_sentence": "例文：学ぶをします。",
+    "quiz_level": "初級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 19,
+    "name": "教える",
+    "how_to": "両手を広げて見せる",
+    "youtube_url": "https://www.youtube.com/watch?v=example20",
+    "example_sentence": "例文：教えるをします。",
+    "quiz_level": "中級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 20,
+    "name": "学校",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example21",
+    "example_sentence": "例文：学校へ行きます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 21,
+    "name": "先生",
+    "how_to": "両手を広げて見せる",
+    "youtube_url": "https://www.youtube.com/watch?v=example22",
+    "example_sentence": "例文：先生です。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 22,
+    "name": "医者",
+    "how_to": "両手をパーのように動かす",
+    "youtube_url": "https://www.youtube.com/watch?v=example23",
+    "example_sentence": "例文：医者に会います。",
+    "quiz_level": "上級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 23,
+    "name": "病院",
+    "how_to": "両手を広げて見せる",
+    "youtube_url": "https://www.youtube.com/watch?v=example24",
+    "example_sentence": "例文：病院へ行きます。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 24,
+    "name": "家",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example25",
+    "example_sentence": "例文：家に帰ります。",
+    "quiz_level": "方言",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 25,
+    "name": "部屋",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example26",
+    "example_sentence": "例文：部屋です。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 26,
+    "name": "電車",
+    "how_to": "両手を広げて見せる",
+    "youtube_url": "https://www.youtube.com/watch?v=example27",
+    "example_sentence": "例文：電車に乗ります。",
+    "quiz_level": "中級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 27,
+    "name": "車",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example28",
+    "example_sentence": "例文：車に乗ります。",
+    "quiz_level": "初級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 28,
+    "name": "自転車",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example29",
+    "example_sentence": "例文：自転車に乗ります。",
+    "quiz_level": "初級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 29,
+    "name": "猫",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example30",
+    "example_sentence": "例文：これは猫です。",
     "quiz_level": "方言",
     "shuwa_rank": "2級"
   },
   {
-    "id": 7,
-    "name": "方言・3級",
-    "how_to": "手を振る",
-    "youtube_url": "https://www.youtube.com/watch?v=example7",
-    "example_sentence": "こんにちは、お元気ですか",
+    "id": 30,
+    "name": "犬",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example31",
+    "example_sentence": "例文：これは犬です。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 31,
+    "name": "魚",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example32",
+    "example_sentence": "例文：魚を食べます。",
+    "quiz_level": "中級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 32,
+    "name": "鳥",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example33",
+    "example_sentence": "例文：鳥がいます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 33,
+    "name": "本",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example34",
+    "example_sentence": "例文：本を読みます。",
+    "quiz_level": "上級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 34,
+    "name": "新聞",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example35",
+    "example_sentence": "例文：新聞を読みます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 35,
+    "name": "時計",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example36",
+    "example_sentence": "例文：時計を見ます。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 36,
+    "name": "今日",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example37",
+    "example_sentence": "例文：今日は忙しいです。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 37,
+    "name": "明日",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example38",
+    "example_sentence": "例文：明日は休みです。",
+    "quiz_level": "中級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 38,
+    "name": "昨日",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example39",
+    "example_sentence": "例文：昨日は雨でした。",
     "quiz_level": "方言",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 39,
+    "name": "ありがとう",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example40",
+    "example_sentence": "例文：ありがとうと言います。",
+    "quiz_level": "初級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 40,
+    "name": "ごめんなさい",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example41",
+    "example_sentence": "例文：ごめんなさいと言います。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 41,
+    "name": "すみません",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example42",
+    "example_sentence": "例文：すみませんと言います。",
+    "quiz_level": "中級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 42,
+    "name": "お願い",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example43",
+    "example_sentence": "例文：お願いをします。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 43,
+    "name": "はい",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example44",
+    "example_sentence": "例文：はいと答えます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 44,
+    "name": "いいえ",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example45",
+    "example_sentence": "例文：いいえと答えます。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 45,
+    "name": "どこ",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example46",
+    "example_sentence": "例文：どこですか？と聞きます。",
+    "quiz_level": "中級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 46,
+    "name": "何",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example47",
+    "example_sentence": "例文：何ですか？と聞きます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 47,
+    "name": "誰",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example48",
+    "example_sentence": "例文：誰ですか？と聞きます。",
+    "quiz_level": "方言",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 48,
+    "name": "いつ",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example49",
+    "example_sentence": "例文：いつ行きますか？と聞きます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 49,
+    "name": "なぜ",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example50",
+    "example_sentence": "例文：なぜですか？と聞きます。",
+    "quiz_level": "中級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 50,
+    "name": "どう",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example51",
+    "example_sentence": "例文：どうしますか？と聞きます。",
+    "quiz_level": "上級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 51,
+    "name": "好き",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example52",
+    "example_sentence": "例文：あなたは好きですか？",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 52,
+    "name": "嫌い",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example53",
+    "example_sentence": "例文：私は嫌いです。",
+    "quiz_level": "方言",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 53,
+    "name": "大好き",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example54",
+    "example_sentence": "例文：私は大好きです。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 54,
+    "name": "小さい",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example55",
+    "example_sentence": "例文：これは小さいです。",
+    "quiz_level": "初級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 55,
+    "name": "大きい",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example56",
+    "example_sentence": "例文：これは大きいです。",
+    "quiz_level": "中級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 56,
+    "name": "早い",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example57",
+    "example_sentence": "例文：時間が早いです。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 57,
+    "name": "遅い",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example58",
+    "example_sentence": "例文：到着が遅いです。",
+    "quiz_level": "初級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 58,
+    "name": "暑い",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example59",
+    "example_sentence": "例文：今日は暑いです。",
+    "quiz_level": "方言",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 59,
+    "name": "寒い",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example60",
+    "example_sentence": "例文：外は寒いです。",
+    "quiz_level": "中級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 60,
+    "name": "新しい",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example61",
+    "example_sentence": "例文：新しいです。",
+    "quiz_level": "上級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 61,
+    "name": "古い",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example62",
+    "example_sentence": "例文：古いです。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 62,
+    "name": "高い",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example63",
+    "example_sentence": "例文：値段が高いです。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 63,
+    "name": "安い",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example64",
+    "example_sentence": "例文：値段が安いです。",
+    "quiz_level": "初級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 64,
+    "name": "美味しい",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example65",
+    "example_sentence": "例文：これは美味しいです。",
+    "quiz_level": "上級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 65,
+    "name": "まずい",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example66",
+    "example_sentence": "例文：これはまずいです。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 66,
+    "name": "元気",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example67",
+    "example_sentence": "例文：元気ですか？",
+    "quiz_level": "中級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 67,
+    "name": "痛い",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example68",
+    "example_sentence": "例文：ここが痛いです。",
+    "quiz_level": "初級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 68,
+    "name": "忙しい",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example69",
+    "example_sentence": "例文：今は忙しいです。",
+    "quiz_level": "中級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 69,
+    "name": "暇",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example70",
+    "example_sentence": "例文：今日は暇です。",
+    "quiz_level": "初級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 70,
+    "name": "面白い",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example71",
+    "example_sentence": "例文：それは面白いです。",
+    "quiz_level": "方言",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 71,
+    "name": "難しい",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example72",
+    "example_sentence": "例文：問題が難しいです。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 72,
+    "name": "簡単",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example73",
+    "example_sentence": "例文：それは簡単です。",
+    "quiz_level": "初級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 73,
+    "name": "分かる",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example74",
+    "example_sentence": "例文：分かります。",
+    "quiz_level": "中級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 74,
+    "name": "分からない",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example75",
+    "example_sentence": "例文：分かりません。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 75,
+    "name": "見せる",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example76",
+    "example_sentence": "例文：見せてください。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 76,
+    "name": "聞こえる",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example77",
+    "example_sentence": "例文：聞こえますか？",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 77,
+    "name": "見つける",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example78",
+    "example_sentence": "例文：見つけました。",
+    "quiz_level": "上級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 78,
+    "name": "使う",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example79",
+    "example_sentence": "例文：使います。",
+    "quiz_level": "初級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 79,
+    "name": "作る",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example80",
+    "example_sentence": "例文：作ります。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 80,
+    "name": "直す",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example81",
+    "example_sentence": "例文：直します。",
+    "quiz_level": "方言",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 81,
+    "name": "教室",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example82",
+    "example_sentence": "例文：教室に行きます。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 82,
+    "name": "図書館",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example83",
+    "example_sentence": "例文：図書館で勉強します。",
+    "quiz_level": "初級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 83,
+    "name": "会社",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example84",
+    "example_sentence": "例文：会社へ行きます。",
+    "quiz_level": "中級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 84,
+    "name": "友達",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example85",
+    "example_sentence": "例文：友達に会います。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 85,
+    "name": "家族",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example86",
+    "example_sentence": "例文：家族と話します。",
+    "quiz_level": "上級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 86,
+    "name": "母",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example87",
+    "example_sentence": "例文：母に電話します。",
+    "quiz_level": "初級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 87,
+    "name": "父",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example88",
+    "example_sentence": "例文：父と会います。",
+    "quiz_level": "中級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 88,
+    "name": "兄",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example89",
+    "example_sentence": "例文：兄は大学生です。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 89,
+    "name": "姉",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example90",
+    "example_sentence": "例文：姉は元気です。",
+    "quiz_level": "初級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 90,
+    "name": "弟",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example91",
+    "example_sentence": "例文：弟はスポーツが好きです。",
+    "quiz_level": "中級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 91,
+    "name": "妹",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example92",
+    "example_sentence": "例文：妹は小学生です。",
+    "quiz_level": "初級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 92,
+    "name": "恋人",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example93",
+    "example_sentence": "例文：恋人に会います。",
+    "quiz_level": "方言",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 93,
+    "name": "結婚",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example94",
+    "example_sentence": "例文：結婚します。",
+    "quiz_level": "中級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 94,
+    "name": "赤ちゃん",
+    "how_to": "指で三角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example95",
+    "example_sentence": "例文：赤ちゃんがいます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "3級"
+  },
+  {
+    "id": 95,
+    "name": "子供",
+    "how_to": "指でグーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example96",
+    "example_sentence": "例文：子供と遊びます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 96,
+    "name": "年",
+    "how_to": "指でチョキの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example97",
+    "example_sentence": "例文：今年は良い年です。",
+    "quiz_level": "中級",
+    "shuwa_rank": "1級"
+  },
+  {
+    "id": 97,
+    "name": "月",
+    "how_to": "指で円の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example98",
+    "example_sentence": "例文：来月旅行に行きます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 98,
+    "name": "時間",
+    "how_to": "指で四角の形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example99",
+    "example_sentence": "例文：時間を確認します。",
+    "quiz_level": "上級",
+    "shuwa_rank": "2級"
+  },
+  {
+    "id": 99,
+    "name": "旅行",
+    "how_to": "指でパーの形を表現する",
+    "youtube_url": "https://www.youtube.com/watch?v=example100",
+    "example_sentence": "例文：旅行に行きます。",
+    "quiz_level": "中級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 100,
+    "name": "食堂",
+    "how_to": "こめかみにあてた右手拳を下ろすと同時に頭をおこす",
+    "youtube_url": "https://youtu.be/4K0XHwj2Rz4",
+    "example_sentence": "例文：食堂で食べます。",
+    "quiz_level": "初級",
     "shuwa_rank": "3級"
   }
 ]
