@@ -10,15 +10,10 @@ const shuwaData: ShuwaData[] = data as ShuwaData[];
 const params = new URLSearchParams(window.location.search);
 const currentLevelId = (params.get("level") as ShuwaQuizLevel) || null;
 const currentRankId = (params.get("rank") as ShuwaRank) || null;
+const currentKeyword = params.get("keyword") || null;
 const currentShuwaId = params.get("id");
-// URLに?id=1などがなかった場合は、nullを設定する。ある場合はidの数字を取得する。
 const validShuwaId = currentShuwaId ? Number(currentShuwaId) : null;
 
-console.log(currentRankId, currentLevelId);
-/**
- * 無効なIDかチェックをする, booleanの値を持つ定数
- * チェック内容：nullチェック, 0以上かつ手話のデータの範囲内、整数値
- */
 const isValidId =
   validShuwaId !== null &&
   Number.isInteger(validShuwaId) &&
@@ -29,20 +24,37 @@ function searchResults(
   shuwaData: ShuwaData[],
   level: ShuwaQuizLevel | null,
   rank: ShuwaRank | null,
+  keyword: string | null,
 ): ShuwaData[] {
-  if (!shuwaData) return [];
-  else if (!level && !rank) return shuwaData;
-  else if (!level && rank)
-    return shuwaData.filter((shuwa) => shuwa.shuwa_rank == rank);
-  else if (level && !rank)
-    return shuwaData.filter((shuwa) => shuwa.quiz_level == level);
-  return shuwaData.filter((shuwa) => {
-    return shuwa.quiz_level == level && shuwa.shuwa_rank == rank;
+  return shuwaData.filter(shuwa => {
+    const levelMatch = !level || shuwa.quiz_level === level;
+    const rankMatch = !rank || shuwa.shuwa_rank === rank;
+    const keywordMatch = !keyword || shuwa.name.toLowerCase().includes(keyword.toLowerCase());
+    return levelMatch && rankMatch && keywordMatch;
   });
 }
 
-document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML = isValidId
-  ? `
+function createCardLayout(data: ShuwaData[]): string {
+  const items = data
+    .map(
+      (shuwa) => `
+        <div class="shuwa-item">
+          <a href="./?id=${shuwa.id}">
+            <h2 class="shuwa-item-name">${shuwa.name}</h2>
+          </a>
+        </div>
+      `,
+    )
+    .join("");
+  
+  return `<div class="shuwa-items-grid">${items}</div>`;
+}
+
+const shuwaItemsContainer = document.querySelector<HTMLDivElement>(".shuwa-items")!;
+document.body.className = 'theme-nature';
+
+if (isValidId) {
+  shuwaItemsContainer.innerHTML = `
       <div class="shuwa-detail">
         <h1 class="shuwa-item-name">単語：${shuwaData[validShuwaId - 1].name}</h1>
         <div class="shuwa-content">
@@ -54,18 +66,56 @@ document.querySelector<HTMLDivElement>(".shuwa-items")!.innerHTML = isValidId
         </div>
         ${createButtonHTML("戻る", "history.back()")}
       </div>
-    `
-  : `${createSearchForm()}
-      ${searchResults(shuwaData, currentLevelId, currentRankId)
-        .map(
-          (shuwa) => `
-            <div class="shuwa-item">
-              <a href="./?id=${shuwa.id}">
-                <h2 class="shuwa-item-name">${shuwa.name}</h2>
-              </a>
-            </div>
-          `,
-        )
-        .join("")}
-      ${createButtonHTML("戻る", "location.href='../'")}
-  </div>`;
+    `;
+} else {
+  shuwaItemsContainer.innerHTML = `
+    ${createSearchForm()}
+    <div id="shuwa-grid-container">
+      ${createCardLayout(searchResults(shuwaData, currentLevelId, currentRankId, currentKeyword))}
+    </div>
+    ${createButtonHTML("戻る", "location.href='../'")}`;
+
+  const searchInput = document.querySelector('.shuwa-search-form input') as HTMLInputElement;
+  const rankSelect = document.querySelector('.shuwa-search-form .shuwa-rank') as HTMLSelectElement;
+  const levelSelect = document.querySelector('.shuwa-search-form .shuwa-quiz-level-select') as HTMLSelectElement;
+  const gridContainer = document.querySelector('#shuwa-grid-container') as HTMLDivElement;
+
+  const handleSearch = () => {
+    const keyword = searchInput.value;
+    const rank = rankSelect.value;
+    const level = levelSelect.value;
+
+    const newParams = new URLSearchParams();
+    if (keyword) newParams.set('keyword', keyword);
+    if (rank) newParams.set('rank', rank);
+    if (level) newParams.set('level', level);
+    const newUrl = `${window.location.pathname}?${newParams.toString()}`;
+    history.pushState({ path: newUrl }, '', newUrl);
+
+    const filteredData = searchResults(shuwaData, level as ShuwaQuizLevel, rank as ShuwaRank, keyword);
+    gridContainer.innerHTML = createCardLayout(filteredData);
+  };
+
+  searchInput.addEventListener('input', handleSearch);
+  rankSelect.addEventListener('change', handleSearch);
+  levelSelect.addEventListener('change', handleSearch);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // メインコンテンツ(.shuwa-items)を .app で囲む
+  const shuwaItems = document.querySelector('.shuwa-items');
+  if (shuwaItems && shuwaItems.parentNode) {
+    const appWrapper = document.createElement('div');
+    appWrapper.className = 'app';
+
+    shuwaItems.parentNode.replaceChild(appWrapper, shuwaItems);
+    appWrapper.appendChild(shuwaItems);
+  }
+
+  // フレーム要素をbodyの最後に追加する
+  if (!document.querySelector('.screen-frame')) {
+    const screenFrame = document.createElement('div');
+    screenFrame.className = 'screen-frame';
+    document.body.appendChild(screenFrame);
+  }
+});
