@@ -1,4 +1,3 @@
-import { createButtonHTML } from "../../../components/button/button";
 import "../styles/shuwa-item.css";
 import "../styles/search-form.css";
 
@@ -25,7 +24,6 @@ function createOption(
   return `<option value="${value}" ${selected}>${text}</option>`;
 }
 
-
 export function createSearchForm() {
   const urlParams = getUrlParams();
 
@@ -45,7 +43,6 @@ export function createSearchForm() {
         ${createOption("中級", "中級", urlParams.level)}
         ${createOption("方言", "方言", urlParams.level)}
       </select>
-      ${createButtonHTML("検索", "console.log('送信ボタンが押されました')")}
     </form>
   `;
 }
