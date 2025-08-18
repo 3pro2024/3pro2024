@@ -8,14 +8,8 @@ const shuwaData: ShuwaData[] = data as ShuwaData[];
  * クイズ結果のHTML要素を生成する
  */
 function resultItems(): string {
-  // TODO: クイズ機能実装後に、実際のクイズ結果をlocalStorageから取得するように修正する
-  localStorage.setItem(
-    "results",
-    JSON.stringify(new Array(10).fill(false).map(() => Math.random() > 0.5)),
-  );
-
   const results: boolean[] | null = JSON.parse(
-    localStorage.getItem("results") || "[]",
+    localStorage.getItem("quizResults") || "[]",
   );
   if (!results) return "結果の情報がありません。";
 
