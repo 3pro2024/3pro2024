@@ -653,3 +653,21 @@ body {
   display: flex; /* Flexboxコンテナとして設定 */
   flex-direction: column; /* 子要素を縦に並べる */
 }
+
+/* 詳細ページ */
+.shuwa-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.shuwa-text {
+  width: 100%;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
