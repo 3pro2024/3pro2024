@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   root: "./src/pages",
+  publicDir: "../../public", // publicディレクトリの場所をプロジェクトルートからの相対パスで指定
   appType: "mpa",
   server: {
     fs: {
