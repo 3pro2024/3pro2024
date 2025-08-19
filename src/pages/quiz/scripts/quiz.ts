@@ -150,8 +150,8 @@ function showFinalResult() {
   alert(`クイズ終了！ ${results.length}問中 ${correctCount}問正解でした！`);
   console.log("クイズ終了");
   // タイトル画面などに戻る処理
-  // 
-  // window.location.href = '/';
+  //
+  window.location.href = "/result/";
 }
 
 // 終了ボタン
