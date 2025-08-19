@@ -130,6 +130,7 @@ function findDataById(id: number): ShuwaData | undefined {
 function showFinalResult() {
   const correctCount = results.filter(r => r).length;
   alert(`クイズ終了！ ${results.length}問中 ${correctCount}問正解でした！`);
+  console.log("クイズ終了");
   // タイトル画面などに戻る処理
   // window.location.href = '/'; 
 }
