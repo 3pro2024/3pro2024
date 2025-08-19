@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  quizData = await startQuiz('some-mode'); // 'some-mode'は適切なモード名に
+  quizData = await startQuiz(); // 'some-mode'は適切なモード名に
   if (quizData) {
     displayQuestion();
   }

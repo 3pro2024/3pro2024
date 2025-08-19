@@ -1,3 +1,3 @@
-export function startQuiz(mode:string){
+export function startQuiz(){
     console.log("expression.tsを読み込みました");
 }

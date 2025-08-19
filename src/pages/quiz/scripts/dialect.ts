@@ -1,3 +1,3 @@
-export function startQuiz(mode:string){
+export function startQuiz(){
     console.log("dialect.tsを読み込みました");
 }

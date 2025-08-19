@@ -4,7 +4,7 @@ export interface QuizData {
     choices: number[][];
 }
 
-export async function startQuiz(mode:string): Promise<QuizData | null> {
+export async function startQuiz(): Promise<QuizData | null> {
     let quizWords :number[] = [];//問題格納用配列
     const choices: number[][] = []; // 各問題の選択肢を格納する2次元配列
 
