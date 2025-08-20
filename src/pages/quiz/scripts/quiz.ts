@@ -151,7 +151,7 @@ function showFinalResult() {
   console.log("クイズ終了");
   // タイトル画面などに戻る処理
   //
-  window.location.href = "/result/";
+  window.location.href = "../result/";
 }
 
 // 終了ボタン
