@@ -28,12 +28,6 @@ const modal = document.getElementById("result-modal") as HTMLDivElement;
 const modalMessage = document.getElementById(
   "modal-message",
 ) as HTMLParagraphElement;
-const correctAnswerVideo = document.getElementById(
-  "correct-answer-video",
-) as HTMLVideoElement;
-const yourAnswerVideo = document.getElementById(
-  "your-answer-video",
-) as HTMLVideoElement;
 const nextButton = document.getElementById("next-button") as HTMLButtonElement;
 
 // --- クイズの状態管理 ---
@@ -164,6 +158,6 @@ function showFinalResult() {
 // 終了ボタン
 retireButton.addEventListener("click", () => {
   if (confirm("クイズを中断してタイトルに戻りますか？")) {
-    window.location.href = "../title/"; // タイトル画面のパス
+    window.location.href = "../"; // タイトル画面のパス
   }
 });
