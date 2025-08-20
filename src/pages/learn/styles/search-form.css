@@ -1,11 +1,347 @@
 /* フォーム全体 */
 .shuwa-search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 検索テキスト入力 */
+.shuwa-search-form input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.shuwa-search-form input[type="text"]:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.shuwa-search-form input[type="text"]::placeholder {
+  color: #6b7280;
+}
+
+/* セレクトボックス共通スタイル */
+.shuwa-search-form select {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.shuwa-search-form select:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
 }
 
 /* 階級選択 */
 .shuwa-rank {
+  color: #374151;
 }
 
-/* クイズレベルボタン */
-.shuwa-quiz-level {
+/* クイズレベル選択 */
+.shuwa-quiz-level-select {
+  color: #374151;
+}
+
+/* 検索ボタン */
+.shuwa-search-form button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(245, 87, 108, 0.3);
+}
+
+.shuwa-search-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+.shuwa-search-form button:active {
+  transform: translateY(0);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .shuwa-search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .shuwa-search-form input[type="text"],
+  .shuwa-search-form select {
+    min-width: auto;
+  }
+}
+
+/* =================================== */
+/* THEME VARIATIONS */
+/* =================================== */
+
+/* Nature Theme */
+body.theme-nature .shuwa-search-form {
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+}
+
+body.theme-nature .shuwa-search-form input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(86, 171, 47, 0.3);
+}
+
+body.theme-nature .shuwa-search-form select:focus {
+  box-shadow: 0 0 0 3px rgba(86, 171, 47, 0.3);
+}
+
+body.theme-nature .shuwa-search-form button {
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+body.theme-nature .shuwa-search-form button:hover {
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+/* Sunset Theme */
+body.theme-sunset .shuwa-search-form {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+}
+
+body.theme-sunset .shuwa-search-form input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+}
+
+body.theme-sunset .shuwa-search-form select:focus {
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+}
+
+body.theme-sunset .shuwa-search-form button {
+  background: linear-gradient(135deg, #ff7043 0%, #ffab40 100%);
+  box-shadow: 0 2px 8px rgba(255, 112, 67, 0.3);
+}
+
+body.theme-sunset .shuwa-search-form button:hover {
+  box-shadow: 0 4px 15px rgba(255, 112, 67, 0.4);
+}
+
+/* Ocean Theme */
+body.theme-ocean .shuwa-search-form {
+  background: linear-gradient(135deg, #0077be 0%, #00b4db 100%);
+}
+
+body.theme-ocean .shuwa-search-form input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(0, 119, 190, 0.3);
+}
+
+body.theme-ocean .shuwa-search-form select:focus {
+  box-shadow: 0 0 0 3px rgba(0, 119, 190, 0.3);
+}
+
+body.theme-ocean .shuwa-search-form button {
+  background: linear-gradient(135deg, #0288d1 0%, #0097a7 100%);
+  box-shadow: 0 2px 8px rgba(2, 136, 209, 0.3);
+}
+
+body.theme-ocean .shuwa-search-form button:hover {
+  box-shadow: 0 4px 15px rgba(2, 136, 209, 0.4);
+}
+
+/* Dark Mode Theme */
+body.theme-dark .shuwa-search-form {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-dark .shuwa-search-form input[type="text"] {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .shuwa-search-form input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
+  border-color: rgba(129, 140, 248, 0.5);
+}
+
+body.theme-dark .shuwa-search-form input[type="text"]::placeholder {
+  color: #a0aec0;
+}
+
+body.theme-dark .shuwa-search-form select {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .shuwa-search-form select:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
+  border-color: rgba(129, 140, 248, 0.5);
+}
+
+body.theme-dark .shuwa-search-form button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+body.theme-dark .shuwa-search-form button:hover {
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+}
+
+/* Minimal Theme */
+body.theme-minimal .shuwa-search-form {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.theme-minimal .shuwa-search-form input[type="text"] {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+body.theme-minimal .shuwa-search-form input[type="text"]:focus {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  border-color: #3b82f6;
+}
+
+body.theme-minimal .shuwa-search-form select {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+body.theme-minimal .shuwa-search-form select:focus {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  border-color: #3b82f6;
+}
+
+body.theme-minimal .shuwa-search-form button {
+  background: #3b82f6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+body.theme-minimal .shuwa-search-form button:hover {
+  background: #2563eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* =================================== */
+/* LAYOUT SWITCHER */
+/* =================================== */
+
+.layout-switcher {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.layout-btn {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+}
+
+.layout-btn:hover {
+  background: white;
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.layout-btn.active {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.3);
+  color: #667eea;
+}
+
+.layout-btn span {
+  line-height: 1;
+  font-weight: bold;
+}
+
+/* Theme-specific layout switcher styles */
+body.theme-nature .layout-btn.active {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: rgba(76, 175, 80, 0.3);
+  color: #4caf50;
+}
+
+body.theme-sunset .layout-btn.active {
+  background: rgba(255, 112, 67, 0.1);
+  border-color: rgba(255, 112, 67, 0.3);
+  color: #ff7043;
+}
+
+body.theme-ocean .layout-btn.active {
+  background: rgba(2, 136, 209, 0.1);
+  border-color: rgba(2, 136, 209, 0.3);
+  color: #0288d1;
+}
+
+body.theme-dark .layout-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #e2e8f0;
+}
+
+body.theme-dark .layout-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+body.theme-dark .layout-btn.active {
+  background: rgba(129, 140, 248, 0.2);
+  border-color: rgba(129, 140, 248, 0.4);
+  color: #818cf8;
+}
+
+body.theme-minimal .layout-btn {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+body.theme-minimal .layout-btn:hover {
+  background: #ffffff;
+  border-color: #9ca3af;
+}
+
+body.theme-minimal .layout-btn.active {
+  background: #dbeafe;
+  border-color: #3b82f6;
+  color: #3b82f6;
 }
