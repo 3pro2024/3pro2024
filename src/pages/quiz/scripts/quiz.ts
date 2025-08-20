@@ -141,7 +141,14 @@ nextButton.addEventListener("click", () => {
 
 // IDから手話データを検索するヘルパー関数
 function findDataById(id: number): ShuwaData | undefined {
-  return allShuwaData.find((item) => item.id === id);
+  // Try to find by ID first
+  const found = allShuwaData.find((item) => item.id === id);
+  if (found) return found;
+  // Fallback: if id-1 is a valid index, return that item
+  if (id > 0 && id <= allShuwaData.length) {
+    return allShuwaData[id - 1];
+  }
+  return undefined;
 }
 
 // 最終結果の表示（例）
