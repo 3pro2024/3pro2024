@@ -10,3 +10,10 @@ export type ShuwaData = {
 
 export type ShuwaQuizLevel = "初級" | "中級" | "方言";
 export type ShuwaRank = "5級" | "4級" | "3級" | "2級";
+
+export type ShuwaAchievement = {
+  name: string;
+  achievement: string;
+  icon: string;
+  isCompleted: boolean;
+};
