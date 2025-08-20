@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   root: "./src/pages",
+  publicDir: "../../public", // publicディレクトリの場所をプロジェクトルートからの相対パスで指定
   appType: "mpa",
   server: {
     fs: {
@@ -33,6 +34,7 @@ export default defineConfig({
         achieve: path.resolve(__dirname, "./src/pages/achieve/index.html"),
         explain: path.resolve(__dirname, "./src/pages/explain/index.html"),
         quiz: path.resolve(__dirname, "./src/pages/quiz/index.html"),
+        result: path.resolve(__dirname, "./src/pages/result/index.html"),
       },
     },
   },
