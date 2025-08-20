@@ -1,4 +1,4 @@
-import { createShuwaDetailHTML } from "../../learn/scripts/shuwa-item";
+import { createShuwaDetailHTML } from "../../../components/shuwa-detail/shuwa-detail";
 import type { ShuwaData } from "../../../types";
 import data from "../../../../data/shuwa.json";
 
