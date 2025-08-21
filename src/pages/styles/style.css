@@ -1,0 +1,61 @@
+:root {
+  --frame-color: #8b4f24; /* 額縁の濃い茶色 */
+  --frame-thickness: 20px; /* 額縁の太さ（左右上下） */
+  --mat-thickness: 12px; /* 内側マットの幅（額縁とコンテンツの間） */
+  --radius: 14px; /* 角丸（必要なら調整） */
+  --outer-shadow: 18px; /* 外側の影の大きさ */
+}
+/* 固定オーバーレイ（フレーム本体） */
+.screen-frame {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  pointer-events: none; /* ユーザー操作を邪魔しない */
+  z-index: 100; /* コンテンツより下に置くなら小さく、上に置きたいなら大きく */
+}
+
+/* 擬似要素で額縁（内側の太い線）と影を表現 */
+.screen-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 主な「額縁」は inset の box-shadow で表現（太さ = var(--frame-thickness)） */
+  box-shadow:
+    inset 0 0 0 var(--frame-thickness) var(--frame-color),
+    /* 本体の茶色枠 */ inset 0 8px 12px rgba(255, 255, 255, 0.08),
+    /* 上寄りのハイライト（木の光沢） */ inset 0 -6px 8px rgba(0, 0, 0, 0.12),
+    /* 内側の下影で立体感 */ 0 8px calc(var(--outer-shadow) / 1.2)
+      rgba(0, 0, 0, 0.18); /* 外側のドロップシャドウ */
+  pointer-events: none;
+}
+
+/* 内側に「マット」色を敷きたい場合（額縁の内側エリア） */
+.screen-frame::after {
+  content: "";
+  position: absolute;
+  /* マット領域は額縁の内側に inset させる */
+  inset: calc(var(--frame-thickness) + var(--mat-thickness));
+  background: var(--mat-color);
+  border-radius: calc(var(--radius) - 6px);
+  pointer-events: none;
+  /* マットの内側にほんの小さな内影を入れておくと自然 */
+  box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.04);
+  z-index: 1;
+}
+
+/* コンテンツはフレームの上に表示したい（必要なら） */
+.app {
+  position: relative;
+  z-index: 20; /* screen-frame より大きくすることで枠の上にコンテンツを出す */
+  min-height: 100vh; /* 最小高さをビューポートに設定し、コンテンツに応じて拡張 */
+  /* background: #def7e9; */ /* 背景色を無効化し、フレームが見えるようにします */
+  padding: 56px;
+  color: #1b3e26;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Helvetica Neue",
+    "Noto Sans JP",
+    "Yu Gothic",
+    sans-serif;
+  box-sizing: border-box; /* paddingを含めて高さを計算する */
+}
