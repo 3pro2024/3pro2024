@@ -25,7 +25,7 @@ function resultItems(): string {
     `;
     })
     .join("")}
-  <button id="quiz-back" onclick="location.href='../title/'">戻る</button>`;
+  <button id="quiz-back" onclick="location.href='../'">戻る</button>`;
 }
 
 /**
