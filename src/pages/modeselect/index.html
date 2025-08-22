@@ -5,13 +5,14 @@
     <title>Mode Selection</title>
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="./styles/modeselect.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="screen-frame" aria-hidden="true"></div>
     <div class="app">
       <div class="main-content-card">
         <h1 class="page-subtitle">クイズモード選択</h1>
-        
+
         <div class="form-container">
           <h3 class="section-title">モード選択</h3>
           <div class="radio-group">
@@ -85,8 +86,16 @@
         </div>
 
         <div class="button-grid">
-          <button class="btn" id="quiz-start" onclick="start()" disabled>開始</button>
-          <button class="btn secondary" id="quiz-back" onclick="location.href='../'">戻る</button>
+          <button class="btn" id="quiz-start" onclick="start()" disabled>
+            開始
+          </button>
+          <button
+            class="btn secondary"
+            id="quiz-back"
+            onclick="location.href='../'"
+          >
+            戻る
+          </button>
         </div>
       </div>
     </div>

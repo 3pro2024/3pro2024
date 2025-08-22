@@ -604,20 +604,97 @@ body {
   flex-direction: column; /* 子要素を縦に並べる */
 }
 
-/* 詳細ページ */
+/* グリッドコンテナ */
 .shuwa-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-top: 20px;
+  align-items: stretch; /* 高さを揃える */
 }
 
-.shuwa-text {
-  width: 100%;
-  text-align: center;
+/* 動画部分 */
+.shuwa-video {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1vh; /* 動画の周りに1vhの余白 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 動画コンテナをレスポンシブに */
+.video-container {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9のアスペクト比 */
+  height: 0;
   overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* テキスト部分 */
+.shuwa-text {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* テキスト要素のサイズ調整 */
+.shuwa-how-to,
+.shuwa-example-sentence {
+  font-size: 2vh;
+  line-height: 1.5;
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.shuwa-how-to {
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 0.05) 0%,
+    rgba(139, 195, 74, 0.05) 100%
+  );
+  border-image: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+  border-image-slice: 1;
+}
+
+.shuwa-example-sentence {
+  background: linear-gradient(
+    135deg,
+    rgba(33, 150, 243, 0.05) 0%,
+    rgba(103, 58, 183, 0.05) 100%
+  );
+  border-image: linear-gradient(135deg, #2196f3 0%, #673ab7 100%);
+  border-image-slice: 1;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .shuwa-content {
+    grid-template-columns: 1fr; /* モバイルでは縦並びに */
+    gap: 16px;
+  }
+
+  .shuwa-video {
+    padding: 1vh;
+  }
 }
