@@ -1,154 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>Mode Selection</title>
-    </head>
-    <body>
-        <!-- モード選択（name属性で1つのグループにして、value属性で値を設定） -->
-        <input type="radio" class="modeselect" name="mode" id="Reading" value="reading"><label for="Reading">読み取り</label>
-        <input type="radio" class="modeselect" name="mode" id="Expression" value="expression"><label for="Expression">表現</label>
-        <input type="radio" class="modeselect" name="mode" id="Dialect" value="dialect"><label for="Dialect">方言</label>
-        <br/>
-        
-        <!-- 難易度選択（name属性で1つのグループにして、value属性で値を設定） -->
-        難易度：<input type="radio" class="Difficulty" name="difficulty" id="Easy" value="easy"><label for="Easy">初級</label><br/>
-        <input type="radio" class="Difficulty" name="difficulty" id="Normal" value="normal"><label for="Normal">中級</label><br/>
-        <input type="radio" class="Difficulty" name="difficulty" id="Hard" value="hard"><label for="Hard">上級</label><br/>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mode Selection</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="./styles/modeselect.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="screen-frame" aria-hidden="true"></div>
+    <div class="app">
+      <div class="main-content-card">
+        <h1 class="page-subtitle">クイズモード選択</h1>
+
+        <div class="form-container">
+          <h3 class="section-title">モード選択</h3>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="modeselect"
+                name="mode"
+                id="Reading"
+                value="reading"
+              />
+              <label for="Reading">読み取り</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="modeselect"
+                name="mode"
+                id="Expression"
+                value="expression"
+              />
+              <label for="Expression">表現</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="modeselect"
+                name="mode"
+                id="Dialect"
+                value="dialect"
+              />
+              <label for="Dialect">方言</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-container">
+          <h3 class="section-title">難易度</h3>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="Difficulty"
+                name="difficulty"
+                id="Easy"
+                value="easy"
+              />
+              <label for="Easy">初級</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="Difficulty"
+                name="difficulty"
+                id="Normal"
+                value="normal"
+              />
+              <label for="Normal">中級</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="Difficulty"
+                name="difficulty"
+                id="Hard"
+                value="hard"
+              />
+              <label for="Hard">上級</label>
+            </div>
+          </div>
+        </div>
 
         <div id="button-container-start"></div>
         <div id="button-container-back"></div>
 
-        <button id="quiz-start" onclick="start()" disabled>開始</button>
-        <button id="quiz-back"  onclick="location.href='../title/'">戻る</button>
-        <!--ボタンコンポーネントの設定がうまくできなかったので普通にHTMLでボタン作りました
-        押しても何にもならないです-->
+        <div class="button-grid">
+          <button class="btn" id="quiz-start" onclick="start()" disabled>
+            開始
+          </button>
+          <button
+            class="btn secondary"
+            id="quiz-back"
+            onclick="location.href='../'"
+          >
+            戻る
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // 難易度のラジオボタンを取得
+      const difficultyRadios = document.querySelectorAll(".Difficulty");
+      const difficultyLabels = document.querySelectorAll(
+        'label[for="Easy"], label[for="Normal"], label[for="Hard"]',
+      );
+      const startButton = document.getElementById("quiz-start");
 
-        <script>
-            
-            // 難易度のラジオボタンを取得
-            const difficultyRadios = document.querySelectorAll('.Difficulty');
-            const difficultyLabels = document.querySelectorAll('label[for="Easy"], label[for="Normal"], label[for="Hard"]');
-            const startButton = document.getElementById('quiz-start');
-            
-            // モード選択のラジオボタンにイベントリスナーを追加
-            document.querySelectorAll('.modeselect').forEach(radio => {
-                radio.addEventListener('change', function() {
-                    if (this.id === 'Dialect') {
-                        // 方言が選択された場合
-                        disableDifficultySelection();
-                        enableStartButton();
-                    } else {
-                        // 読み取りまたは表現が選択された場合
-                        enableDifficultySelection();
-                        checkStartButtonState();
-                    }
-                });
-            });
-            
-            // 難易度選択のラジオボタンにイベントリスナーを追加
-            difficultyRadios.forEach(radio => {
-                radio.addEventListener('change', function() {
-                    checkStartButtonState();
-                });
-            });
-            
-            // 難易度選択を無効化する関数
-            function disableDifficultySelection() {
-                difficultyRadios.forEach(radio => {
-                    radio.disabled = true;
-                    radio.checked = false; // 選択を解除
-                });
-                difficultyLabels.forEach(label => {
-                    label.style.color = '#ccc'; // グレーアウト
-                    label.style.cursor = 'not-allowed';
-                });
-            }
-            
-            // 難易度選択を有効化する関数
-            function enableDifficultySelection() {
-                difficultyRadios.forEach(radio => {
-                    radio.disabled = false;
-                });
-                difficultyLabels.forEach(label => {
-                    label.style.color = ''; // 元の色に戻す
-                    label.style.cursor = '';
-                });
-            }
-            
-            // 開始ボタンを有効化する関数
-            function enableStartButton() {
-                startButton.disabled = false;
-                startButton.style.opacity = '1';
-                startButton.style.cursor = 'pointer';
-            }
-            
-            // 開始ボタンを無効化する関数
-            function disableStartButton() {
-                startButton.disabled = true;
-                startButton.style.opacity = '0.5';
-                startButton.style.cursor = 'not-allowed';
-            }
-            
-            // 開始ボタンの状態をチェックする関数
-            function checkStartButtonState() {
-                const selectedMode = document.querySelector('input[name="mode"]:checked');
-                const selectedDifficulty = document.querySelector('input[name="difficulty"]:checked');
-                
-                if (selectedMode) {
-                    if (selectedMode.id === 'Dialect') {
-                        // 方言モードの場合は難易度不要
-                        enableStartButton();
-                    } else if (selectedDifficulty) {
-                        // その他のモードで難易度も選択済み
-                        enableStartButton();
-                    } else {
-                        // その他のモードで難易度未選択
-                        disableStartButton();
-                    }
-                } else {
-                    // モード未選択
-                    disableStartButton();
-                }
-            }
-            
-            function start(){
-                // 選択されたモードを取得
-                const selectedMode = document.querySelector('input[name="mode"]:checked');
-                
-                if (!selectedMode) {
-                    alert('モードを選択してください');
-                    return;
-                }
-                
-                // URLパラメータを作成
-                const params = new URLSearchParams();
-                params.set('mode', selectedMode.value);
-                
-                // 方言以外の場合は難易度も追加
-                if (selectedMode.id !== 'Dialect') {
-                    const selectedDifficulty = document.querySelector('input[name="difficulty"]:checked');
-                    if (!selectedDifficulty) {
-                        alert('難易度を選択してください');
-                        return;
-                    }
-                    params.set('difficulty', selectedDifficulty.value);
-                } else {
-                    // 方言の場合は難易度を「none」として設定
-                    params.set('difficulty', 'none');
-                }
-                
-                // クイズページに遷移（URLパラメータ付き）
-                location.href = `../quiz/?${params.toString()}`;
-                
-                // デバッグ用：どんなURLに遷移するかコンソールに表示
-                console.log(`遷移先URL: ../quiz/?${params.toString()}`);
-            }
-            
-            // ページ読み込み時の初期状態設定
-            document.addEventListener('DOMContentLoaded', function() {
-                disableStartButton(); // 初期状態では開始ボタンを無効化
-            });
-        </script>
-    </body>
+      // モード選択のラジオボタンにイベントリスナーを追加
+      document.querySelectorAll(".modeselect").forEach((radio) => {
+        radio.addEventListener("change", function () {
+          if (this.id === "Dialect") {
+            // 方言が選択された場合
+            disableDifficultySelection();
+            enableStartButton();
+          } else {
+            // 読み取りまたは表現が選択された場合
+            enableDifficultySelection();
+            checkStartButtonState();
+          }
+        });
+      });
+
+      // 難易度選択のラジオボタンにイベントリスナーを追加
+      difficultyRadios.forEach((radio) => {
+        radio.addEventListener("change", function () {
+          checkStartButtonState();
+        });
+      });
+
+      // 難易度選択を無効化する関数
+      function disableDifficultySelection() {
+        difficultyRadios.forEach((radio) => {
+          radio.disabled = true;
+          radio.checked = false; // 選択を解除
+        });
+        difficultyLabels.forEach((label) => {
+          label.style.color = "#ccc"; // グレーアウト
+          label.style.cursor = "not-allowed";
+        });
+      }
+
+      // 難易度選択を有効化する関数
+      function enableDifficultySelection() {
+        difficultyRadios.forEach((radio) => {
+          radio.disabled = false;
+        });
+        difficultyLabels.forEach((label) => {
+          label.style.color = ""; // 元の色に戻す
+          label.style.cursor = "";
+        });
+      }
+
+      // 開始ボタンを有効化する関数
+      function enableStartButton() {
+        startButton.disabled = false;
+        startButton.style.opacity = "1";
+        startButton.style.cursor = "pointer";
+      }
+
+      // 開始ボタンを無効化する関数
+      function disableStartButton() {
+        startButton.disabled = true;
+        startButton.style.opacity = "0.5";
+        startButton.style.cursor = "not-allowed";
+      }
+
+      // 開始ボタンの状態をチェックする関数
+      function checkStartButtonState() {
+        const selectedMode = document.querySelector(
+          'input[name="mode"]:checked',
+        );
+        const selectedDifficulty = document.querySelector(
+          'input[name="difficulty"]:checked',
+        );
+
+        if (selectedMode) {
+          if (selectedMode.id === "Dialect") {
+            // 方言モードの場合は難易度不要
+            enableStartButton();
+          } else if (selectedDifficulty) {
+            // その他のモードで難易度も選択済み
+            enableStartButton();
+          } else {
+            // その他のモードで難易度未選択
+            disableStartButton();
+          }
+        } else {
+          // モード未選択
+          disableStartButton();
+        }
+      }
+
+      function start() {
+        // 選択されたモードを取得
+        const selectedMode = document.querySelector(
+          'input[name="mode"]:checked',
+        );
+
+        if (!selectedMode) {
+          alert("モードを選択してください");
+          return;
+        }
+
+        // URLパラメータを作成
+        const params = new URLSearchParams();
+        params.set("mode", selectedMode.value);
+
+        // 方言以外の場合は難易度も追加
+        if (selectedMode.id !== "Dialect") {
+          const selectedDifficulty = document.querySelector(
+            'input[name="difficulty"]:checked',
+          );
+          if (!selectedDifficulty) {
+            alert("難易度を選択してください");
+            return;
+          }
+          params.set("difficulty", selectedDifficulty.value);
+        } else {
+          // 方言の場合は難易度を「none」として設定
+          params.set("difficulty", "none");
+        }
+
+        // クイズページに遷移（URLパラメータ付き）
+        location.href = `../quiz/?${params.toString()}`;
+
+        // デバッグ用：どんなURLに遷移するかコンソールに表示
+        console.log(`遷移先URL: ../quiz/?${params.toString()}`);
+      }
+
+      // ページ読み込み時の初期状態設定
+      document.addEventListener("DOMContentLoaded", function () {
+        disableStartButton(); // 初期状態では開始ボタンを無効化
+      });
+    </script>
+  </body>
 </html>

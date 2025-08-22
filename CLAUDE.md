@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # 手話ぷら プロジェクト設定
 
 ## 技術スタック
@@ -67,6 +71,49 @@ export type ShuwaData = {
 };
 ```
 
+## アーキテクチャ詳細
+
+### Multi-Page Application (MPA) 構成
+このプロジェクトはViteのMPA設定を使用し、各ページが独立したHTMLエントリーポイントを持つ：
+
+```javascript
+// vite.config.js の入力設定
+input: {
+  main: "./src/pages/index.html",
+  learn: "./src/pages/learn/index.html",
+  modeselect: "./src/pages/modeselect/index.html",
+  achieve: "./src/pages/achieve/index.html",
+  explain: "./src/pages/explain/index.html",
+  quiz: "./src/pages/quiz/index.html",
+  result: "./src/pages/result/index.html"
+}
+```
+
+### コンポーネント設計パターン
+- **関数型コンポーネント**: HTML文字列を返すTypeScript関数として実装
+- **VideoPlayerコンポーネント**: YouTube動画埋め込み用の共通コンポーネント
+- **ShuwaDetailコンポーネント**: 手話詳細表示用の共通コンポーネント
+
+### データフロー
+1. **静的データ**: `data/shuwa.json`から手話データを直接import
+2. **ユーザーデータ**: LocalStorageでクイズ進捗と実績を永続化
+3. **ナビゲーション**: URLパラメータでクイズレベル・ランク・キーワード検索を制御
+
+## CSS設計原則
+
+### 重要なスタイリングルール
+- **pxの使用を避ける**: vh、vw、em、rem等の相対単位を優先使用
+- **CSS Custom Properties**: `--frame-color`, `--frame-thickness` 等でテーマ管理
+- **レスポンシブデザイン**: Mobile-firstアプローチでBreakpoint設計
+
+### テーマシステム
+複数のカラーテーマを提供：
+- `theme-nature`: 緑系テーマ
+- `theme-sunset`: オレンジ系テーマ  
+- `theme-ocean`: 青系テーマ
+- `theme-dark`: ダークモードテーマ
+- `theme-minimal`: ミニマルテーマ
+
 ## 重要な注意点
 
 - 常にTypeScriptの型安全性を保つ
@@ -74,3 +121,4 @@ export type ShuwaData = {
 - 新しいコンポーネントは再利用性を考慮して作成
 - YouTube URLは埋め込み形式で使用
 - LocalStorageを使用してユーザー進捗を保存
+- **CSSでは相対単位（vh/vw/em/rem）を使用し、pxは避ける**
