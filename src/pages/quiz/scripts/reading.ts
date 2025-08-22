@@ -1,10 +1,13 @@
+import data from "../../../../data/shuwa.json";
+import type { ShuwaData } from "../../../types/index.js";
+
 // クイズのデータ構造を定義
 export interface QuizData {
   quizWords: number[];
   choices: number[][];
 }
 
-export async function startQuiz(): Promise<QuizData | null> {
+export async function startQuiz(_mode: string): Promise<QuizData | null> {
   let quizWords: number[] = []; //問題格納用配列
   const choices: number[][] = []; // 各問題の選択肢を格納する2次元配列
 
@@ -13,12 +16,8 @@ export async function startQuiz(): Promise<QuizData | null> {
   try {
     // わんちゃんエラーが起きそうな所
     //--jsonファイルの大きさ取得----
-    const response = await fetch("/data/shuwa.json");
-    // fetchをつかったjsonの取得
-
-    const jsonData: any[] = await response.json();
-    // any[]:どんな型でも要素として持つことのできる配列
-    // await respons.json()：fetchで取得したresponseをjsが使える形に変換
+    const jsonData: ShuwaData[] = data as ShuwaData[];
+    // 型安全な方法でJSONデータを取得
 
     const dataCount = jsonData.length;
     //-----------
