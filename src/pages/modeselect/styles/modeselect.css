@@ -1,0 +1,51 @@
+/* モード選択ページ用スタイル */
+
+/* 追加のラジオボタンスタイル（共通スタイルを拡張） */
+.radio-option input[type="radio"]:checked + label {
+  background: rgba(76, 175, 80, 0.1);
+  color: #1b5e20;
+  font-weight: 600;
+}
+
+/* 無効化されたラジオボタンスタイル */
+.radio-option input[type="radio"]:disabled + label {
+  color: #ccc !important;
+  cursor: not-allowed !important;
+}
+
+.radio-option input[type="radio"]:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* フォームセクション間のマージン調整 */
+.form-container + .form-container {
+  margin-top: 24px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .radio-option {
+    padding: 14px;
+  }
+
+  .radio-option label {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .radio-option {
+    padding: 12px;
+  }
+
+  .radio-option label {
+    font-size: 16px;
+  }
+
+  .radio-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+  }
+}

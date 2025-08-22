@@ -1,41 +1,75 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz</title>
-    <link rel="stylesheet" href="/static/css/quiz.css" />
-    <script type="module" src="./quiz.ts" defer></script>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="./styles/quiz.css" />
+    <script type="module" src="./scripts/quiz.ts" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-
   <body>
-    <div class="quiz-container">
-      <h1>Quiz</h1>
-      <div id="quiz-content">
-        <!-- Quiz content will be dynamically loaded here -->
-      </div>
-      <button id="submit-quiz" class="btn">Submit Quiz</button>
-    </div>
+    <div class="screen-frame" aria-hidden="true"></div>
 
-    <script>
-      // Load quiz content dynamically
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("/api/quiz")
-          .then((response) => response.json())
-          .then((data) => {
-            const quizContent = document.getElementById("quiz-content");
-            quizContent.innerHTML = data.questions
-              .map(
-                (q) => `
-                        <div class="question">
-                            <p>${q.question}</p>
-                            ${q.options.map((o) => `<label><input type="radio" name="${q.id}" value="${o}">${o}</label>`).join("")}
-                        </div>
-                    `,
-              )
-              .join("");
-          });
-      });
-    </script>
+    <div class="app">
+      <div class="main-content-card">
+        <h1 class="page-subtitle">クイズ</h1>
+
+        <!-- 問題動画表示エリア -->
+        <div id="video-container">
+          <!-- ここに <video> タグが動的に挿入される -->
+        </div>
+
+        <!-- 選択肢ボタン -->
+        <div class="choice-buttons">
+          <input
+            type="button"
+            value="選択肢1"
+            id="choice1"
+            class="choice-btn"
+          />
+          <input
+            type="button"
+            value="選択肢2"
+            id="choice2"
+            class="choice-btn"
+          />
+          <input
+            type="button"
+            value="選択肢3"
+            id="choice3"
+            class="choice-btn"
+          />
+          <input
+            type="button"
+            value="選択肢4"
+            id="choice4"
+            class="choice-btn"
+          />
+        </div>
+
+        <div class="button-grid">
+          <button class="btn secondary" id="retireButton">終了</button>
+        </div>
+      </div>
+
+      <!-- 結果表示用モーダル -->
+      <div id="result-modal">
+        <div class="modal-content">
+          <h2 id="modal-message">正解！</h2>
+          <div class="video-comparison">
+            <div>
+              <p><strong>正解の動画</strong></p>
+              <div id="correct-answer-video"></div>
+            </div>
+            <div>
+              <p><strong>あなたが選んだ動画</strong></p>
+              <div id="your-answer-video"></div>
+            </div>
+          </div>
+          <button class="btn" id="next-button">次へ</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../learn/styles/shuwa-item.css" media="all" />
+    <link rel="stylesheet" href="./styles/result.css" />
+    <script type="module" src="./scripts/show-result.ts" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div class="screen-frame" aria-hidden="true"></div>
+    <div class="app">
+      <div class="main-content-card">
+        <h1 class="page-subtitle">クイズ結果</h1>
+        <div class="result-container"></div>
+        <div class="button-grid">
+          <button class="btn" onclick="location.href='../modeselect/'">
+            もう一度
+          </button>
+          <button class="btn secondary" onclick="location.href='../'">
+            ホームに戻る
+          </button>
+        </div>
+        <div class="shuwa-modal"></div>
+      </div>
+    </div>
+  </body>
+</html>
