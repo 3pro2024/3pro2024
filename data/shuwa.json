@@ -21,22 +21,31 @@
     "id": 3,
     "name": "猫",
     "how_to": "頭をかしげ、こめかみに右手拳をあてる",
-    "youtube_url": "https://youtu.be/3SwYc4fIOXc?si=9YPlVqSqf2okdoar",
+    "youtube_url": "https://youtu.be/OKLusZ2IoSM",
     "example_sentence": "猫をなでる。",
     "quiz_level": "初級",
     "shuwa_rank": "5級"
   },
   {
     "id": 4,
-    "name": "する、やる",
-    "how_to": "甲を上にして平行に置いた両手拳を同時に前へ出す",
-    "youtube_url": "https://youtu.be/MT4ClgFeR0Q?si=bEKYtpRiuRT6f8KT",
+    "name": "良い",
+    "how_to": "右手拳を親指側に鼻をあてる",
+    "youtube_url": "https://youtu.be/MXttSMDyPX8",
     "example_sentence": "今日は良い天気だね。",
     "quiz_level": "初級",
     "shuwa_rank": "5級"
   },
   {
     "id": 5,
+    "name": "する、やる",
+    "how_to": "甲を上にして平行に置いた両手拳を同時に前へ出す",
+    "youtube_url": "https://youtu.be/MT4ClgFeR0Q?si=bEKYtpRiuRT6f8KT",
+    "example_sentence": "サッカーをやる",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 6,
     "name": "障害者",
     "how_to": "親指をつけ合わせた両手拳で折るしぐさをする",
     "youtube_url": "https://youtu.be/RhkIq6uy7u0?si=G5R40v7Eyr2yBYNg",
@@ -45,7 +54,7 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 6,
+    "id": 7,
     "name": "冬、寒い、冷たい",
     "how_to": "両腕と身体を縮めこませ、両手拳を上に向けて左右に震わせる",
     "youtube_url": "https://youtu.be/CDAJGGz-C00?si=Vp2__587AV1kKaGp",
@@ -54,7 +63,7 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 7,
+    "id": 8,
     "name": "箒、掃除する",
     "how_to": "両手拳を上下に置き、箒で掃くしぐさをする",
     "youtube_url": "https://youtu.be/NH5beAS1CGU?si=2cZ02q0cTPcH1q5v",
@@ -63,7 +72,7 @@
     "shuwa_rank": "4級"
   },
   {
-    "id": 8,
+    "id": 9,
     "name": "夏、暑い、南、煽ぐ",
     "how_to": "親指を人差し指にのせた右手拳で首筋をあおぐように動かす",
     "youtube_url": "https://youtu.be/Pd_Bfg80XNo?si=TENzZf3ITbiri0Fi",
@@ -72,7 +81,7 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 9,
+    "id": 10,
     "name": "忘れる",
     "how_to": "こめかみの脇から右手拳を上げながら5指を開く",
     "youtube_url": "https://youtu.be/cy2Ai-0VcsE?si=Pn2-heLPyVcdFNAH",
@@ -81,7 +90,7 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 10,
+    "id": 11,
     "name": "服、衣服",
     "how_to": "両手2指で両胸のあたりの服をつまむ",
     "youtube_url": "https://youtu.be/BMY45qdl6Bo?si=TaPW77ZEn738--IJ",
@@ -90,7 +99,7 @@
     "shuwa_rank": "4級"
   },
   {
-    "id": 11,
+    "id": 12,
     "name": "見る、注目する",
     "how_to": "前に向けて、広げた右手2指を目元から前へ出す",
     "youtube_url": "https://youtu.be/_5R6iPlD_30?si=h_QkFw7ydh7_1uRS",
@@ -99,25 +108,25 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 12,
+    "id": 13,
     "name": "父",
     "how_to": "右手人差し指の指先で頬を撫で下ろし、親指を立てて上げる",
-    "youtube_url": "https://youtu.be/JSqjF6UGqQQ?si=dBBj4n-HHUH-5tdN",
+    "youtube_url": "https://youtu.be/UU4ujECijxQ",
     "example_sentence": "父が料理をする。",
     "quiz_level": "初級",
     "shuwa_rank": "5級"
   },
   {
-    "id": 13,
+    "id": 14,
     "name": "母",
     "how_to": "右手人差し指の指先で頬をなで下ろし、小指を立てて上げる",
-    "youtube_url": "https://youtu.be/UU4ujECijxQ",
+    "youtube_url": "https://youtu.be/JSqjF6UGqQQ?si=dBBj4n-HHUH-5tdN",
     "example_sentence": "母は仕事に行く。",
     "quiz_level": "初級",
     "shuwa_rank": "5級"
   },
   {
-    "id": 14,
+    "id": 15,
     "name": "両親",
     "how_to": "右手人差し指の指先で頬をなで下ろし、立てた親指と小指を上げる",
     "youtube_url": "https://youtu.be/TLlbw32wOMo",
@@ -126,7 +135,7 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 15,
+    "id": 16,
     "name": "私",
     "how_to": "右手人差し指で鼻を指す",
     "youtube_url": "https://youtu.be/o4ak_NSk_Z4?si=PY40WiaS6Yn0aZf5",
@@ -135,7 +144,7 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 16,
+    "id": 17,
     "name": "日曜日",
     "how_to": "右手人差し指で鼻を指す唇を右手人差し指の指先で右へ引き、水平に置いた両手を左右から引き寄せて親指側をつけ合わせる",
     "youtube_url": "https://youtu.be/YzpZwhvCbqs?si=ZlDBt81zbmjW_dyS",
@@ -144,7 +153,7 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 17,
+    "id": 18,
     "name": "一日(中)",
     "how_to": "右手人差し指を立て、弧を描いて左胸から右胸へ移動する",
     "youtube_url": "https://youtu.be/1S_gcvUyHcg",
@@ -153,7 +162,7 @@
     "shuwa_rank": "4級"
   },
   {
-    "id": 18,
+    "id": 19,
     "name": "あなた",
     "how_to": "右手人差し指で相手を指差す",
     "youtube_url": "https://youtu.be/CASQ1GLFyNQ",
@@ -162,7 +171,7 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 19,
+    "id": 20,
     "name": "教育、指導、教える",
     "how_to": "横に向けた右手人差し指を前方斜め下へ2回振る",
     "youtube_url": "https://youtu.be/DD1ueTwU1B4",
@@ -171,12 +180,139 @@
     "shuwa_rank": "5級"
   },
   {
-    "id": 20,
+    "id": 21,
     "name": "教わる、学ぶ",
     "how_to": "右手人差し指の指先を額に向けて2回上方から指す",
     "youtube_url": "https://youtu.be/OnCsu8Z2Zjs",
     "example_sentence": "数学を教わる。",
     "quiz_level": "初級",
     "shuwa_rank": "5級"
+  },
+  {
+    "id": 22,
+    "name": "だけ、のみ",
+    "how_to": "人差し指を伸ばした右手小指側で左手掌を打ち、はね上げて止める",
+    "youtube_url": "https://youtu.be/98DMqNmv3jg",
+    "example_sentence": "明日だけは参加できない。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 23,
+    "name": "遊ぶ、ゲーム",
+    "how_to": "立てた両手人差し指を顔の両脇で交互に前後に動かす",
+    "youtube_url": "https://youtu.be/sTDpYHw01Hk",
+    "example_sentence": "昨日友達と一緒にと公園で遊んだ。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 24,
+    "name": "兄",
+    "how_to": "立てた中指を上に上げる",
+    "youtube_url": "https://youtu.be/1iWnbu3pEt8",
+    "example_sentence": "私の兄は東京にいます。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 25,
+    "name": "弟",
+    "how_to": "立てた中指を下に下げる",
+    "youtube_url": "https://youtu.be/KOar5f0RPkM",
+    "example_sentence": "弟は私と同じ学校だ。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 26,
+    "name": "赤、紅",
+    "how_to": "唇を右手人差し指の指先で右へ引く",
+    "youtube_url": "https://youtu.be/eMTTV9Pz5wk",
+    "example_sentence": "私の好きな色は赤です。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 27,
+    "name": "難しい",
+    "how_to": "右手2指で頬をつねるようにひねる",
+    "youtube_url": "https://youtu.be/0OH-b1iPpRs",
+    "example_sentence": "数学を教えるのは難しい。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 28,
+    "name": "うどん",
+    "how_to": "丸めた左手5指から右手2指を口へ運ぶ動作を繰り返す",
+    "youtube_url": "https://youtu.be/flGyrTHDhBs",
+    "example_sentence": "私はうどんが好きです。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 29,
+    "name": "兎",
+    "how_to": "両手の指先を後ろに向けて小指側を耳の上に付ける",
+    "youtube_url": "https://youtu.be/AOlxhNMuowM",
+    "example_sentence": "姉はウサギが好きだ。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 30,
+    "name": "安い、低額",
+    "how_to": "右手2指の輪（お金）を下へ下げる",
+    "youtube_url": "https://youtu.be/ttlBAy_Et_A",
+    "example_sentence": "今年の玉ねぎが安い。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 31,
+    "name": "高い、高額",
+    "how_to": "右手2指の輪（お金）を上に上げる",
+    "youtube_url": "https://youtu.be/7yNfZUlmuMg",
+    "example_sentence": "このラーメンは高い。",
+    "quiz_level": "初級",
+    "shuwa_rank": "4級"
+  },
+  {
+    "id": 32,
+    "name": "上手",
+    "how_to": "左腕を右手掌で撫でおろす",
+    "youtube_url": "https://youtu.be/EeXgEazZO1M",
+    "example_sentence": "父は料理が上手だ。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 33,
+    "name": "下手",
+    "how_to": "左腕にあてた右手掌を左腕に沿ってはね上げる",
+    "youtube_url": "https://youtu.be/hAohpFAEAf0",
+    "example_sentence": "私は歌が下手だ。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 34,
+    "name": "映画",
+    "how_to": "甲を前に向けて開いた両手の指先を向き合わせ交互に上下する",
+    "youtube_url": "https://youtu.be/yDeDMvRcNQ8",
+    "example_sentence": "私はあの映画が嫌いだ。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
+  },
+  {
+    "id": 35,
+    "name": "火、火曜日",
+    "how_to": "唇を人差し指の指先で右へ引き、立てた5指の親指と小指を近づけて丸めた右手を回し上げる",
+    "youtube_url": "https://youtu.be/_g_Tv0bUGZY",
+    "example_sentence": "火曜日に手話の勉強をする。",
+    "quiz_level": "初級",
+    "shuwa_rank": "5級"
   }
+
 ]
