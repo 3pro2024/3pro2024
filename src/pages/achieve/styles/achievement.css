@@ -1,0 +1,98 @@
+/* 実績ページ用スタイル */
+.achievement-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.achievement-card {
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  max-width: 600px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.achievement-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 15px;
+  margin-top: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.badge {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+  color: #666;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(76, 175, 80, 0.2);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.badge:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+  z-index: 2;
+}
+
+/* 獲得した実績バッジ（JSで動的に付与される想定）*/
+.badge.earned {
+  background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+  color: #d84315;
+  border-color: #ff8f00;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .achievement-card {
+    max-width: 100%;
+    min-height: 180px;
+    padding: 20px;
+  }
+
+  .achievement-badges {
+    grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+    gap: 12px;
+  }
+
+  .badge {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievement-card {
+    min-height: 160px;
+    padding: 16px;
+  }
+
+  .achievement-badges {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .badge {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
