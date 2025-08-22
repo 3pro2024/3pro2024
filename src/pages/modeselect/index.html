@@ -4,64 +4,91 @@
     <meta charset="UTF-8" />
     <title>Mode Selection</title>
     <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="./styles/modeselect.css" />
   </head>
   <body>
     <div class="screen-frame" aria-hidden="true"></div>
     <div class="app">
-      <!-- モード選択（name属性で1つのグループにして、value属性で値を設定） -->
-      <input
-        type="radio"
-        class="modeselect"
-        name="mode"
-        id="Reading"
-        value="reading"
-      /><label for="Reading">読み取り</label>
-      <input
-        type="radio"
-        class="modeselect"
-        name="mode"
-        id="Expression"
-        value="expression"
-      /><label for="Expression">表現</label>
-      <input
-        type="radio"
-        class="modeselect"
-        name="mode"
-        id="Dialect"
-        value="dialect"
-      /><label for="Dialect">方言</label>
-      <br />
+      <div class="main-content-card">
+        <h1 class="page-subtitle">クイズモード選択</h1>
+        
+        <div class="form-container">
+          <h3 class="section-title">モード選択</h3>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="modeselect"
+                name="mode"
+                id="Reading"
+                value="reading"
+              />
+              <label for="Reading">読み取り</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="modeselect"
+                name="mode"
+                id="Expression"
+                value="expression"
+              />
+              <label for="Expression">表現</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="modeselect"
+                name="mode"
+                id="Dialect"
+                value="dialect"
+              />
+              <label for="Dialect">方言</label>
+            </div>
+          </div>
+        </div>
 
-      <!-- 難易度選択（name属性で1つのグループにして、value属性で値を設定） -->
-      難易度：<input
-        type="radio"
-        class="Difficulty"
-        name="difficulty"
-        id="Easy"
-        value="easy"
-      /><label for="Easy">初級</label><br />
-      <input
-        type="radio"
-        class="Difficulty"
-        name="difficulty"
-        id="Normal"
-        value="normal"
-      /><label for="Normal">中級</label><br />
-      <input
-        type="radio"
-        class="Difficulty"
-        name="difficulty"
-        id="Hard"
-        value="hard"
-      /><label for="Hard">上級</label><br />
+        <div class="form-container" id="difficulty-container">
+          <h3 class="section-title">難易度選択</h3>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="Difficulty"
+                name="difficulty"
+                id="Easy"
+                value="easy"
+              />
+              <label for="Easy">初級</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="Difficulty"
+                name="difficulty"
+                id="Normal"
+                value="normal"
+              />
+              <label for="Normal">中級</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                class="Difficulty"
+                name="difficulty"
+                id="Hard"
+                value="hard"
+              />
+              <label for="Hard">上級</label>
+            </div>
+          </div>
+        </div>
 
-      <div id="button-container-start"></div>
-      <div id="button-container-back"></div>
-
-      <button id="quiz-start" onclick="start()" disabled>開始</button>
-      <button id="quiz-back" onclick="location.href='../'">戻る</button>
-      <!--ボタンコンポーネントの設定がうまくできなかったので普通にHTMLでボタン作りました
-        押しても何にもならないです-->
+        <div class="button-grid">
+          <button class="btn" id="quiz-start" onclick="start()" disabled>開始</button>
+          <button class="btn secondary" id="quiz-back" onclick="location.href='../'">戻る</button>
+        </div>
+      </div>
     </div>
     <script>
       // 難易度のラジオボタンを取得

@@ -16,16 +16,17 @@ function resultItems(): string {
   return `
   ${results
     .map((result: boolean, index: number) => {
+      const resultClass = result ? "result-correct" : "result-incorrect";
       return `
       <div class="result-item">
         <h2>第${index + 1}問</h2>
-        <p>${result ? "○" : "×"}</p>
+        <p class="${resultClass}">${result ? "○" : "×"}</p>
         <button class="explanation-button" data-index="${index}">解説</button>
       </div>
     `;
     })
     .join("")}
-  <button id="quiz-back" onclick="location.href='../'">戻る</button>`;
+  `;
 }
 
 /**
@@ -38,12 +39,13 @@ function showExplanation(index: number) {
 
   const detailHTML = createShuwaDetailHTML(shuwaData[index]);
 
-  const contentWithCloseButton = `
-    ${detailHTML}
-    <button class="modal-close-button">×</button>
-  `;
+  // 閉じるボタンを.shuwa-detail内に配置
+  const modifiedDetailHTML = detailHTML.replace(
+    '<div class="shuwa-detail">',
+    '<div class="shuwa-detail"><button class="modal-close-button">×</button>'
+  );
 
-  shuwaModal.innerHTML = contentWithCloseButton;
+  shuwaModal.innerHTML = modifiedDetailHTML;
   shuwaModal.classList.add("is-visible");
 
   const closeButton = shuwaModal.querySelector(".modal-close-button");

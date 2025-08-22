@@ -47,8 +47,10 @@
   position: relative;
   z-index: 20; /* screen-frame より大きくすることで枠の上にコンテンツを出す */
   min-height: 100vh; /* 最小高さをビューポートに設定し、コンテンツに応じて拡張 */
-  /* background: #def7e9; */ /* 背景色を無効化し、フレームが見えるようにします */
-  padding: 56px;
+  background: #28a44a;
+  padding-left: 56px;
+  padding-right: 56px;
+  padding-top: 10px;
   color: #1b3e26;
   font-family:
     system-ui,
@@ -58,4 +60,206 @@
     "Yu Gothic",
     sans-serif;
   box-sizing: border-box; /* paddingを含めて高さを計算する */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =================================== */
+/* COMMON CARD STYLES */
+/* =================================== */
+
+/* 基本カードスタイル */
+.page-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  margin: 20px 0;
+  max-width: 800px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.page-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+  border-color: rgba(76, 175, 80, 0.2);
+}
+
+/* メインコンテンツカード */
+.main-content-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  margin: 20px 0;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+/* ボタンスタイル */
+.btn {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+/* タイトルスタイル */
+.page-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+/* サブタイトルスタイル */
+.page-subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2e7d32;
+  text-align: center;
+}
+
+/* セクションタイトル */
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1b5e20;
+}
+
+/* フォームコンテナ */
+.form-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  margin: 16px 0;
+}
+
+/* セカンダリボタン */
+.btn.secondary {
+  background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+  color: #424242;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn.secondary:hover {
+  background: linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ラジオボタングループ（基本スタイル） */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.radio-option:hover {
+  background: rgba(76, 175, 80, 0.05);
+}
+
+.radio-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  accent-color: #4caf50;
+}
+
+.radio-option label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2e7d32;
+  cursor: pointer;
+  flex: 1;
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .app {
+    padding: 20px;
+  }
+
+  .page-card,
+  .main-content-card {
+    padding: 20px;
+    margin: 10px 0;
+  }
+
+  .page-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .page-subtitle {
+    font-size: 20px;
+  }
+
+  .btn {
+    min-width: 150px;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 15px;
+  }
+
+  .page-card,
+  .main-content-card {
+    padding: 16px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .btn {
+    min-width: 120px;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 5px;
+  }
 }
