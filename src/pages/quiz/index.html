@@ -10,94 +10,65 @@
   </head>
   <body>
     <div class="screen-frame" aria-hidden="true"></div>
+
     <div class="app">
-      <h1>ここはクイズ画面です</h1>
+      <div class="main-content-card">
+        <h1 class="page-subtitle">クイズ</h1>
 
-      <!-- 問題動画表示エリア -->
-      <div id="video-container">
-        <!-- ここに <video> タグが動的に挿入される -->
-      </div>
-
-      <!-- 選択肢ボタン -->
-      <div class="choice-buttons">
-        <input type="button" value="選択肢1" id="choice1" class="choice-btn" />
-        <input type="button" value="選択肢2" id="choice2" class="choice-btn" />
-        <input type="button" value="選択肢3" id="choice3" class="choice-btn" />
-        <input type="button" value="選択肢4" id="choice4" class="choice-btn" />
-      </div>
-
-      <div class="button-grid">
-        <button class="btn secondary" id="retireButton">終了</button>
-      </div>
-    </div>
-
-    <!-- 結果表示用モーダル -->
-    <div id="result-modal">
-      <div class="modal-content">
-        <h2 id="modal-message">正解！</h2>
-        <div class="video-comparison">
-          <div>
-            <p>正解の動画</p>
-            <video
-              id="correct-answer-video"
-              autoplay
-              muted
-              loop
-              playsinline
-            ></video>
-          </div>
-
-          <!-- 選択肢ボタン -->
-          <div class="choice-buttons">
-            <input
-              type="button"
-              value="選択肢1"
-              id="choice1"
-              class="choice-btn"
-            />
-            <input
-              type="button"
-              value="選択肢2"
-              id="choice2"
-              class="choice-btn"
-            />
-            <input
-              type="button"
-              value="選択肢3"
-              id="choice3"
-              class="choice-btn"
-            />
-            <input
-              type="button"
-              value="選択肢4"
-              id="choice4"
-              class="choice-btn"
-            />
-          </div>
-
-          <div class="button-grid">
-            <button class="btn secondary" id="retireButton">終了</button>
-          </div>
+        <!-- 問題動画表示エリア -->
+        <div id="video-container">
+          <!-- ここに <video> タグが動的に挿入される -->
         </div>
 
-        <!-- 結果表示用モーダル -->
-        <div id="result-modal">
-          <div class="modal-content">
-            <h2 id="modal-message">正解！</h2>
-            <div class="video-comparison">
-              <div>
-                <p><strong>正解の動画</strong></p>
-                <div id="correct-answer-video"></div>
-              </div>
-              <div>
-                <p><strong>あなたが選んだ動画</strong></p>
-                <div id="your-answer-video"></div>
-              </div>
+        <!-- 選択肢ボタン -->
+        <div class="choice-buttons">
+          <input
+            type="button"
+            value="選択肢1"
+            id="choice1"
+            class="choice-btn"
+          />
+          <input
+            type="button"
+            value="選択肢2"
+            id="choice2"
+            class="choice-btn"
+          />
+          <input
+            type="button"
+            value="選択肢3"
+            id="choice3"
+            class="choice-btn"
+          />
+          <input
+            type="button"
+            value="選択肢4"
+            id="choice4"
+            class="choice-btn"
+          />
+        </div>
+
+        <div class="button-grid">
+          <button class="btn secondary" id="retireButton">終了</button>
+        </div>
+      </div>
+
+      <!-- 結果表示用モーダル -->
+      <div id="result-modal">
+        <div class="modal-content">
+          <h2 id="modal-message">正解！</h2>
+          <div class="video-comparison">
+            <div>
+              <p><strong>正解の動画</strong></p>
+              <div id="correct-answer-video"></div>
             </div>
-            <button class="btn" id="next-button">次へ</button>
+            <div>
+              <p><strong>あなたが選んだ動画</strong></p>
+              <div id="your-answer-video"></div>
+            </div>
           </div>
+          <button class="btn" id="next-button">次へ</button>
         </div>
-        <button id="next-button">次へ</button>
       </div>
     </div>
   </body>
