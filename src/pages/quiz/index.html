@@ -10,16 +10,26 @@
   </head>
   <body>
     <div class="screen-frame" aria-hidden="true"></div>
+    <div class="app">
+      <h1>ここはクイズ画面です</h1>
 
-    <!-- 選択肢ボタン -->
-    <div>
-      <input type="button" value="選択肢1" id="choice1" />
-      <input type="button" value="選択肢2" id="choice2" />
-      <input type="button" value="選択肢3" id="choice3" />
-      <input type="button" value="選択肢4" id="choice4" />
+      <!-- 問題動画表示エリア -->
+      <div id="video-container">
+        <!-- ここに <video> タグが動的に挿入される -->
+      </div>
+
+      <!-- 選択肢ボタン -->
+      <div class="choice-buttons">
+        <input type="button" value="選択肢1" id="choice1" class="choice-btn" />
+        <input type="button" value="選択肢2" id="choice2" class="choice-btn" />
+        <input type="button" value="選択肢3" id="choice3" class="choice-btn" />
+        <input type="button" value="選択肢4" id="choice4" class="choice-btn" />
+      </div>
+
+      <div class="button-grid">
+        <button class="btn secondary" id="retireButton">終了</button>
+      </div>
     </div>
-    <br />
-    <input type="button" value="終了" id="retireButton" />
 
     <!-- 結果表示用モーダル -->
     <div id="result-modal">
