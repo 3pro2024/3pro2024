@@ -62,23 +62,7 @@
   clear: both;
   aspect-ratio: 16/9;
 }
-/* 動画コンテナをレスポンシブに */
-.video-comparison {
-  width: 100%;
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9のアスペクト比 */
-  height: 0;
-  overflow: hidden;
-}
 
-.video-comparison iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-}
 .video-comparison p {
   margin-bottom: 12px;
   font-weight: 600;
@@ -135,17 +119,6 @@
   .video-comparison {
     flex-direction: column;
     gap: 20px;
-  }
-
-  .video-comparison > div {
-    min-width: auto;
-    max-width: 100%;
-  }
-
-  .video-comparison video,
-  .video-comparison iframe {
-    max-width: 1800px;
-    height: 180px; /* 320px * 9/16 = 180px for 16:9 ratio */
   }
 
   .choice-buttons {
