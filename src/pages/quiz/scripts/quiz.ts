@@ -35,6 +35,7 @@ let currentQuestionIndex = 0; //現在何問目かを記録
 let quizData: QuizData | null = null; //問題と選択肢を保存
 let allShuwaData: ShuwaData[] = []; //手話の全データ保存
 const results: boolean[] = []; // クイズの正負を保存（正ならtrue、負ならfalse）
+const quizIds: string[] = [];
 
 // --- メイン処理 ---
 document.addEventListener("DOMContentLoaded", async () => {
@@ -96,6 +97,9 @@ function checkAnswer(selectedId: number) {
   localStorage.setItem("quizResults", JSON.stringify(results));
   //ローカルストレージにクイズの正負を保存
 
+  // 問題idを保存
+  quizIds.push(correctId.toString());
+  localStorage.setItem("quizIds", JSON.stringify(quizIds));
   // モーダルで結果表示
   showResultModal(isCorrect, correctId, selectedId);
 }
