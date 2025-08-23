@@ -11,17 +11,26 @@ function resultItems(): string {
   const results: boolean[] | null = JSON.parse(
     localStorage.getItem("quizResults") || "[]",
   );
-  if (!results) return "結果の情報がありません。";
+  const quizIds: string[] | null = JSON.parse(
+    localStorage.getItem("quizIds") || "[]",
+  );
+  if (!results || !quizIds) return "結果の情報がありません。";
+
+  // resultsとquizIdを1つのオブジェクトにする
+  const quizData = results.map((result, index) => ({
+    id: quizIds[index],
+    result,
+  }));
 
   return `
-  ${results
-    .map((result: boolean, index: number) => {
-      const resultClass = result ? "result-correct" : "result-incorrect";
+  ${quizData
+    .map((quiz, index: number) => {
+      const resultClass = quiz.result ? "result-correct" : "result-incorrect";
       return `
       <div class="result-item">
         <h2>第${index + 1}問</h2>
-        <p class="${resultClass}">${result ? "○" : "×"}</p>
-        <button class="explanation-button" data-index="${index}">解説</button>
+        <p class="${resultClass}">${quiz.result ? "○" : "×"}</p>
+        <button class="explanation-button" data-index="${quiz.id}">解説</button>
       </div>
     `;
     })
@@ -42,7 +51,7 @@ function showExplanation(index: number) {
   // 閉じるボタンを.shuwa-detail内に配置
   const modifiedDetailHTML = detailHTML.replace(
     '<div class="shuwa-detail">',
-    '<div class="shuwa-detail"><button class="modal-close-button">×</button>'
+    '<div class="shuwa-detail"><button class="modal-close-button">×</button>',
   );
 
   shuwaModal.innerHTML = modifiedDetailHTML;
