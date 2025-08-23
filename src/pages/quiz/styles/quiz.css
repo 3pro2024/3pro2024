@@ -50,13 +50,13 @@
 
 .video-comparison video,
 .video-comparison iframe {
-  width: 100%;
+  /*width: 100%;*/
   /*max-width: 400px;
   height: 225px; /* 400px * 9/16 = 225px for 16:9 ratio */
   border: 2px solid rgba(76, 175, 80, 0.2);
   border-radius: 8px;
   display: block;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   position: relative;
   z-index: 1;
   clear: both;
