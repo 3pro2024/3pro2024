@@ -22,6 +22,8 @@ function resultItems(): string {
     result,
   }));
 
+  console.log(quizData);
+
   return `
   ${quizData
     .map((quiz, index: number) => {
@@ -31,6 +33,7 @@ function resultItems(): string {
         <h2>第${index + 1}問</h2>
         <p class="${resultClass}">${quiz.result ? "○" : "×"}</p>
         <button class="explanation-button" data-index="${quiz.id}">解説</button>
+        ${quiz.id}
       </div>
     `;
     })
@@ -46,7 +49,7 @@ function showExplanation(index: number) {
   const shuwaModal = document.querySelector<HTMLDivElement>(".shuwa-modal");
   if (!shuwaModal) return;
 
-  const detailHTML = createShuwaDetailHTML(shuwaData[index]);
+  const detailHTML = createShuwaDetailHTML(shuwaData[index - 1]);
 
   // 閉じるボタンを.shuwa-detail内に配置
   const modifiedDetailHTML = detailHTML.replace(
@@ -79,6 +82,7 @@ function showResult() {
   );
   explanationButtons.forEach((button) => {
     const buttonIndex = parseInt(button.getAttribute("data-index") || "0", 10);
+
     button.addEventListener("click", () => showExplanation(buttonIndex));
   });
 }
