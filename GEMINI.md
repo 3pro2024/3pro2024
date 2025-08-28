@@ -71,6 +71,44 @@
 - 適切なaltテキストを設定
 - コントラスト比を適切に保つ
 
+### CSS相対単位ベストプラクティス
+
+#### 基本原則
+- **pxは原則使用禁止** - アクセシビリティとレスポンシブ対応のため
+- **remを基本**とし、用途に応じて他の単位を併用
+- ユーザーのフォントサイズ設定に対応したデザイン
+
+#### 推奨単位の使い分け
+
+```css
+/* 1. rem (最推奨) - テキスト・余白・基本レイアウト */
+font-size: 1.2rem;
+padding: 1rem 2rem;
+margin-bottom: 1.5rem;
+max-width: 60rem;
+
+/* 2. em (コンポーネント内) - 親要素に比例したサイズ */
+padding: 0.5em 1em;     /* ボタンなど */
+line-height: 1.5em;
+
+/* 3. % (レイアウト) - 親要素に対する比率 */
+width: 100%;
+max-width: 80%;
+
+/* 4. vw/vh (画面サイズ対応) - フルスクリーンなど */
+height: 100vh;
+font-size: 4vw;        /* 画面幅に応じたフォント */
+
+/* 5. clamp() (柔軟性重視) - レスポンシブ対応 */
+font-size: clamp(1rem, 4vw, 2rem);
+width: clamp(20rem, 50%, 60rem);
+```
+
+#### 例外的なpx使用
+- `border: 1px solid` - 細い境界線
+- `box-shadow: 0 1px 3px` - 微細な影
+- 開発ツールでの一時的なデバッグ用途のみ
+
 ## 重要なデータ型
 ```typescript
 type ShuwaData = {
