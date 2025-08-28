@@ -33,7 +33,6 @@ function resultItems(): string {
         <h2>第${index + 1}問</h2>
         <p class="${resultClass}">${quiz.result ? "○" : "×"}</p>
         <button class="explanation-button" data-index="${quiz.id}">解説</button>
-        ${quiz.id}
       </div>
     `;
     })
