@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 function displayQuestion() {
   if (!quizData || currentQuestionIndex >= quizData.quizWords.length) {
     // 全問終了
+      showFinalResult();
     return;
   }
 
@@ -148,6 +149,13 @@ function findDataById(id: number): ShuwaData | undefined {
   return undefined;
 }
 
+// 最終結果の表示（例）
+function showFinalResult() {
+  console.log("クイズ終了");
+  // タイトル画面などに戻る処理
+  //
+  window.location.href = "../result/";
+}
 
 // 終了ボタン
 retireButton.addEventListener("click", () => {
