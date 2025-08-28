@@ -151,8 +151,6 @@ function findDataById(id: number): ShuwaData | undefined {
 
 // 最終結果の表示（例）
 function showFinalResult() {
-  const correctCount = results.filter((r) => r).length;
-  alert(`クイズ終了！ ${results.length}問中 ${correctCount}問正解でした！`);
   console.log("クイズ終了");
   // タイトル画面などに戻る処理
   //
