@@ -2,9 +2,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
   min-height: 100vh;
   overflow-y: auto; /* 縦スクロールを有効化 */
 }
@@ -14,35 +11,59 @@ body {
   position: relative; /* 重なり順の基準点を作成 */
   flex: 1 1 auto; /* コンテナ内で伸縮 */
   overflow-y: auto; /* 縦スクロールを有効化 */
-  padding: 20px;
-  max-width: 1200px;
+  padding: 1.25rem;
+  max-width: 100%;
   margin: 0 auto;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* 手話アイテムグリッド（3列レイアウト） */
+/* 手話アイテムグリッド（レスポンシブレイアウト） */
 .shuwa-items-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+/* ワイド画面での5列表示 */
+@media (min-width: 90rem) {
+  .shuwa-items-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* 大画面での4列表示 */
+@media (min-width: 75rem) and (max-width: 89.99rem) {
+  .shuwa-items-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* 標準画面での3列表示 */
+@media (max-width: 74.99rem) and (min-width: 48.01rem) {
+  .shuwa-items-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
 }
 
 /* 個別手話アイテム */
 .shuwa-item {
   background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 0.0625rem solid rgba(0, 0, 0, 0.05);
 }
 
 .shuwa-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1.5625rem rgba(0, 0, 0, 0.15);
   border-color: rgba(102, 126, 234, 0.2);
 }
 
@@ -56,11 +77,11 @@ body {
 /* 手話アイテムの名前 */
 .shuwa-item-name {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #1f2937;
   text-align: center;
-  padding: 12px 0;
+  padding: 0.75rem 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -74,25 +95,25 @@ body {
 
 /* 戻るボタンスタイル */
 .shuwa-items button {
-  margin-top: 24px;
-  padding: 12px 24px;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
   background: linear-gradient(135deg, #6b73ff 0%, #9636ff 100%);
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 0.5rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(107, 115, 255, 0.3);
+  box-shadow: 0 0.125rem 0.5rem rgba(107, 115, 255, 0.3);
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
 .shuwa-items button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(107, 115, 255, 0.4);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.9375rem rgba(107, 115, 255, 0.4);
 }
 
 .shuwa-items button:active {
@@ -102,16 +123,20 @@ body {
 /* 詳細ページスタイル */
 .shuwa-items > div:not(.shuwa-item) {
   background: white;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.1);
+  margin-top: 1.25rem;
+  max-width: 98%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .shuwa-items h1 {
   color: #1f2937;
-  font-size: 28px;
-  margin-bottom: 24px;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   text-align: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background-clip: text;
@@ -120,7 +145,7 @@ body {
 }
 
 .shuwa-items div > div {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .shuwa-items a {
@@ -137,40 +162,40 @@ body {
 .shuwa-items p {
   color: #4b5563;
   line-height: 1.6;
-  margin: 12px 0;
+  margin: 0.75rem 0;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
+/* タブレット・モバイル対応 */
+@media (max-width: 48rem) {
   .shuwa-items {
-    padding: 15px;
+    padding: 0.9375rem;
   }
 
   .shuwa-items-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 0.9375rem;
   }
 
   .shuwa-item {
-    padding: 15px;
+    padding: 0.9375rem;
   }
 
   .shuwa-item-name {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .shuwa-items h1 {
-    font-size: 24px;
+    font-size: 1.75rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   .shuwa-items-grid {
     grid-template-columns: 1fr;
   }
 
   .shuwa-items h1 {
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 }
 
@@ -185,12 +210,12 @@ body.theme-nature {
 
 body.theme-nature .shuwa-item {
   background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  border: 0.0625rem solid rgba(76, 175, 80, 0.1);
 }
 
 body.theme-nature .shuwa-item:hover {
   border-color: rgba(76, 175, 80, 0.3);
-  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+  box-shadow: 0 0.5rem 1.5625rem rgba(76, 175, 80, 0.15);
 }
 
 body.theme-nature .shuwa-item-name {
@@ -202,11 +227,11 @@ body.theme-nature .shuwa-item-name {
 
 body.theme-nature .shuwa-items button {
   background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 0.125rem 0.5rem rgba(76, 175, 80, 0.3);
 }
 
 body.theme-nature .shuwa-items button:hover {
-  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 0.25rem 0.9375rem rgba(76, 175, 80, 0.4);
 }
 
 body.theme-nature .shuwa-items h1 {
@@ -218,7 +243,7 @@ body.theme-nature .shuwa-items h1 {
 
 body.theme-nature .shuwa-items > div:not(.shuwa-item) {
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.1);
+  box-shadow: 0 0.375rem 1.25rem rgba(76, 175, 80, 0.1);
 }
 
 /* Sunset Theme */
@@ -228,12 +253,12 @@ body.theme-sunset {
 
 body.theme-sunset .shuwa-item {
   background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 112, 67, 0.1);
+  border: 0.0625rem solid rgba(255, 112, 67, 0.1);
 }
 
 body.theme-sunset .shuwa-item:hover {
   border-color: rgba(255, 112, 67, 0.3);
-  box-shadow: 0 8px 25px rgba(255, 112, 67, 0.15);
+  box-shadow: 0 0.5rem 1.5625rem rgba(255, 112, 67, 0.15);
 }
 
 body.theme-sunset .shuwa-item-name {
@@ -245,11 +270,11 @@ body.theme-sunset .shuwa-item-name {
 
 body.theme-sunset .shuwa-items button {
   background: linear-gradient(135deg, #ff7043 0%, #ffab40 100%);
-  box-shadow: 0 2px 8px rgba(255, 112, 67, 0.3);
+  box-shadow: 0 0.125rem 0.5rem rgba(255, 112, 67, 0.3);
 }
 
 body.theme-sunset .shuwa-items button:hover {
-  box-shadow: 0 4px 15px rgba(255, 112, 67, 0.4);
+  box-shadow: 0 0.25rem 0.9375rem rgba(255, 112, 67, 0.4);
 }
 
 body.theme-sunset .shuwa-items h1 {
@@ -261,7 +286,7 @@ body.theme-sunset .shuwa-items h1 {
 
 body.theme-sunset .shuwa-items > div:not(.shuwa-item) {
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 20px rgba(255, 112, 67, 0.1);
+  box-shadow: 0 0.375rem 1.25rem rgba(255, 112, 67, 0.1);
 }
 
 /* Ocean Theme */
@@ -271,12 +296,12 @@ body.theme-ocean {
 
 body.theme-ocean .shuwa-item {
   background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(0, 151, 167, 0.1);
+  border: 0.0625rem solid rgba(0, 151, 167, 0.1);
 }
 
 body.theme-ocean .shuwa-item:hover {
   border-color: rgba(0, 151, 167, 0.3);
-  box-shadow: 0 8px 25px rgba(0, 151, 167, 0.15);
+  box-shadow: 0 0.5rem 1.5625rem rgba(0, 151, 167, 0.15);
 }
 
 body.theme-ocean .shuwa-item-name {
@@ -288,11 +313,11 @@ body.theme-ocean .shuwa-item-name {
 
 body.theme-ocean .shuwa-items button {
   background: linear-gradient(135deg, #0288d1 0%, #0097a7 100%);
-  box-shadow: 0 2px 8px rgba(2, 136, 209, 0.3);
+  box-shadow: 0 0.125rem 0.5rem rgba(2, 136, 209, 0.3);
 }
 
 body.theme-ocean .shuwa-items button:hover {
-  box-shadow: 0 4px 15px rgba(2, 136, 209, 0.4);
+  box-shadow: 0 0.25rem 0.9375rem rgba(2, 136, 209, 0.4);
 }
 
 body.theme-ocean .shuwa-items h1 {
@@ -304,7 +329,7 @@ body.theme-ocean .shuwa-items h1 {
 
 body.theme-ocean .shuwa-items > div:not(.shuwa-item) {
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 20px rgba(0, 151, 167, 0.1);
+  box-shadow: 0 0.375rem 1.25rem rgba(0, 151, 167, 0.1);
 }
 
 /* Dark Mode Theme */
@@ -315,14 +340,14 @@ body.theme-dark {
 
 body.theme-dark .shuwa-item {
   background: rgba(45, 55, 72, 0.8);
-  border: 1px solid rgba(129, 140, 248, 0.2);
+  border: 0.0625rem solid rgba(129, 140, 248, 0.2);
   color: #e2e8f0;
 }
 
 body.theme-dark .shuwa-item:hover {
   background: rgba(45, 55, 72, 0.9);
   border-color: rgba(129, 140, 248, 0.4);
-  box-shadow: 0 8px 25px rgba(129, 140, 248, 0.2);
+  box-shadow: 0 0.5rem 1.5625rem rgba(129, 140, 248, 0.2);
 }
 
 body.theme-dark .shuwa-item-name {
@@ -334,11 +359,11 @@ body.theme-dark .shuwa-item-name {
 
 body.theme-dark .shuwa-items button {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 0.125rem 0.5rem rgba(102, 126, 234, 0.4);
 }
 
 body.theme-dark .shuwa-items button:hover {
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+  box-shadow: 0 0.25rem 0.9375rem rgba(102, 126, 234, 0.5);
 }
 
 body.theme-dark .shuwa-items h1 {
@@ -350,7 +375,7 @@ body.theme-dark .shuwa-items h1 {
 
 body.theme-dark .shuwa-items > div:not(.shuwa-item) {
   background: rgba(45, 55, 72, 0.9);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.4);
   color: #e2e8f0;
 }
 
@@ -373,13 +398,13 @@ body.theme-minimal {
 
 body.theme-minimal .shuwa-item {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 0.0625rem solid #e5e7eb;
+  box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1);
 }
 
 body.theme-minimal .shuwa-item:hover {
   border-color: #d1d5db;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
 }
 
 body.theme-minimal .shuwa-item-name {
@@ -390,12 +415,12 @@ body.theme-minimal .shuwa-item-name {
 
 body.theme-minimal .shuwa-items button {
   background: #3b82f6;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
 }
 
 body.theme-minimal .shuwa-items button:hover {
   background: #2563eb;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
 }
 
 body.theme-minimal .shuwa-items h1 {
@@ -406,8 +431,8 @@ body.theme-minimal .shuwa-items h1 {
 
 body.theme-minimal .shuwa-items > div:not(.shuwa-item) {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 0.0625rem solid #e5e7eb;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
 }
 
 body.theme-minimal .shuwa-items p {
@@ -430,15 +455,15 @@ body.theme-minimal .shuwa-items a:hover {
 .shuwa-items.layout-list:has(.shuwa-item) {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
 }
 
 .shuwa-items.layout-list .shuwa-item {
   display: flex;
   align-items: center;
-  padding: 16px 20px;
-  min-height: 60px;
+  padding: 1rem 1.25rem;
+  min-height: 3.75rem;
 }
 
 .shuwa-items.layout-list .shuwa-item a {
@@ -450,55 +475,55 @@ body.theme-minimal .shuwa-items a:hover {
 .shuwa-items.layout-list .shuwa-item-name {
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 1rem;
   text-align: left;
 }
 
 /* Compact Grid Layout */
 .shuwa-items.layout-compact:has(.shuwa-item) {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.25rem;
 }
 
 .shuwa-items.layout-compact .shuwa-item {
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
 }
 
 .shuwa-items.layout-compact .shuwa-item-name {
-  font-size: 14px;
-  padding: 8px 0;
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
 }
 
 /* Wide Cards Layout */
 .shuwa-items.layout-wide:has(.shuwa-item) {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 24px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .shuwa-items.layout-wide .shuwa-item {
-  padding: 24px;
+  padding: 1.5rem;
 }
 
 .shuwa-items.layout-wide .shuwa-item-name {
-  font-size: 20px;
-  padding: 16px 0;
+  font-size: 1.25rem;
+  padding: 1rem 0;
 }
 
 /* Table View Layout */
 .shuwa-items.layout-table {
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .shuwa-items.layout-table .shuwa-table {
   width: 100%;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.08);
+  border: 0.0625rem solid rgba(0, 0, 0, 0.05);
   overflow: hidden;
 }
 
@@ -509,9 +534,9 @@ body.theme-minimal .shuwa-items a:hover {
 
 .shuwa-items.layout-table .shuwa-table th,
 .shuwa-items.layout-table .shuwa-table td {
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   text-align: left;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.05);
 }
 
 .shuwa-items.layout-table .shuwa-table th {
@@ -535,56 +560,56 @@ body.theme-minimal .shuwa-items a:hover {
 }
 
 /* Responsive adjustments for layouts */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .shuwa-items.layout-compact:has(.shuwa-item) {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 0.625rem;
   }
 
   .shuwa-items.layout-wide:has(.shuwa-item) {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 1rem;
   }
 
   .shuwa-items.layout-wide .shuwa-item {
-    padding: 16px;
+    padding: 1rem;
   }
 
   .shuwa-items.layout-table .shuwa-table {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .shuwa-items.layout-table .shuwa-table th,
   .shuwa-items.layout-table .shuwa-table td {
-    padding: 8px 12px;
+    padding: 0.5rem 0.75rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   .shuwa-items.layout-list .shuwa-item {
-    padding: 12px 16px;
-    min-height: 50px;
+    padding: 0.75rem 1rem;
+    min-height: 3.125rem;
   }
 
   .shuwa-items.layout-compact:has(.shuwa-item) {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr));
   }
 
   .shuwa-items.layout-compact .shuwa-item {
-    padding: 10px 12px;
+    padding: 0.625rem 0.75rem;
   }
 
   .shuwa-items.layout-compact .shuwa-item-name {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 }
 
 :root {
   --frame-color: #8b4f24; /* 額縁の濃い茶色 */
-  --frame-thickness: 20px; /* 額縁の太さ（左右上下） */
-  --mat-thickness: 12px; /* 内側マットの幅（額縁とコンテンツの間） */
-  --radius: 14px; /* 角丸（必要なら調整） */
-  --outer-shadow: 18px; /* 外側の影の大きさ */
+  --frame-thickness: 1.25rem; /* 額縁の太さ（左右上下） */
+  --mat-thickness: 0.75rem; /* 内側マットの幅（額縁とコンテンツの間） */
+  --radius: 0.875rem; /* 角丸（必要なら調整） */
+  --outer-shadow: 1.125rem; /* 外側の影の大きさ */
 }
 
 /* 基本リセット（必要に応じて） */
@@ -607,19 +632,28 @@ body {
 /* グリッドコンテナ */
 .shuwa-content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4rem;
+  margin-top: 2rem;
   align-items: stretch; /* 高さを揃える */
+  min-height: 30rem;
+}
+
+/* 超ワイド画面での最適化 */
+@media (min-width: 120rem) {
+  .shuwa-content {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+  }
 }
 
 /* 動画部分 */
 .shuwa-video {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 1vh; /* 動画の周りに1vhの余白 */
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+  border: 0.0625rem solid rgba(0, 0, 0, 0.05);
+  padding: 2vh; /* 動画の周りに2vhの余白 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -640,31 +674,32 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 /* テキスト部分 */
 .shuwa-text {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 16px;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+  border: 0.0625rem solid rgba(0, 0, 0, 0.05);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.5rem;
   justify-content: center;
 }
 
 /* テキスト要素のサイズ調整 */
 .shuwa-how-to,
 .shuwa-example-sentence {
-  font-size: 2vh;
-  line-height: 1.5;
+  font-size: clamp(1.125rem, 3vh, 1.5rem);
+  line-height: 1.6;
   margin: 0;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
   position: relative;
+  font-weight: 500;
 }
 
 .shuwa-how-to {
@@ -688,13 +723,27 @@ body {
 }
 
 /* レスポンシブ対応 */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .shuwa-content {
     grid-template-columns: 1fr; /* モバイルでは縦並びに */
-    gap: 16px;
+    gap: 1.5rem;
+    min-height: auto;
   }
 
   .shuwa-video {
     padding: 1vh;
+  }
+
+  .shuwa-items > div:not(.shuwa-item) {
+    padding: 1.5rem;
+  }
+
+  .shuwa-items h1 {
+    font-size: 2rem;
+  }
+
+  .shuwa-text {
+    padding: 1.5rem;
+    gap: 1rem;
   }
 }
