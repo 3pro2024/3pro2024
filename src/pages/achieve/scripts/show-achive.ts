@@ -218,11 +218,11 @@ function checkLearnedAchievements(
 }
 
 function checkQuizAchievements(achievements: AchievementData): AchievementData {
-  const lerarnedShuwaCount = localStorage.getItem(QUIZ_COUNT_KEY);
+  const learnedShuwaCount = localStorage.getItem(QUIZ_COUNT_KEY);
   for (const learnedShuwa of QUIZ_COUNT) {
     if (
-      lerarnedShuwaCount &&
-      parseInt(lerarnedShuwaCount) >= learnedShuwa.value
+      learnedShuwaCount &&
+      parseInt(learnedShuwaCount) >= learnedShuwa.value
     ) {
       achievements[learnedShuwa.key] = true;
     }
