@@ -1,6 +1,7 @@
 import { createShuwaDetailHTML } from "../../../components/shuwa-detail/shuwa-detail";
 import type { ShuwaData } from "../../../types";
 import data from "../../../../data/shuwa.json";
+import { QUIZ_COUNT_KEY } from "../../../constants/localStorage";
 
 const shuwaData: ShuwaData[] = data as ShuwaData[];
 
@@ -22,6 +23,14 @@ function resultItems(): string {
     result,
   }));
 
+  let quizCount = parseInt(localStorage.getItem(QUIZ_COUNT_KEY) || "0", 10);
+
+  for (const i of quizData) {
+    if (i.result) {
+      quizCount++;
+    }
+  }
+  localStorage.setItem(QUIZ_COUNT_KEY, quizCount.toString());
   console.log(quizData);
 
   return `

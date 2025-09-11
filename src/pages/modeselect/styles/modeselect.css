@@ -20,32 +20,144 @@
 
 /* フォームセクション間のマージン調整 */
 .form-container + .form-container {
-  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
+/* ワイド画面での最適化 */
+@media (min-width: 75rem) {
   .radio-option {
-    padding: 14px;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.125rem;
+  }
+  
+  .radio-option label {
+    font-size: 1.125rem;
+  }
+  
+  .radio-option input[type="radio"] {
+    width: 1.375rem;
+    height: 1.375rem;
+    margin-right: 1rem;
+  }
+  
+  .form-container + .form-container {
+    margin-top: 2rem;
+  }
+}
+
+/* 標準画面での最適化 */
+@media (max-width: 74.99rem) and (min-width: 48.01rem) {
+  .radio-option {
+    padding: 1rem 1.25rem;
+  }
+  
+  .radio-option label {
+    font-size: 1rem;
+  }
+  
+  .radio-option input[type="radio"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.875rem;
+  }
+}
+
+/* タブレット対応 */
+@media (max-width: 48rem) {
+  .radio-option {
+    padding: 0.875rem 1rem;
   }
 
   .radio-option label {
-    font-size: 18px;
+    font-size: 1.125rem;
+  }
+  
+  .radio-option input[type="radio"] {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-right: 0.75rem;
   }
 }
 
-@media (max-width: 480px) {
+/* モバイル対応 */
+@media (max-width: 30rem) {
   .radio-option {
-    padding: 12px;
+    padding: 0.75rem 0.875rem;
   }
 
   .radio-option label {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .radio-option input[type="radio"] {
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-right: 0.625rem;
+  }
+}
+
+/* アニメーション強化 */
+.radio-option {
+  transition: all 0.3s ease;
+}
+
+.radio-option:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.9375rem rgba(76, 175, 80, 0.1);
+}
+
+/* グリッドレイアウトの改善（複数選択肢がある場合） */
+.radio-group {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+/* 超ワイド画面では3列表示 */
+@media (min-width: 120rem) {
+  .radio-group {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ワイド画面では2列表示 */
+@media (min-width: 75rem) and (max-width: 119.99rem) {
+  .radio-group {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 65rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* 標準画面では1列表示 */
+@media (max-width: 74.99rem) {
+  .radio-group {
+    grid-template-columns: 1fr;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* フォーカス状態の改善 */
+.radio-option input[type="radio"]:focus + label {
+  box-shadow: 0 0 0 0.125rem rgba(76, 175, 80, 0.3);
+  outline: none;
+}
+
+/* アクセシビリティ向上 */
+@media (prefers-reduced-motion: reduce) {
+  .radio-option:hover {
+    transform: none;
+  }
+  
+  .radio-option {
+    transition: none;
   }
 }

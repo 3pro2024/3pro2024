@@ -1,10 +1,76 @@
+import {
+  ACHIEVEMENT_STORAGE_KEY,
+  LEARNED_SHUWA_COUNT_KEY,
+  QUIZ_COUNT_KEY,
+} from "../../../constants/localStorage";
+
 // Achievement system for 手話ぷら
 interface AchievementData {
   [key: string]: boolean;
 }
 
-// LocalStorage key for all achievements
-const ACHIEVEMENT_STORAGE_KEY = "shuwa-achievements";
+interface ShuwaLearnedCount {
+  key: string;
+  value: number;
+}
+
+interface QuizCount {
+  key: string;
+  value: number;
+}
+
+// 学習した数の条件の配列
+const SHUWA_LEARNED_COUNT: ShuwaLearnedCount[] = [
+  { key: "itoga-1", value: 1 },
+  { key: "itoga-7", value: 200 },
+  { key: "imamura-3", value: 100 },
+  { key: "uchimura-1", value: 319 },
+  { key: "uchimura-5", value: 500 },
+  { key: "reader-1", value: 159 },
+  { key: "kagimoto-2", value: 30 },
+  { key: "kagimoto-5", value: 300 },
+  { key: "fukuda-2", value: 50 },
+];
+
+// クイズで解いた数
+const QUIZ_COUNT: QuizCount[] = [
+  {
+    key: "itoga-4",
+    value: 70,
+  },
+  {
+    key: "imamura-1",
+    value: 20,
+  },
+  {
+    key: "imamura-5",
+    value: 250,
+  },
+  {
+    key: "uchimura-3",
+    value: 150,
+  },
+  {
+    key: "uchimura-7",
+    value: 600,
+  },
+  {
+    key: "reader-4",
+    value: 1,
+  },
+  {
+    key: "kagimoto-7",
+    value: 100,
+  },
+  {
+    key: "fukuda-1",
+    value: 400,
+  },
+  {
+    key: "fukuda",
+    value: 20,
+  },
+];
 
 // Team member hiragana characters
 const MEMBER_CHARACTERS = {
@@ -122,29 +188,48 @@ function updateAchievementUI(): void {
 function initializeAchievements(): void {
   const achievements = getAchievements();
 
-  // For demo: add some completed achievements if none exist
-  if (Object.keys(achievements).length === 0) {
-    achievements["itoga-1"] = true;
-    achievements["itoga-2"] = true;
-    achievements["uchimura-4"] = true;
-    achievements["uchimura-5"] = true;
-    achievements["kagimoto-1"] = true;
-    saveAchievements(achievements);
-  }
-
+  checkLearnedAchievements(achievements);
+  checkQuizAchievements(achievements);
   updateAchievementUI();
 }
 
 // Public API for other parts of the app to unlock achievements
-function unlockAchievement(achievementId: string): void {
+export function unlockAchievement(achievementId: string): void {
   const achievements = getAchievements();
   achievements[achievementId] = true;
   saveAchievements(achievements);
   updateAchievementUI();
 }
 
+function checkLearnedAchievements(
+  achievements: AchievementData,
+): AchievementData {
+  const learnedShuwaCount = localStorage.getItem(LEARNED_SHUWA_COUNT_KEY);
+  for (const learnedShuwa of SHUWA_LEARNED_COUNT) {
+    if (
+      learnedShuwaCount &&
+      parseInt(learnedShuwaCount) >= learnedShuwa.value
+    ) {
+      achievements[learnedShuwa.key] = true;
+    }
+  }
+  saveAchievements(achievements);
+  return achievements;
+}
+
+function checkQuizAchievements(achievements: AchievementData): AchievementData {
+  const learnedShuwaCount = localStorage.getItem(QUIZ_COUNT_KEY);
+  for (const learnedShuwa of QUIZ_COUNT) {
+    if (
+      learnedShuwaCount &&
+      parseInt(learnedShuwaCount) >= learnedShuwa.value
+    ) {
+      achievements[learnedShuwa.key] = true;
+    }
+  }
+  saveAchievements(achievements);
+  return achievements;
+}
+
 // Initialize on page load
 document.addEventListener("DOMContentLoaded", initializeAchievements);
-
-// Export for use by other scripts
-(window as any).unlockAchievement = unlockAchievement;

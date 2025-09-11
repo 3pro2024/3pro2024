@@ -1,6 +1,10 @@
 import data from "../../../../data/shuwa.json";
 import { createButtonHTML } from "../../../components/button/button";
-import VideoPlayer from "../../../components/video/video-player";
+import { createShuwaDetailHTML } from "../../../components/shuwa-detail/shuwa-detail";
+import {
+  LEARNED_SHUWA_COUNT_KEY,
+  LEARNED_SHUWA_LIST_KEY,
+} from "../../../constants/localStorage";
 import type { ShuwaData, ShuwaQuizLevel, ShuwaRank } from "../../../types";
 import "../styles/shuwa-item.css";
 import { createSearchForm } from "./search-form";
@@ -56,19 +60,18 @@ const shuwaItemsContainer =
 document.body.className = "theme-nature";
 
 if (isValidId) {
+  const learnedShuwas: string[] =
+    localStorage.getItem(LEARNED_SHUWA_LIST_KEY)?.split(",") || [];
+  if (currentShuwaId && !learnedShuwas.includes(currentShuwaId.toString())) {
+    learnedShuwas.push(currentShuwaId.toString());
+    localStorage.setItem(LEARNED_SHUWA_LIST_KEY, learnedShuwas.join(","));
+    const shuwaCount = learnedShuwas.length;
+    localStorage.setItem(LEARNED_SHUWA_COUNT_KEY, shuwaCount.toString());
+  }
   shuwaItemsContainer.innerHTML = `
-      <div class="shuwa-detail">
-        <h1 class="shuwa-item-name">単語：${shuwaData[validShuwaId - 1].name}</h1>
-        <div class="shuwa-content">
-          <div class="shuwa-video">${VideoPlayer(shuwaData[validShuwaId - 1].youtube_url)}</div>
-          <div class="shuwa-text">
-            <p class="shuwa-how-to">やり方：${shuwaData[validShuwaId - 1].how_to}</p>
-            <p class="shuwa-example-sentence">例文：${shuwaData[validShuwaId - 1].example_sentence}</p>
-          </div>
-        </div>
-        ${createButtonHTML("戻る", "history.back()")}
-      </div>
-    `;
+    ${createShuwaDetailHTML(shuwaData[validShuwaId - 1])}
+    ${createButtonHTML("戻る", "history.back()")}
+  `;
 } else {
   shuwaItemsContainer.innerHTML = `
     ${createSearchForm()}
