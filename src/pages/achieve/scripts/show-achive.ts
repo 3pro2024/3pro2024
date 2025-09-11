@@ -204,11 +204,11 @@ export function unlockAchievement(achievementId: string): void {
 function checkLearnedAchievements(
   achievements: AchievementData,
 ): AchievementData {
-  const lerarnedShuwaCount = localStorage.getItem(LEARNED_SHUWA_COUNT_KEY);
+  const learnedShuwaCount = localStorage.getItem(LEARNED_SHUWA_COUNT_KEY);
   for (const learnedShuwa of SHUWA_LEARNED_COUNT) {
     if (
-      lerarnedShuwaCount &&
-      parseInt(lerarnedShuwaCount) >= learnedShuwa.value
+      learnedShuwaCount &&
+      parseInt(learnedShuwaCount) >= learnedShuwa.value
     ) {
       achievements[learnedShuwa.key] = true;
     }
