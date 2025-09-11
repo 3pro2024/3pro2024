@@ -1,6 +1,7 @@
 import {
   ACHIEVEMENT_STORAGE_KEY,
   LEARNED_SHUWA_COUNT_KEY,
+  QUIZ_COUNT_KEY,
 } from "../../../constants/localStorage";
 
 // Achievement system for 手話ぷら
@@ -9,6 +10,11 @@ interface AchievementData {
 }
 
 interface ShuwaLearnedCount {
+  key: string;
+  value: number;
+}
+
+interface QuizCount {
   key: string;
   value: number;
 }
@@ -25,6 +31,47 @@ const SHUWA_LEARNED_COUNT: ShuwaLearnedCount[] = [
   { key: "kagimoto-5", value: 300 },
   { key: "fukuda-2", value: 50 },
 ];
+
+// クイズで解いた数
+const QUIZ_COUNT: QuizCount[] = [
+  {
+    key: "itoga-4",
+    value: 70,
+  },
+  {
+    key: "imamura-1",
+    value: 20,
+  },
+  {
+    key: "imamura-5",
+    value: 250,
+  },
+  {
+    key: "uchimura-3",
+    value: 150,
+  },
+  {
+    key: "uchimura-7",
+    value: 600,
+  },
+  {
+    key: "reader-4",
+    value: 1,
+  },
+  {
+    key: "kagimoto-7",
+    value: 100,
+  },
+  {
+    key: "fukuda-1",
+    value: 400,
+  },
+  {
+    key: "fukuda",
+    value: 20,
+  },
+];
+
 // Team member hiragana characters
 const MEMBER_CHARACTERS = {
   itoga: ["い", "と", "が", "た", "い", "よ", "う"],
@@ -142,6 +189,7 @@ function initializeAchievements(): void {
   const achievements = getAchievements();
 
   checkLearnedAchievements(achievements);
+  checkQuizAchievements(achievements);
   updateAchievementUI();
 }
 
@@ -158,6 +206,20 @@ function checkLearnedAchievements(
 ): AchievementData {
   const lerarnedShuwaCount = localStorage.getItem(LEARNED_SHUWA_COUNT_KEY);
   for (const learnedShuwa of SHUWA_LEARNED_COUNT) {
+    if (
+      lerarnedShuwaCount &&
+      parseInt(lerarnedShuwaCount) >= learnedShuwa.value
+    ) {
+      achievements[learnedShuwa.key] = true;
+    }
+  }
+  saveAchievements(achievements);
+  return achievements;
+}
+
+function checkQuizAchievements(achievements: AchievementData): AchievementData {
+  const lerarnedShuwaCount = localStorage.getItem(QUIZ_COUNT_KEY);
+  for (const learnedShuwa of QUIZ_COUNT) {
     if (
       lerarnedShuwaCount &&
       parseInt(lerarnedShuwaCount) >= learnedShuwa.value
