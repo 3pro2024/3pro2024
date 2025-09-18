@@ -1,5 +1,6 @@
 import {
   ACHIEVEMENT_STORAGE_KEY,
+  FULL_MARKS_KEY,
   LEARNED_SHUWA_COUNT_KEY,
   QUIZ_COUNT_KEY,
 } from "../../../constants/localStorage";
@@ -9,18 +10,13 @@ interface AchievementData {
   [key: string]: boolean;
 }
 
-interface ShuwaLearnedCount {
-  key: string;
-  value: number;
-}
-
-interface QuizCount {
+interface AchievementCount {
   key: string;
   value: number;
 }
 
 // 学習した数の条件の配列
-const SHUWA_LEARNED_COUNT: ShuwaLearnedCount[] = [
+const LEARNED_SHUWA_COUNT: AchievementCount[] = [
   { key: "itoga-1", value: 1 },
   { key: "itoga-7", value: 200 },
   { key: "imamura-3", value: 100 },
@@ -33,7 +29,7 @@ const SHUWA_LEARNED_COUNT: ShuwaLearnedCount[] = [
 ];
 
 // クイズで解いた数
-const QUIZ_COUNT: QuizCount[] = [
+const QUIZ_COUNT: AchievementCount[] = [
   {
     key: "itoga-4",
     value: 70,
@@ -69,6 +65,30 @@ const QUIZ_COUNT: QuizCount[] = [
   {
     key: "fukuda",
     value: 20,
+  },
+];
+
+// 満点の回数
+const FULL_MARKS_COUNT: AchievementCount[] = [
+  {
+    key: "itoga-3",
+    value: 55,
+  },
+  {
+    key: "imamura-4",
+    value: 100,
+  },
+  {
+    key: "uchimura-6",
+    value: 10,
+  },
+  {
+    key: "kagimoto-3",
+    value: 70,
+  },
+  {
+    key: "fukuda-4",
+    value: 1,
   },
 ];
 
@@ -188,8 +208,9 @@ function updateAchievementUI(): void {
 function initializeAchievements(): void {
   const achievements = getAchievements();
 
-  checkLearnedAchievements(achievements);
-  checkQuizAchievements(achievements);
+  checkAchievements(achievements, QUIZ_COUNT_KEY, QUIZ_COUNT);
+  checkAchievements(achievements, LEARNED_SHUWA_COUNT_KEY, LEARNED_SHUWA_COUNT);
+  checkAchievements(achievements, FULL_MARKS_KEY, FULL_MARKS_COUNT);
   updateAchievementUI();
 }
 
@@ -201,28 +222,16 @@ export function unlockAchievement(achievementId: string): void {
   updateAchievementUI();
 }
 
-function checkLearnedAchievements(
+function checkAchievements(
   achievements: AchievementData,
+  STORAGE_KEY: string,
+  ACHIEVEMENT_COUNT: AchievementCount[],
 ): AchievementData {
-  const learnedShuwaCount = localStorage.getItem(LEARNED_SHUWA_COUNT_KEY);
-  for (const learnedShuwa of SHUWA_LEARNED_COUNT) {
+  const learnedShuwaCount = localStorage.getItem(STORAGE_KEY);
+  for (const learnedShuwa of ACHIEVEMENT_COUNT) {
     if (
       learnedShuwaCount &&
       parseInt(learnedShuwaCount) >= learnedShuwa.value
-    ) {
-      achievements[learnedShuwa.key] = true;
-    }
-  }
-  saveAchievements(achievements);
-  return achievements;
-}
-
-function checkQuizAchievements(achievements: AchievementData): AchievementData {
-  const lerarnedShuwaCount = localStorage.getItem(QUIZ_COUNT_KEY);
-  for (const learnedShuwa of QUIZ_COUNT) {
-    if (
-      lerarnedShuwaCount &&
-      parseInt(lerarnedShuwaCount) >= learnedShuwa.value
     ) {
       achievements[learnedShuwa.key] = true;
     }
