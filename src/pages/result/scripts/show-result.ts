@@ -25,7 +25,7 @@ function resultItems(): string {
     result,
   }));
 
-  const quizCount = parseInt(localStorage.getItem(QUIZ_COUNT_KEY) || "0", 10);
+  let quizCount = parseInt(localStorage.getItem(QUIZ_COUNT_KEY) || "0", 10);
   let fullMarksCount = parseInt(
     localStorage.getItem(FULL_MARKS_KEY) || "0",
     10,
