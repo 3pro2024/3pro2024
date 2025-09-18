@@ -1,9 +1,12 @@
 import { createShuwaDetailHTML } from "../../../components/shuwa-detail/shuwa-detail";
 import type { ShuwaData } from "../../../types";
 import data from "../../../../data/shuwa.json";
+import {
+  FULL_MARKS_KEY,
+  QUIZ_COUNT_KEY,
+} from "../../../constants/localStorage";
 
 const shuwaData: ShuwaData[] = data as ShuwaData[];
-
 /**
  * クイズ結果のHTML要素を生成する
  */
@@ -22,6 +25,25 @@ function resultItems(): string {
     result,
   }));
 
+  const quizCount = parseInt(localStorage.getItem(QUIZ_COUNT_KEY) || "0", 10);
+  let fullMarksCount = parseInt(
+    localStorage.getItem(FULL_MARKS_KEY) || "0",
+    10,
+  );
+
+  let currentQuizCount = 0;
+
+  for (const i of quizData) {
+    if (i.result) {
+      currentQuizCount++;
+    }
+  }
+  if (currentQuizCount === quizData.length) {
+    fullMarksCount++;
+    localStorage.setItem(FULL_MARKS_KEY, String(fullMarksCount));
+  }
+  quizCount++;
+  localStorage.setItem(QUIZ_COUNT_KEY, quizCount.toString());
   console.log(quizData);
 
   return `

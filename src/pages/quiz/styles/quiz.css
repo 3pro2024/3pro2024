@@ -15,121 +15,267 @@
 
 .modal-content {
   background: rgba(255, 255, 255, 0.95);
-  padding: 10px;
-  border-radius: 16px;
+  padding: 1.75rem;
+  border-radius: 1rem;
   color: #1b3e26;
   text-align: center;
-  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.2);
-  border: 1px solid rgba(76, 175, 80, 0.1);
-  max-width: 950px;
-  width: 95%;
-  max-height: 90vh;
+  box-shadow: 0 0.5rem 1.875rem rgba(76, 175, 80, 0.2);
+  border: 0.0625rem solid rgba(76, 175, 80, 0.1);
+  max-width: 85%;
+  width: 100%;
+  max-height: 85vh;
   overflow-y: auto;
   position: relative;
 }
 
+/* 超ワイド画面での最適化 */
+@media (min-width: 120rem) {
+  .modal-content {
+    max-width: 80%;
+    padding: 3rem;
+  }
+}
+
+/* ワイド画面での最適化 */
+@media (min-width: 75rem) and (max-width: 119.99rem) {
+  .modal-content {
+    max-width: 75%;
+    padding: 2.5rem;
+  }
+}
+
+/* 標準画面での最適化 */
+@media (max-width: 74.99rem) and (min-width: 48.01rem) {
+  .modal-content {
+    max-width: 80%;
+    padding: 2rem;
+  }
+}
+
 .video-comparison {
-  display: flex;
-  gap: 30px;
-  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
   justify-content: center;
-  flex-wrap: wrap;
   align-items: flex-start;
 }
 
+/* 超ワイド画面では余裕をもった表示 */
+@media (min-width: 120rem) {
+  .video-comparison {
+    gap: 3rem;
+    margin: 2.5rem 0;
+  }
+}
+
+/* ワイド画面では余裕をもった表示 */
+@media (min-width: 75rem) and (max-width: 119.99rem) {
+  .video-comparison {
+    gap: 2.5rem;
+    margin: 2rem 0;
+  }
+}
+
 .video-comparison > div {
-  flex: 1;
-  min-width: 350px;
-  max-width: 450px;
   text-align: center;
   position: relative;
   z-index: 1;
-  clear: both;
   overflow: hidden;
+  min-height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .video-comparison video,
 .video-comparison iframe {
-  /*width: 100%;*/
-  /*max-width: 400px;
-  height: 225px; /* 400px * 9/16 = 225px for 16:9 ratio */
-  border: 2px solid rgba(76, 175, 80, 0.2);
-  border-radius: 8px;
+  border: 0.125rem solid rgba(76, 175, 80, 0.2);
+  border-radius: 0.75rem;
   display: block;
-  /*margin: 0 auto;*/
+  width: 100%;
+  height: auto;
   position: relative;
   z-index: 1;
-  clear: both;
   aspect-ratio: 16/9;
+  box-shadow: 0 0.25rem 0.9375rem rgba(76, 175, 80, 0.1);
 }
 
 .video-comparison p {
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
   font-weight: 600;
   color: #2e7d32;
+  font-size: 1.125rem;
 }
 
 .choice-buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin: 20px 0;
+  gap: 1.25rem;
+  margin: 2rem 0;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 超ワイド画面では4列表示 */
+@media (min-width: 120rem) {
+  .choice-buttons {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 60rem;
+    gap: 1.5rem;
+  }
+}
+
+/* ワイド画面では余裕をもった2列表示 */
+@media (min-width: 75rem) and (max-width: 119.99rem) {
+  .choice-buttons {
+    max-width: 50rem;
+    gap: 1.5rem;
+  }
 }
 
 .choice-btn {
-  padding: 12px 20px;
+  padding: 1rem 1.5rem;
   background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
   color: #0d47a1;
-  border: 2px solid rgba(76, 175, 80, 0.3);
-  border-radius: 8px;
-  font-size: 16px;
+  border: 0.125rem solid rgba(76, 175, 80, 0.3);
+  border-radius: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .choice-btn:hover {
   background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.9375rem rgba(76, 175, 80, 0.3);
 }
 
 #video-container {
   background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
-  margin-bottom: 20px;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 0.5rem 1.25rem rgba(76, 175, 80, 0.12);
+  margin-bottom: 2.5rem;
   text-align: center;
+  max-width: 80%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
+/* 動画コンテナ内のiframe最適化 */
+#video-container iframe {
+  width: 100%;
+  min-height: 25rem;
+  aspect-ratio: 16/9;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* ワイド画面での動画iframe最適化 */
+@media (min-width: 75rem) {
+  #video-container iframe {
+    min-height: 30rem;
+  }
+}
+
+/* 超ワイド画面での動画iframe最適化 */
+@media (min-width: 120rem) {
+  #video-container iframe {
+    min-height: 35rem;
+  }
+}
+
+/* 超ワイド画面での動画コンテナ最適化 */
+@media (min-width: 120rem) {
+  #video-container {
+    max-width: 90%;
+    padding: 1rem;
+  }
+}
+
+/* ワイド画面での動画コンテナ最適化 */
+@media (min-width: 75rem) and (max-width: 119.99rem) {
+  #video-container {
+    max-width: 85%;
+    padding: 3.5rem;
+  }
+}
+
+/* タブレット対応 */
+@media (max-width: 48rem) {
   .video-comparison {
-    flex-direction: column;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+    width: 95%;
   }
 
   .choice-buttons {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 1rem;
+    max-width: none;
   }
 
   .choice-btn {
-    padding: 14px 20px;
-    font-size: 16px;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  #video-container {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    max-width: 95%;
   }
 }
 
-@media (max-width: 480px) {
+/* 小画面モバイル対応 */
+@media (max-width: 30rem) {
   .modal-content {
-    padding: 20px;
+    padding: 1.25rem;
     width: 98%;
   }
 
   .choice-btn {
-    padding: 12px 16px;
-    font-size: 14px;
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+    min-height: 2.5rem;
+  }
+
+  .video-comparison p {
+    font-size: 1rem;
+  }
+
+  #video-container {
+    padding: 1.25rem;
+  }
+}
+
+/* アニメーション強化 */
+.choice-btn:active {
+  transform: translateY(0);
+}
+
+.video-comparison > div:hover {
+  transform: translateY(-0.125rem);
+  transition: transform 0.3s ease;
+}
+
+/* アクセシビリティ向上 */
+@media (prefers-reduced-motion: reduce) {
+  .choice-btn:hover,
+  .video-comparison > div:hover {
+    transform: none;
   }
 }
