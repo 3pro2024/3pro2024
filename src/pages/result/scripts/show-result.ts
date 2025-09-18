@@ -42,6 +42,7 @@ function resultItems(): string {
     fullMarksCount++;
     localStorage.setItem(FULL_MARKS_KEY, String(fullMarksCount));
   }
+  quizCount++;
   localStorage.setItem(QUIZ_COUNT_KEY, quizCount.toString());
   console.log(quizData);
 
