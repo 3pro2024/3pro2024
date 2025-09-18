@@ -38,14 +38,14 @@ const results: boolean[] = []; // クイズの正負を保存（正ならtrue、
 const quizIds: string[] = [];
 
 // --- メイン処理 ---
-document.addEventListener("DOMContentLoaded", async () => {
-  // shuwa.json全体を最初に読み込んでおく
-  allShuwaData = data as ShuwaData[];
+// shuwa.json全体を最初に読み込んでおく
+allShuwaData = data as ShuwaData[];
+(async () => {
   quizData = await startQuiz("some-mode"); // 'some-mode'は適切なモード名に
   if (quizData) {
     displayQuestion();
   }
-});
+})();
 
 // --- 関数定義 ---
 
