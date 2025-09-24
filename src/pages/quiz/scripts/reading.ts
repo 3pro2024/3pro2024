@@ -53,7 +53,7 @@ allShuwaData = data as ShuwaData[];
 function displayQuestion() {
   if (!quizData || currentQuestionIndex >= quizData.quizWords.length) {
     // 全問終了
-      showFinalResult();
+    showFinalResult();
     return;
   }
 
