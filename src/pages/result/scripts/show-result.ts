@@ -5,21 +5,21 @@ import { CURRENT_QUIZ_MODE_LEVEL_KEY } from "../../../constants/localStorage";
 
 const shuwaData: ShuwaData[] = data as ShuwaData[];
 
-/**
- * LocalStorageから取得したレベル文字列をアチーブメント定義に合わせた形式に変換する
- * @param level LocalStorageから取得したレベル（例: "easy", "normal", "hard"）
- * @returns 変換後のレベル文字列（例: "Easy", "Normal", "Hard"）
- */
-function formatLevelForAchievement(
-  level: string | null,
-): "Easy" | "Normal" | "Hard" | "" {
-  if (!level) return "";
-  const lowerLevel = level.toLowerCase();
-  if (lowerLevel === "easy" || lowerLevel === "beginner") return "Easy";
-  if (lowerLevel === "normal" || lowerLevel === "intermediate") return "Normal";
-  if (lowerLevel === "hard" || lowerLevel === "advanced") return "Hard";
-  return ""; // 方言(dialect)モードなどはlevelがない
-}
+// /**
+//  * LocalStorageから取得したレベル文字列をアチーブメント定義に合わせた形式に変換する
+//  * @param level LocalStorageから取得したレベル（例: "easy", "normal", "hard"）
+//  * @returns 変換後のレベル文字列（例: "Easy", "Normal", "Hard"）
+//  */
+// function formatLevelForAchievement(
+//   level: string | null,
+// ): "Easy" | "Normal" | "Hard" | "" {
+//   if (!level) return "";
+//   const lowerLevel = level.toLowerCase();
+//   if (lowerLevel === "easy" || lowerLevel === "beginner") return "Easy";
+//   if (lowerLevel === "normal" || lowerLevel === "intermediate") return "Normal";
+//   if (lowerLevel === "hard" || lowerLevel === "advanced") return "Hard";
+//   return ""; // 方言(dialect)モードなどはlevelがない
+// }
 
 /**
  * クイズ結果のHTML要素を生成し、実績データを更新する
