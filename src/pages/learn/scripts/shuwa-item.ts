@@ -70,15 +70,14 @@ if (isValidId) {
   }
   shuwaItemsContainer.innerHTML = `
     ${createShuwaDetailHTML(shuwaData[validShuwaId - 1])}
-    ${createButtonHTML("戻る", "history.back()")}
+    ${createButtonHTML("タイトルへ戻る", "history.back()")}
   `;
 } else {
   shuwaItemsContainer.innerHTML = `
-    ${createSearchForm()}
+    ${createSearchForm(true)}
     <div id="shuwa-grid-container">
       ${createCardLayout(searchResults(shuwaData, currentLevelId, currentRankId, currentKeyword))}
-    </div>
-    ${createButtonHTML("戻る", "location.href='../'")}`;
+    </div>`;
 
   const searchInput = document.querySelector(
     ".shuwa-search-form input",

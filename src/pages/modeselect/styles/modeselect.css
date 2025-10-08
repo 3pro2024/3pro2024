@@ -113,21 +113,10 @@
   margin: 1rem 0;
 }
 
-/* 超ワイド画面では3列表示 */
-@media (min-width: 120rem) {
+/* md（48rem / 768px）以上では3列表示 */
+@media (min-width: 48rem) {
   .radio-group {
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* ワイド画面では2列表示 */
-@media (min-width: 75rem) and (max-width: 119.99rem) {
-  .radio-group {
-    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     max-width: 65rem;
     margin-left: auto;
@@ -135,8 +124,16 @@
   }
 }
 
-/* 標準画面では1列表示 */
-@media (max-width: 74.99rem) {
+/* ワイド画面では余白を増やす */
+@media (min-width: 75rem) {
+  .radio-group {
+    gap: 2rem;
+    max-width: 80rem;
+  }
+}
+
+/* sm未満では1列表示 */
+@media (max-width: 47.99rem) {
   .radio-group {
     grid-template-columns: 1fr;
     max-width: 50rem;
