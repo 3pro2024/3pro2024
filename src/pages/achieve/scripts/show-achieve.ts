@@ -11,8 +11,8 @@ interface AchievementData {
 
 interface AchievementCondition {
   type:
-    | "correct_answers"
-    | "perfect_count"
+    | "correct_answers" // 正解数
+    | "perfect_count" // 完全正解数
     | "learned_count"
     | "play_count"
     | "special";
@@ -24,6 +24,15 @@ interface AchievementCondition {
 // 全アチーブメント条件定義（Map管理）
 const ACHIEVEMENT_CONDITIONS = new Map<string, AchievementCondition>([
   // 読み取り合計
+  [
+    "imamura-1",
+    {
+      type: "correct_answers",
+      mode: "reading",
+      level: "easy",
+      threshold: 1,
+    },
+  ],
   [
     "imamura-2",
     {
@@ -71,6 +80,15 @@ const ACHIEVEMENT_CONDITIONS = new Map<string, AchievementCondition>([
   ],
 
   // 読み取り合計
+  [
+    "uchimura-1",
+    {
+      type: "correct_answers",
+      mode: "expression",
+      level: "easy",
+      threshold: 1,
+    },
+  ],
   [
     "uchimura-2",
     {
@@ -121,55 +139,64 @@ const ACHIEVEMENT_CONDITIONS = new Map<string, AchievementCondition>([
   [
     "itoga-1",
     {
-      type: "perfect_count",
+      type: "correct_answers",
       mode: "reading",
       level: "hard",
-      threshold: 10,
+      threshold: 5,
     },
   ],
   [
     "itoga-2",
     {
-      type: "perfect_count",
+      type: "correct_answers",
+      mode: "reading",
+      level: "hard",
+      threshold: 30,
+    },
+  ],
+  [
+    "itoga-3",
+    {
+      type: "correct_answers",
       mode: "reading",
       level: "hard",
       threshold: 50,
     },
   ],
   [
-    "itoga-3",
+    "itoga-4",
     {
-      type: "perfect_count",
+      type: "correct_answers",
       mode: "reading",
       level: "hard",
       threshold: 100,
-    },
-  ],
-  [
-    "itoga-4",
-    {
-      type: "perfect_count",
-      mode: "expression",
-      level: "hard",
-      threshold: 10,
     },
   ],
   [
     "itoga-5",
     {
       type: "perfect_count",
-      mode: "expression",
+      mode: "reading",
       level: "hard",
-      threshold: 50,
+      threshold: 1,
     },
   ],
   [
     "itoga-6",
     {
       type: "perfect_count",
-      mode: "expression",
+      mode: "reading",
       level: "hard",
-      threshold: 100,
+      threshold: 5,
+    },
+  ],
+  [
+    "itoga-7",
+    {
+      type: "perfect_count",
+      mode: "reading",
+      level: "hard",
+      threshold: 10,
     },
   ],
 
