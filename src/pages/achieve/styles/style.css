@@ -89,6 +89,79 @@ header h1 {
   vertical-align: top;
   transition: all 0.25s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* ツールチップを持つバッジのカーソル */
+.itoga span[data-tooltip],
+.imamura span[data-tooltip],
+.uchimura span[data-tooltip],
+.reader span[data-tooltip]:not(.reader-click),
+.kagimoto span[data-tooltip],
+.fukuda span[data-tooltip] {
+  cursor: help;
+}
+
+/* ツールチップ本体 */
+.itoga span[data-tooltip]::after,
+.imamura span[data-tooltip]::after,
+.uchimura span[data-tooltip]::after,
+.reader span[data-tooltip]:not(.reader-click)::after,
+.kagimoto span[data-tooltip]::after,
+.fukuda span[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+}
+
+/* ツールチップの三角形 */
+.itoga span[data-tooltip]::before,
+.imamura span[data-tooltip]::before,
+.uchimura span[data-tooltip]::before,
+.reader span[data-tooltip]:not(.reader-click)::before,
+.kagimoto span[data-tooltip]::before,
+.fukuda span[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 0.125rem);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.375rem solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+/* ホバー時にツールチップを表示 */
+.itoga span[data-tooltip]:hover::after,
+.imamura span[data-tooltip]:hover::after,
+.uchimura span[data-tooltip]:hover::after,
+.reader span[data-tooltip]:not(.reader-click):hover::after,
+.kagimoto span[data-tooltip]:hover::after,
+.fukuda span[data-tooltip]:hover::after,
+.itoga span[data-tooltip]:hover::before,
+.imamura span[data-tooltip]:hover::before,
+.uchimura span[data-tooltip]:hover::before,
+.reader span[data-tooltip]:not(.reader-click):hover::before,
+.kagimoto span[data-tooltip]:hover::before,
+.fukuda span[data-tooltip]:hover::before {
+  opacity: 1;
 }
 
 .itoga span.completed,

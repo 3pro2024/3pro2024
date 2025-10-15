@@ -1,7 +1,9 @@
 import {
   ACHIEVEMENT_STORAGE_KEY,
   LEARNED_SHUWA_COUNT_KEY,
+  LEARNED_SHUWA_LIST_KEY,
   QUIZ_COUNT_KEY,
+  FULL_MARKS_KEY,
 } from "../../../constants/localStorage";
 
 // Achievement system for 手話ぷら
@@ -18,7 +20,13 @@ interface AchievementCondition {
     | "special";
   mode?: "reading" | "expression" | "dialect";
   level?: "easy" | "normal" | "hard";
-  threshold: number;
+  threshold?: number;
+  specialId?:
+    | "video-334" // id334の動画を視聴
+    | "total-perfect-5" // 合計5回満点
+    | "fingerspelling-table" // 指文字表確認
+    | "quiz-222" // id222のクイズを正解
+    | "secret"; // その他の秘密条件
 }
 
 // 全アチーブメント条件定義（Map管理）
@@ -279,6 +287,43 @@ const ACHIEVEMENT_CONDITIONS = new Map<string, AchievementCondition>([
       threshold: 10,
     },
   ],
+
+  // 特殊系
+  [
+    "uchimura-7",
+    {
+      type: "special",
+      specialId: "secret",
+    },
+  ],
+  [
+    "kagimoto-7",
+    {
+      type: "special",
+      specialId: "video-334",
+    },
+  ],
+  [
+    "reader-1",
+    {
+      type: "special",
+      specialId: "total-perfect-5",
+    },
+  ],
+  [
+    "reader-6",
+    {
+      type: "special",
+      specialId: "fingerspelling-table",
+    },
+  ],
+  [
+    "reader-7",
+    {
+      type: "special",
+      specialId: "secret",
+    },
+  ],
 ]);
 
 // Team member hiragana characters
@@ -363,6 +408,57 @@ const ACHIEVEMENT_GROUPS = {
   ],
 };
 
+// 条件から日本語の説明テキストを生成
+function getConditionDescription(condition: AchievementCondition): string {
+  const modeText: Record<string, string> = {
+    reading: "読み取り",
+    expression: "表現",
+    dialect: "方言",
+  };
+
+  const levelText: Record<string, string> = {
+    easy: "初級",
+    normal: "中級",
+    hard: "上級",
+  };
+
+  const mode = condition.mode ? modeText[condition.mode] || "" : "";
+  const level = condition.level ? levelText[condition.level] || "" : "";
+
+  switch (condition.type) {
+    case "correct_answers":
+      return `${mode}${level}で${condition.threshold}問正解`;
+    case "perfect_count":
+      return `${mode}${level}で${condition.threshold}回満点`;
+    case "learned_count":
+      return `学習数${condition.threshold}個達成`;
+    case "play_count":
+      return `プレイ数${condition.threshold}回達成`;
+    case "special":
+      return getSpecialConditionDescription(condition.specialId);
+    default:
+      return "条件を達成";
+  }
+}
+
+// 特殊条件の説明テキストを生成
+function getSpecialConditionDescription(specialId?: string): string {
+  switch (specialId) {
+    case "video-334":
+      return "特定の動画を視聴する";
+    case "total-perfect-5":
+      return "合計5回満点を記録する";
+    case "fingerspelling-table":
+      return "指文字表を確認する";
+    case "quiz-222":
+      return "特定のクイズに正解する";
+    case "secret":
+      return "???";
+    default:
+      return "???";
+  }
+}
+
 // localStorageからアチーブメントデータを読み込み
 function loadAchievements(): AchievementData {
   try {
@@ -411,9 +507,17 @@ function updateAchievementUI(): void {
           element.classList.add("completed");
           const charName = hiraganaChar.replace(".png", "");
           element.innerHTML = `<img src="/new/${hiraganaChar}" alt="${charName}" width="28" height="28">`;
+          element.removeAttribute("data-tooltip");
         } else {
           element.classList.remove("completed");
           element.textContent = "？";
+
+          // 未解除の実績にツールチップを設定
+          const condition = ACHIEVEMENT_CONDITIONS.get(achievementId);
+          if (condition) {
+            const tooltipText = getConditionDescription(condition);
+            element.setAttribute("data-tooltip", tooltipText);
+          }
         }
       }
     });
@@ -452,9 +556,59 @@ function checkCondition(
   condition: AchievementCondition,
   storageData: Map<string, number>,
 ): boolean {
+  // 特殊条件の判定
+  if (condition.type === "special") {
+    return checkSpecialCondition(condition.specialId);
+  }
+
+  // 通常条件の判定
   const key = getStorageKey(condition);
   const count = storageData.get(key) || 0;
-  return count >= condition.threshold;
+  return count >= condition.threshold!;
+}
+
+// 特殊条件の判定ロジック
+function checkSpecialCondition(specialId?: string): boolean {
+  if (!specialId) return false;
+
+  switch (specialId) {
+    case "video-334": {
+      // id334の動画を視聴したか（学習リストに334が含まれるか）
+      const learnedList = JSON.parse(
+        localStorage.getItem(LEARNED_SHUWA_LIST_KEY) || "[]",
+      ) as number[];
+      return learnedList.includes(334);
+    }
+    case "total-perfect-5": {
+      // 合計5回満点を記録したか
+      const fullMarks = parseInt(
+        localStorage.getItem(FULL_MARKS_KEY) || "0",
+        10,
+      );
+      return fullMarks >= 5;
+    }
+    case "fingerspelling-table": {
+      // 指文字表を確認したか（学習リストに9999が含まれるか）
+      const learnedList = JSON.parse(
+        localStorage.getItem(LEARNED_SHUWA_LIST_KEY) || "[]",
+      ) as number[];
+      return learnedList.includes(9999);
+    }
+    case "quiz-222": {
+      // id222のクイズに正解したか
+      // TODO: クイズ正解履歴を保存する仕組みを実装後に有効化
+      // 現時点では学習リストに222が含まれるかで判定
+      const learnedList = JSON.parse(
+        localStorage.getItem(LEARNED_SHUWA_LIST_KEY) || "[]",
+      ) as number[];
+      return learnedList.includes(222);
+    }
+    case "secret":
+      // その他の秘密条件（現時点では未実装）
+      return false;
+    default:
+      return false;
+  }
 }
 
 /**

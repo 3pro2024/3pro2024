@@ -60,13 +60,27 @@ const shuwaItemsContainer =
 document.body.className = "theme-nature";
 
 if (isValidId) {
-  const learnedShuwas: string[] =
-    localStorage.getItem(LEARNED_SHUWA_LIST_KEY)?.split(",") || [];
-  if (currentShuwaId && !learnedShuwas.includes(currentShuwaId.toString())) {
-    learnedShuwas.push(currentShuwaId.toString());
-    localStorage.setItem(LEARNED_SHUWA_LIST_KEY, learnedShuwas.join(","));
-    const shuwaCount = learnedShuwas.length;
-    localStorage.setItem(LEARNED_SHUWA_COUNT_KEY, shuwaCount.toString());
+  // LocalStorageから学習済み手話リストを取得（JSON形式に移行）
+  let learnedShuwas: number[] = [];
+  try {
+    const stored = localStorage.getItem(LEARNED_SHUWA_LIST_KEY);
+    if (stored) {
+      // 旧形式（カンマ区切り文字列）との互換性を保つ
+      if (stored.startsWith("[")) {
+        learnedShuwas = JSON.parse(stored);
+      } else {
+        learnedShuwas = stored.split(",").map(Number);
+      }
+    }
+  } catch (error) {
+    console.error("Failed to parse learned shuwa list:", error);
+  }
+
+  // 現在の手話IDを学習済みリストに追加
+  if (validShuwaId && !learnedShuwas.includes(validShuwaId)) {
+    learnedShuwas.push(validShuwaId);
+    localStorage.setItem(LEARNED_SHUWA_LIST_KEY, JSON.stringify(learnedShuwas));
+    localStorage.setItem(LEARNED_SHUWA_COUNT_KEY, learnedShuwas.length.toString());
   }
   shuwaItemsContainer.innerHTML = `
     ${createShuwaDetailHTML(shuwaData[validShuwaId - 1])}
