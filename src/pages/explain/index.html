@@ -5,6 +5,7 @@
     <title>explain</title>
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="./styles/yubimoji.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
@@ -112,6 +113,199 @@
           height="auto"
           alt="Hand language explanation image"
         />
+        <!-- 指文字(山杉さんからパクった) -->
+			<div class="modal fade" id="hintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+				data-backdrop="false">
+				<div class="modal-dialog modal-dialog-centered modal-xl">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">指文字表を表示する</h5>
+							<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+						</div>
+						<div class="modal-body" id="clearModalBody" onload="stopTimer()">
+							<!-- 指文字表 -->
+							<table class="table table-bordered" id="hand_tab">
+								<tbody>
+
+									<tr>
+										<td align="center" class="table-warning"><strong>わ</strong><br><img
+												src="/new/wa.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ら</strong><br><img
+												src="/new/ra.png">
+										</td>
+										<td align="center" class="table-warning"><strong>や</strong><br><img
+												src="/new/ya.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ま</strong><br><img
+												src="/new/ma.png">
+										</td>
+										<td align="center" class="table-warning"><strong>は</strong><br><img
+												src="/new/ha.png">
+										</td>
+										<td align="center" class="table-warning"><strong>な</strong><br><img
+												src="/new/na.png">
+										</td>
+										<td align="center" class="table-warning"><strong>た</strong><br><img
+												src="/new/ta.png">
+										</td>
+										<td align="center" class="table-warning"><strong>さ</strong><br><img
+												src="/new/sa.png">
+										</td>
+										<td align="center" class="table-warning"><strong>か</strong><br><img
+												src="/new/ka.png">
+										</td>
+										<td align="center" class="table-warning"><strong>あ</strong><br><img
+												src="/new/a.png">
+										</td>
+									</tr>
+
+									<tr>
+										<td align="center" class="table-warning"><strong>長音「ー」</strong><br><img
+												src="/new/-.gif">
+										</td>
+										<td align="center" class="table-warning"><strong>り</strong><br><img
+												src="/new/ri.png">
+										</td>
+										<td></td>
+										<td align="center" class="table-warning"><strong>み</strong><br><img
+												src="/new/mi.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ひ</strong><br><img
+												src="/new/hi.png">
+										</td>
+										<td align="center" class="table-warning"><strong>に</strong><br><img
+												src="/new/ni.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ち</strong><br><img
+												src="/new/ti.png">
+										</td>
+										<td align="center" class="table-warning"><strong>し</strong><br><img
+												src="/new/si.png">
+										</td>
+										<td align="center" class="table-warning"><strong>き</strong><br><img
+												src="/new/ki.png">
+										</td>
+										<td align="center" class="table-warning"><strong>い</strong><br><img
+												src="/new/i.png">
+										</td>
+									</tr>
+
+									<tr>
+										<td align="center" class="table-warning"><strong>を</strong><br><img
+												src="/new/wo.png">
+										</td>
+										<td align="center" class="table-warning"><strong>る</strong><br><img
+												src="/new/ru.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ゆ</strong><br><img
+												src="/new/yu.png">
+										</td>
+										<td align="center" class="table-warning"><strong>む</strong><br><img
+												src="/new/mu.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ふ</strong><br><img
+												src="/new/fu.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ぬ</strong><br><img
+												src="/new/nu.png">
+										</td>
+										<td align="center" class="table-warning"><strong>つ</strong><br><img
+												src="/new/tu.png">
+										</td>
+										<td align="center" class="table-warning"><strong>す</strong><br><img
+												src="/new/su.png">
+										</td>
+										<td align="center" class="table-warning"><strong>く</strong><br><img
+												src="/new/ku.png">
+										</td>
+										<td align="center" class="table-warning"><strong>う</strong><br><img
+												src="/new/u.png">
+										</td>
+									</tr>
+
+									<tr>
+										<td></td>
+										<td align="center" class="table-warning"><strong>れ</strong><br><img
+												src="/new/re.png">
+										</td>
+										<td></td>
+										<td align="center" class="table-warning"><strong>め</strong><br><img
+												src="/new/me.png">
+										</td>
+										<td align="center" class="table-warning"><strong>へ</strong><br><img
+												src="/new/he.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ね</strong><br><img
+												src="/new/ne.png">
+										</td>
+										<td align="center" class="table-warning"><strong>て</strong><br><img
+												src="/new/te.png">
+										</td>
+										<td align="center" class="table-warning"><strong>せ</strong><br><img
+												src="/new/se.png">
+										</td>
+										<td align="center" class="table-warning"><strong>け</strong><br><img
+												src="/new/ke.png">
+										</td>
+										<td align="center" class="table-warning"><strong>え</strong><br><img
+												src="/new/e.png">
+										</td>
+									</tr>
+
+									<tr>
+										<td align="center" class="table-warning"><strong>ん</strong><br><img
+												src="/new/n.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ろ</strong><br><img
+												src="/new/ro.png">
+										</td>
+										<td align="center" class="table-warning"><strong>よ</strong><br><img
+												src="/new/yo.png">
+										</td>
+										<td align="center" class="table-warning"><strong>も</strong><br><img
+												src="/new/mo.png">
+										</td>
+										<td align="center" class="table-warning"><strong>ほ</strong><br><img
+												src="/new/ho.png">
+										</td>
+										<td align="center" class="table-warning"><strong>の</strong><br><img
+												src="/new/no.png">
+										</td>
+										<td align="center" class="table-warning"><strong>と</strong><br><img
+												src="/new/to.png">
+										</td>
+										<td align="center" class="table-warning"><strong>そ</strong><br><img
+												src="/new/so.png">
+										</td>
+										<td align="center" class="table-warning"><strong>こ</strong><br><img
+												src="/new/ko.png">
+										</td>
+										<td align="center" class="table-warning"><strong>お</strong><br><img
+												src="/new/o.png">
+										</td>
+									</tr>
+									<tr align="center">
+										<td colspan="3" class="table-warning"><strong>横移動すると濁音　例「が」</strong><br><img
+												src="/new/ga.gif">
+										</td>
+										<td colspan="3" class="table-warning"><strong>上移動すると半濁音　例「ぱ」</strong><br><img
+												src="/new/pa.gif">
+										<td colspan="4" class="table-warning"><strong>遠ざかると拗音，促音　例「ゃ」</strong><br><img
+												src="/new/lya.gif">
+										</td>
+									</tr>
+									<tr align=”center”>
+
+									</tr>
+								</tbody>
+							</table>
+							<!-- 指文字表ここまで -->
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" data-bs-dismiss="modal">閉じる</button>
+						</div>
+					</div>
       </div>
     </div>
   </body>
