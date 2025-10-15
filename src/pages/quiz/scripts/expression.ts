@@ -11,7 +11,7 @@ import VideoPlayer from "../../../components/video/video-player.js";
 
 // --- DOM要素の取得 ---
 // 問題のタグ
-const answerTag = document.getElementById("video-container",) as HTMLDivElement;
+const answerTag = document.getElementById("video-container") as HTMLDivElement;
 // 動画再生部分を取得
 const answerVideos = [
   document.getElementById("Answervideo1") as HTMLDivElement,
@@ -48,9 +48,14 @@ const quizIds: string[] = [];
 // shuwa.json全体を最初に読み込んでおく
 allShuwaData = data as ShuwaData[];
 (async () => {
-  quizData = await startQuiz("some-mode"); // 'some-mode'は適切なモード名に
+  const difficulty = window.quizDifficulty;
+  quizData = await startQuiz("expression", difficulty);
   if (quizData) {
     displayQuestion();
+  } else {
+    // データが見つからない場合の処理
+    alert("選択された難易度の問題が見つかりませんでした。");
+    window.location.href = "../modeselect/";
   }
 })();
 
@@ -60,7 +65,7 @@ allShuwaData = data as ShuwaData[];
 function displayQuestion() {
   if (!quizData || currentQuestionIndex >= quizData.quizWords.length) {
     // 全問終了
-      showFinalResult();
+    showFinalResult();
     return;
   }
 
@@ -69,7 +74,7 @@ function displayQuestion() {
   // この行は問題の動画を表示する場合に必要ですが、現在は使われていないようです。
   // const questionVideoUrl = findDataById(questionId)?.youtube_url;
 
-    // 問題のidからnameを取得し書き換え
+  // 問題のidからnameを取得し書き換え
   const questionWords = findDataById(questionId)?.name;
   answerTag.innerHTML = `<p>${questionWords}</p>`;
 

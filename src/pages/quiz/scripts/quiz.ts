@@ -7,17 +7,47 @@ export interface QuizData {
   choices: number[][];
 }
 
-export async function startQuiz(_mode: string): Promise<QuizData | null> {
+// 難易度パラメータと quiz_level のマッピング
+const DIFFICULTY_MAP: Record<string, string> = {
+  easy: "初級",
+  normal: "中級",
+  hard: "上級",
+  dialect: "方言",
+};
+
+export async function startQuiz(
+  _mode: string,
+  difficulty?: string,
+): Promise<QuizData | null> {
   let quizWords: number[] = []; //問題格納用配列
   const choices: number[][] = []; // 各問題の選択肢を格納する2次元配列
 
-  console.log("reading.tsを読み込みました"); // テスト用
+  console.log("quiz.ts: startQuiz called with difficulty:", difficulty); // テスト用
 
   try {
     // わんちゃんエラーが起きそうな所
     //--jsonファイルの大きさ取得----
-    const jsonData: ShuwaData[] = data as ShuwaData[];
+    let jsonData: ShuwaData[] = data as ShuwaData[];
     // 型安全な方法でJSONデータを取得
+
+    // 難易度によるフィルタリング
+    if (difficulty && DIFFICULTY_MAP[difficulty]) {
+      const targetLevel = DIFFICULTY_MAP[difficulty];
+      jsonData = jsonData.filter((item) => item.quiz_level === targetLevel);
+      console.log(
+        `Filtered data for level "${targetLevel}":`,
+        jsonData.length,
+        "items",
+      );
+
+      // フィルタリング後のデータが0件の場合は警告
+      if (jsonData.length === 0) {
+        console.warn(
+          `No data found for difficulty level: ${targetLevel} (${difficulty})`,
+        );
+        return null;
+      }
+    }
 
     const dataCount = jsonData.length;
     //-----------
@@ -25,9 +55,9 @@ export async function startQuiz(_mode: string): Promise<QuizData | null> {
 
     const numberPool: number[] = [];
     // 簡単に言うとくじ引きの箱を作成
+    // フィルタリング後のデータのIDを使用
     for (let i = 0; i < dataCount; i++) {
-      numberPool.push(i + 1); // 1から始まるように調整
-      // jsonにかかれているidは1からスタートのため
+      numberPool.push(jsonData[i].id); // フィルタリング後のデータのIDを使用
     }
 
     // 配列をシャッフルする（フィッシャー–イェーツのシャッフル）
@@ -43,8 +73,8 @@ export async function startQuiz(_mode: string): Promise<QuizData | null> {
     quizWords = numberPool.slice(0, 5); //データができ次第、slice(0,10)にする
 
     // --- 選択肢の生成 ---
-    // 全問題のIDリストを作成 (1からdataCountまで)
-    const allIds = Array.from({ length: dataCount }, (_, i) => i + 1);
+    // フィルタリング後のデータのIDリストを作成
+    const allIds = jsonData.map((item) => item.id);
 
     for (const correctAnswerId of quizWords) {
       // 1. 正解以外の選択肢候補をフィルタリング

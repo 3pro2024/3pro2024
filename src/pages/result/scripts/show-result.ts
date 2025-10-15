@@ -1,14 +1,28 @@
 import { createShuwaDetailHTML } from "../../../components/shuwa-detail/shuwa-detail";
 import type { ShuwaData } from "../../../types";
 import data from "../../../../data/shuwa.json";
-import {
-  FULL_MARKS_KEY,
-  QUIZ_COUNT_KEY,
-} from "../../../constants/localStorage";
+import { CURRENT_QUIZ_MODE_LEVEL_KEY } from "../../../constants/localStorage";
 
 const shuwaData: ShuwaData[] = data as ShuwaData[];
+
+// /**
+//  * LocalStorageから取得したレベル文字列をアチーブメント定義に合わせた形式に変換する
+//  * @param level LocalStorageから取得したレベル（例: "easy", "normal", "hard"）
+//  * @returns 変換後のレベル文字列（例: "Easy", "Normal", "Hard"）
+//  */
+// function formatLevelForAchievement(
+//   level: string | null,
+// ): "Easy" | "Normal" | "Hard" | "" {
+//   if (!level) return "";
+//   const lowerLevel = level.toLowerCase();
+//   if (lowerLevel === "easy" || lowerLevel === "beginner") return "Easy";
+//   if (lowerLevel === "normal" || lowerLevel === "intermediate") return "Normal";
+//   if (lowerLevel === "hard" || lowerLevel === "advanced") return "Hard";
+//   return ""; // 方言(dialect)モードなどはlevelがない
+// }
+
 /**
- * クイズ結果のHTML要素を生成する
+ * クイズ結果のHTML要素を生成し、実績データを更新する
  */
 function resultItems(): string {
   const results: boolean[] | null = JSON.parse(
@@ -19,31 +33,47 @@ function resultItems(): string {
   );
   if (!results || !quizIds) return "結果の情報がありません。";
 
+  // クイズのモードとレベルを取得
+  const modeLevel = localStorage.getItem(CURRENT_QUIZ_MODE_LEVEL_KEY);
+
+  const [mode, level] = modeLevel?.split("-") || [];
+
   // resultsとquizIdを1つのオブジェクトにする
   const quizData = results.map((result, index) => ({
     id: quizIds[index],
     result,
   }));
 
-  let quizCount = parseInt(localStorage.getItem(QUIZ_COUNT_KEY) || "0", 10);
-  let fullMarksCount = parseInt(
-    localStorage.getItem(FULL_MARKS_KEY) || "0",
-    10,
-  );
+  // 今回のクイズでの正解数を計算
+  const correctAnswersInThisQuiz = quizData.filter((q) => q.result).length;
 
-  let currentQuizCount = 0;
+  // モードが取得できた場合のみ実績関連のカウンターを更新
+  if (mode) {
+    const keyBase = `quiz-${mode}${level ? `-${level}` : ""}`;
 
-  for (const i of quizData) {
-    if (i.result) {
-      currentQuizCount++;
+    // --- 正解数の更新 ---
+    const correctAnswersKey = `${keyBase}-count`;
+    const totalCorrectAnswers = parseInt(
+      localStorage.getItem(correctAnswersKey) || "0",
+      10,
+    );
+    localStorage.setItem(
+      correctAnswersKey,
+      String(totalCorrectAnswers + correctAnswersInThisQuiz),
+    );
+
+    // --- 満点記録の更新 ---
+    const isPerfect = correctAnswersInThisQuiz === quizData.length;
+    if (isPerfect) {
+      const perfectCountKey = `${keyBase}-perfect_count`;
+      const totalPerfectCount = parseInt(
+        localStorage.getItem(perfectCountKey) || "0",
+        10,
+      );
+      localStorage.setItem(perfectCountKey, String(totalPerfectCount + 1));
     }
   }
-  if (currentQuizCount === quizData.length) {
-    fullMarksCount++;
-    localStorage.setItem(FULL_MARKS_KEY, String(fullMarksCount));
-  }
-  quizCount++;
-  localStorage.setItem(QUIZ_COUNT_KEY, quizCount.toString());
+
   console.log(quizData);
 
   return `
