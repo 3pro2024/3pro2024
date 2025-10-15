@@ -283,12 +283,28 @@ const ACHIEVEMENT_CONDITIONS = new Map<string, AchievementCondition>([
 
 // Team member hiragana characters
 const MEMBER_CHARACTERS = {
-  imamura: ["い", "ま", "む", "ら", "あ", "こ"],
-  uchimura: ["う", "ち", "む", "ら", "と", "も", "き"],
-  itoga: ["い", "と", "が", "た", "い", "よ", "う"],
-  fukuda: ["ふ", "く", "だ", "け", "い", "と"],
-  kagimoto: ["か", "ぎ", "も", "と", "え", "い", "じ"],
-  reader: ["お", "お", "か", "わ", "せ", "い", "や"],
+  imamura: ["i.png", "ma.png", "mu.png", "ra.png", "a.png", "ko.png"],
+  uchimura: [
+    "u.png",
+    "chi.png",
+    "mu.png",
+    "ra.png",
+    "to.png",
+    "mo.png",
+    "ki.png",
+  ],
+  itoga: ["i.png", "to.png", "ga.gif", "ta.png", "i.png", "yo.png", "u.png"],
+  fukuda: ["fu.png", "ku.png", "da.png", "ke.png", "i.png", "to.png"],
+  kagimoto: [
+    "ka.png",
+    "gi.gif",
+    "mo.png",
+    "to.png",
+    "e.png",
+    "i.png",
+    "ji.gif",
+  ],
+  reader: ["o.png", "o.png", "ka.png", "wa.png", "se.png", "i.png", "ya.png"],
 };
 
 // Achievement badge selectors
@@ -393,7 +409,8 @@ function updateAchievementUI(): void {
           }
 
           element.classList.add("completed");
-          element.textContent = hiraganaChar;
+          const charName = hiraganaChar.replace(".png", "");
+          element.innerHTML = `<img src="/new/${hiraganaChar}" alt="${charName}" width="28" height="28">`;
         } else {
           element.classList.remove("completed");
           element.textContent = "？";
