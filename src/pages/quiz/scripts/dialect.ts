@@ -1,6 +1,6 @@
-import { startQuiz, type QuizData } from "./quiz.js";
+import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
 import { type ShuwaData } from "../../../types/index.js";
-import data from "../../../../data/shuwa.json";
+import data from "../../../../data/json.json";
 import VideoPlayer from "../../../components/video/video-player.js";
 
 // --- DOM要素の取得 ---
@@ -58,7 +58,8 @@ function displayQuestion() {
 
   const questionId = quizData.quizWords[currentQuestionIndex];
   const choices = quizData.choices[currentQuestionIndex];
-  const questionVideoUrl = findDataById(questionId)?.youtube_url;
+  const questionData = findDataById(questionId);
+  const questionVideoUrl = questionData ? getVideoUrl(questionData) : undefined;
 
   // 問題動画を表示
   if (questionVideoUrl) {
@@ -111,8 +112,10 @@ function showResultModal(
 ) {
   modalMessage.textContent = isCorrect ? "正解！" : "不正解...";
 
-  const correctVideoUrl = findDataById(correctId)?.youtube_url;
-  const selectedVideoUrl = findDataById(selectedId)?.youtube_url;
+  const correctData = findDataById(correctId);
+  const selectedData = findDataById(selectedId);
+  const correctVideoUrl = correctData ? getVideoUrl(correctData) : undefined;
+  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData) : undefined;
 
   if (!correctVideoUrl || !selectedVideoUrl) return;
 

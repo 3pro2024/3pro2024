@@ -2,7 +2,9 @@ export type ShuwaData = {
   id: number;
   name: string;
   how_to: string;
-  youtube_url: string;
+  youtube_word: string;
+  youtube_sentence: string;
+  youtube_learn: string;
   example_sentence: string;
   quiz_level: ShuwaQuizLevel;
   shuwa_rank: ShuwaRank;

@@ -1,6 +1,6 @@
 import { createShuwaDetailHTML } from "../../../components/shuwa-detail/shuwa-detail";
 import type { ShuwaData } from "../../../types";
-import data from "../../../../data/shuwa.json";
+import data from "../../../../data/json.json";
 import { CURRENT_QUIZ_MODE_LEVEL_KEY } from "../../../constants/localStorage";
 
 const shuwaData: ShuwaData[] = data as ShuwaData[];

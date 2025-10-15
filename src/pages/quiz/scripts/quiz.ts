@@ -1,4 +1,4 @@
-import data from "../../../../data/shuwa.json";
+import data from "../../../../data/json.json";
 import type { ShuwaData } from "../../../types/index.js";
 
 // クイズのデータ構造を定義
@@ -14,6 +14,14 @@ const DIFFICULTY_MAP: Record<string, string> = {
   hard: "上級",
   dialect: "方言",
 };
+
+// 難易度に応じて適切な動画URLを取得するヘルパー関数
+export function getVideoUrl(shuwaData: ShuwaData): string {
+  // 上級の場合はyoutube_sentence、それ以外（初級・中級・方言）はyoutube_wordを使用
+  return shuwaData.quiz_level === "上級"
+    ? shuwaData.youtube_sentence
+    : shuwaData.youtube_word;
+}
 
 export async function startQuiz(
   _mode: string,

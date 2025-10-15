@@ -1,6 +1,6 @@
-import { startQuiz, type QuizData } from "./quiz.js";
+import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
 import { type ShuwaData } from "../../../types/index.js";
-import data from "../../../../data/shuwa.json";
+import data from "../../../../data/json.json";
 import VideoPlayer from "../../../components/video/video-player.js";
 // shuwa.jsonのデータ構造を仮定（実際の構造に合わせて変更してください）
 // interface ShuwaData {
@@ -81,7 +81,8 @@ function displayQuestion() {
   // 選択肢ボタンに単語とIDを割り当て、動画を表示
   choiceButtons.forEach((button, index) => {
     const choiceId = choices[index];
-    const choiceVideoUrl = findDataById(choiceId)?.youtube_url;
+    const choiceData = findDataById(choiceId);
+    const choiceVideoUrl = choiceData ? getVideoUrl(choiceData) : undefined;
     // data属性にIDを保存しておくのが便利
     button.dataset.choiceId = choiceId.toString();
 
@@ -130,8 +131,10 @@ function showResultModal(
 ) {
   modalMessage.textContent = isCorrect ? "正解！" : "不正解...";
 
-  const correctVideoUrl = findDataById(correctId)?.youtube_url;
-  const selectedVideoUrl = findDataById(selectedId)?.youtube_url;
+  const correctData = findDataById(correctId);
+  const selectedData = findDataById(selectedId);
+  const correctVideoUrl = correctData ? getVideoUrl(correctData) : undefined;
+  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData) : undefined;
 
   if (!correctVideoUrl || !selectedVideoUrl) return;
 

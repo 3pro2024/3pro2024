@@ -1,4 +1,4 @@
-import data from "../../../../data/shuwa.json";
+import data from "../../../../data/json.json";
 import { createButtonHTML } from "../../../components/button/button";
 import { createShuwaDetailHTML } from "../../../components/shuwa-detail/shuwa-detail";
 import {
