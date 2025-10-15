@@ -42,7 +42,7 @@ if (mode === "reading") {
   import("./expression.ts");
 }
 
-// localStorageに現在のクイズモードと何度を保存する
+// localStorageに現在のクイズモードと難度を保存する
 localStorage.setItem(
   CURRENT_QUIZ_MODE_LEVEL_KEY,
   `${mode}${level !== "none" ? `-${level}` : ""}`,
