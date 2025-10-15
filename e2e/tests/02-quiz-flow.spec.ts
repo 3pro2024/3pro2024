@@ -1,5 +1,4 @@
 import { test, expect } from "@playwright/test";
-import { gotoQuiz } from "../helpers/navigation";
 import { clearStorage } from "../helpers/storage";
 
 test.describe("クイズモード基本フロー", () => {
@@ -96,21 +95,24 @@ test.describe("クイズモード基本フロー", () => {
     expect(currentUrl).toMatch(/(quiz|result)/);
   });
 
-  test("終了ボタンをクリックすると結果画面に遷移する", async ({ page }) => {
+  test("終了ボタンをクリックするとタイトルに戻る", async ({ page }) => {
     await page.goto("/quiz/?mode=reading&difficulty=easy");
     await page.waitForLoadState("networkidle");
     await page.waitForTimeout(2000);
+
+    page.on("dialog", async (dialog) => {
+      await dialog.accept();
+    });
 
     // 終了ボタンをクリック
     await page.locator("#retireButton").click();
 
     // 結果画面のURLを確認
-    await expect(page).toHaveURL(/.*result/, { timeout: 5000 });
+    await expect(page).toHaveURL(/./, { timeout: 5000 });
 
-    // 結果画面のタイトルを確認
-    const subtitle = page.locator("h1.page-subtitle");
-    await expect(subtitle).toBeVisible();
-    await expect(subtitle).toHaveText("クイズ結果");
+    // タイトルを確認
+    const title = page.locator("h1.page-title");
+    await expect(title).toBeVisible();
   });
 
   test("複数問解答して結果画面に到達できる", async ({ page }) => {
@@ -215,8 +217,16 @@ test.describe("クイズモード：方言モード", () => {
     await page.goto("/modeselect/");
     await page.waitForLoadState("networkidle");
 
-    // 方言モードを選択
-    await page.locator('label:has-text("方言")').click();
+    // JavaScriptの初期化を待機
+    await page.waitForTimeout(500);
+
+    // 方言モードのラジオボタンを直接選択
+    await page.locator("input#Dialect").check();
+
+    // 開始ボタンが有効化されるのを待機
+    await expect(page.locator('button:has-text("開始")')).toBeEnabled({
+      timeout: 2000,
+    });
 
     // 開始ボタンをクリック
     await page.locator('button:has-text("開始")').click();

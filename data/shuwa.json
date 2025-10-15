@@ -294,7 +294,7 @@
     "youtube_url": "https://youtu.be/hAohpFAEAf0",
     "example_sentence": "私は歌が下手だ。",
     "quiz_level": "中級",
-    "shuwa_rank": "4級"
+    "shuwa_rank": "2級"
   },
   {
     "id": 34,
@@ -303,7 +303,7 @@
     "youtube_url": "https://youtu.be/yDeDMvRcNQ8",
     "example_sentence": "私はあの映画が嫌いだ。",
     "quiz_level": "中級",
-    "shuwa_rank": "4級"
+    "shuwa_rank": "2級"
   },
   {
     "id": 35,
@@ -313,5 +313,13 @@
     "example_sentence": "火曜日に手話の勉強をする。",
     "quiz_level": "中級",
     "shuwa_rank": "3級"
+  },
+  {
+    "id": 44,
+    "name": "火、火曜日",
+    "how_to": "唇を人差し指の指先で右へ引き、立てた5指の親指と小指を近づけて丸めた右手を回し上げる",
+    "youtube_url": "https://youtu.be/_g_Tv0bUGZY",
+    "example_sentence": "火曜日に手話の勉強をする。",
+    "quiz_level": "方言"
   }
 ]

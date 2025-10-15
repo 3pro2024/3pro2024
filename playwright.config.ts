@@ -1,11 +1,11 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 /**
  * Playwright E2E テスト設定
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './e2e/tests',
+  testDir: "./e2e/tests",
 
   // テストタイムアウト
   timeout: 30000,
@@ -23,41 +23,56 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   // レポート設定
-  reporter: [
-    ['html'],
-    ['list']
-  ],
+  reporter: [["html"], ["list"]],
 
   // 全テスト共通の設定
   use: {
     // ベースURL（開発サーバーのURL）
-    baseURL: 'http://localhost:5173',
+    baseURL: "http://localhost:5173",
 
     // スクリーンショットをテスト失敗時のみ撮影
-    screenshot: 'only-on-failure',
+    screenshot: "only-on-failure",
 
     // ビデオをテスト失敗時のみ録画
-    video: 'retain-on-failure',
+    video: "retain-on-failure",
 
     // トレースをテスト失敗時のみ記録
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
   },
 
   // テスト対象のブラウザプロジェクト
   projects: [
     {
-      name: 'chromium',
+      name: "chromium",
       use: {
-        ...devices['Desktop Chrome'],
-        viewport: { width: 1280, height: 720 }
+        ...devices["Desktop Chrome"],
+        viewport: { width: 1280, height: 720 },
+      },
+    },
+    {
+      name: "firefox",
+      use: {
+        ...devices["Desktop Firefox"],
+        viewport: { width: 1280, height: 720 },
+        actionTimeout: 15000,
+        navigationTimeout: 30000,
+      },
+    },
+    {
+      name: "webkit",
+      use: {
+        ...devices["Desktop Safari"],
+        viewport: { width: 1280, height: 720 },
+        actionTimeout: 15000,
+        navigationTimeout: 30000,
       },
     },
   ],
 
   // 開発サーバーの自動起動設定
   webServer: {
-    command: 'pnpm dev',
-    url: 'http://localhost:5173',
+    command: "pnpm dev",
+    url: "http://localhost:5173",
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
   },

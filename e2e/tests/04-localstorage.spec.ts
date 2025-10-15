@@ -65,12 +65,12 @@ test.describe("LocalStorage データ永続化", () => {
     await page.waitForTimeout(1000);
 
     // 学習リストが保存されていることを確認
-    const learnedList = await getStorageItem(page, "learned_shuwa_list");
+    const learnedList = await getStorageItem(page, "learned-shuwa-list");
     expect(learnedList).not.toBeNull();
     expect(learnedList?.length).toBeGreaterThan(0);
 
     // 学習数が保存されていることを確認
-    const learnedCount = await getStorageItem(page, "learned_shuwa_count");
+    const learnedCount = await getStorageItem(page, "learned-shuwa-count");
     expect(learnedCount).not.toBeNull();
     expect(Number(learnedCount)).toBeGreaterThan(0);
   });
@@ -89,7 +89,7 @@ test.describe("LocalStorage データ永続化", () => {
     await page.waitForTimeout(1000);
 
     // 学習数を確認
-    let learnedCount = await getStorageItem(page, "learned_shuwa_count");
+    let learnedCount = await getStorageItem(page, "learned-shuwa-count");
     expect(Number(learnedCount)).toBe(1);
 
     // 戻る
@@ -104,11 +104,11 @@ test.describe("LocalStorage データ永続化", () => {
     await page.waitForTimeout(1000);
 
     // 学習数が増えていることを確認
-    learnedCount = await getStorageItem(page, "learned_shuwa_count");
+    learnedCount = await getStorageItem(page, "learned-shuwa-count");
     expect(Number(learnedCount)).toBe(2);
 
     // 学習リストに2つのIDが含まれていることを確認
-    const learnedList = await getStorageItem(page, "learned_shuwa_list");
+    const learnedList = await getStorageItem(page, "learned-shuwa-list");
     const idList = learnedList?.split(",") || [];
     expect(idList.length).toBe(2);
   });
@@ -127,7 +127,7 @@ test.describe("LocalStorage データ永続化", () => {
     // 学習数が1になるまでポーリングで確認
     await expect
       .poll(async () => {
-        const count = await getStorageItem(page, "learned_shuwa_count");
+        const count = await getStorageItem(page, "learned-shuwa-count");
         return Number(count);
       })
       .toBe(1);
@@ -142,7 +142,7 @@ test.describe("LocalStorage データ永続化", () => {
 
     // 少し待ってから、学習数が変わらないことを確認
     await page.waitForTimeout(500);
-    const learnedCount = await getStorageItem(page, "learned_shuwa_count");
+    const learnedCount = await getStorageItem(page, "learned-shuwa-count");
     expect(Number(learnedCount)).toBe(1);
   });
 
