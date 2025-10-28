@@ -30,13 +30,14 @@ let quizData: QuizData | null = null; //問題と選択肢を保存
 let allShuwaData: ShuwaData[] = []; //手話の全データ保存
 const results: boolean[] = []; // クイズの正負を保存（正ならtrue、負ならfalse）
 const quizIds: string[] = [];
+const difficulty = "dialect"; // 方言モードは常に "dialect"
 
 // --- メイン処理 ---
 // shuwa.json全体を最初に読み込んでおく
 allShuwaData = data as ShuwaData[];
 (async () => {
   // 方言モードは常に "dialect" を渡す
-  quizData = await startQuiz("dialect", "dialect");
+  quizData = await startQuiz("dialect", difficulty);
   if (quizData) {
     displayQuestion();
   } else {
@@ -59,7 +60,7 @@ function displayQuestion() {
   const questionId = quizData.quizWords[currentQuestionIndex];
   const choices = quizData.choices[currentQuestionIndex];
   const questionData = findDataById(questionId);
-  const questionVideoUrl = questionData ? getVideoUrl(questionData) : undefined;
+  const questionVideoUrl = questionData ? getVideoUrl(questionData, difficulty) : undefined;
 
   // 問題動画を表示
   if (questionVideoUrl) {
@@ -114,8 +115,8 @@ function showResultModal(
 
   const correctData = findDataById(correctId);
   const selectedData = findDataById(selectedId);
-  const correctVideoUrl = correctData ? getVideoUrl(correctData) : undefined;
-  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData) : undefined;
+  const correctVideoUrl = correctData ? getVideoUrl(correctData, difficulty) : undefined;
+  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData, difficulty) : undefined;
 
   if (!correctVideoUrl || !selectedVideoUrl) return;
 
