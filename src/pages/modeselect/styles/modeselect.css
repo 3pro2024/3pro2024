@@ -107,7 +107,8 @@
 }
 
 /* グリッドレイアウトの改善（複数選択肢がある場合） */
-.radio-group {
+/* 詳細度を上げてstyle.cssのflexを上書き */
+.main-content-card .radio-group {
   display: grid;
   gap: 0.75rem;
   margin: 1rem 0;
@@ -115,7 +116,7 @@
 
 /* md（48rem / 768px）以上では3列表示 */
 @media (min-width: 48rem) {
-  .radio-group {
+  .main-content-card .radio-group {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     max-width: 65rem;
@@ -126,7 +127,7 @@
 
 /* ワイド画面では余白を増やす */
 @media (min-width: 75rem) {
-  .radio-group {
+  .main-content-card .radio-group {
     gap: 2rem;
     max-width: 80rem;
   }
@@ -134,7 +135,7 @@
 
 /* sm未満では1列表示 */
 @media (max-width: 47.99rem) {
-  .radio-group {
+  .main-content-card .radio-group {
     grid-template-columns: 1fr;
     max-width: 50rem;
     margin-left: auto;
