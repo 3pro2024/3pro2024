@@ -16,9 +16,12 @@ const DIFFICULTY_MAP: Record<string, string> = {
 };
 
 // 難易度に応じて適切な動画URLを取得するヘルパー関数
-export function getVideoUrl(shuwaData: ShuwaData): string {
+export function getVideoUrl(
+  shuwaData: ShuwaData,
+  quizLevel: string = "hard",
+): string {
   // 上級の場合はyoutube_sentence、それ以外（初級・中級・方言）はyoutube_wordを使用
-  return shuwaData.quiz_level === "上級"
+  return quizLevel === "hard"
     ? shuwaData.youtube_sentence
     : shuwaData.youtube_word;
 }
@@ -41,9 +44,18 @@ export async function startQuiz(
     // 難易度によるフィルタリング
     if (difficulty && DIFFICULTY_MAP[difficulty]) {
       const targetLevel = DIFFICULTY_MAP[difficulty];
-      jsonData = jsonData.filter((item) => item.quiz_level === targetLevel);
+
+      // 上級の場合は初級・中級のデータを使用（動画の種類で差別化）
+      if (difficulty === "hard") {
+        jsonData = jsonData.filter((item) =>
+          item.quiz_level === "初級" || item.quiz_level === "中級"
+        );
+      } else {
+        jsonData = jsonData.filter((item) => item.quiz_level === targetLevel);
+      }
+
       console.log(
-        `Filtered data for level "${targetLevel}":`,
+        `Filtered data for difficulty "${difficulty}":`,
         jsonData.length,
         "items",
       );
@@ -51,7 +63,7 @@ export async function startQuiz(
       // フィルタリング後のデータが0件の場合は警告
       if (jsonData.length === 0) {
         console.warn(
-          `No data found for difficulty level: ${targetLevel} (${difficulty})`,
+          `No data found for difficulty: ${difficulty}`,
         );
         return null;
       }

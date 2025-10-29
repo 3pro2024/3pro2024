@@ -43,12 +43,13 @@ let quizData: QuizData | null = null; //問題と選択肢を保存
 let allShuwaData: ShuwaData[] = []; //手話の全データ保存
 const results: boolean[] = []; // クイズの正負を保存（正ならtrue、負ならfalse）
 const quizIds: string[] = [];
+let difficulty: string | undefined; // 難易度を保存
 
 // --- メイン処理 ---
 // shuwa.json全体を最初に読み込んでおく
 allShuwaData = data as ShuwaData[];
 (async () => {
-  const difficulty = window.quizDifficulty;
+  difficulty = window.quizDifficulty;
   quizData = await startQuiz("expression", difficulty);
   if (quizData) {
     displayQuestion();
@@ -74,15 +75,19 @@ function displayQuestion() {
   // この行は問題の動画を表示する場合に必要ですが、現在は使われていないようです。
   // const questionVideoUrl = findDataById(questionId)?.youtube_url;
 
-  // 問題のidからnameを取得し書き換え
-  const questionWords = findDataById(questionId)?.name;
+  // 問題のidからnameまたはexample_sentenceを取得し書き換え
+  const questionData = findDataById(questionId);
+  // 上級の場合は例文、それ以外は単語名を表示
+  const questionWords = difficulty === "hard"
+    ? questionData?.example_sentence
+    : questionData?.name;
   answerTag.innerHTML = `<p>${questionWords}</p>`;
 
   // 選択肢ボタンに単語とIDを割り当て、動画を表示
   choiceButtons.forEach((button, index) => {
     const choiceId = choices[index];
     const choiceData = findDataById(choiceId);
-    const choiceVideoUrl = choiceData ? getVideoUrl(choiceData) : undefined;
+    const choiceVideoUrl = choiceData ? getVideoUrl(choiceData, difficulty) : undefined;
     // data属性にIDを保存しておくのが便利
     button.dataset.choiceId = choiceId.toString();
 
@@ -133,8 +138,8 @@ function showResultModal(
 
   const correctData = findDataById(correctId);
   const selectedData = findDataById(selectedId);
-  const correctVideoUrl = correctData ? getVideoUrl(correctData) : undefined;
-  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData) : undefined;
+  const correctVideoUrl = correctData ? getVideoUrl(correctData, difficulty) : undefined;
+  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData, difficulty) : undefined;
 
   if (!correctVideoUrl || !selectedVideoUrl) return;
 
