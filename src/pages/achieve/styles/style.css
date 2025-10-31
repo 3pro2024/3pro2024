@@ -74,7 +74,9 @@ header h1 {
 .reader span:not(.reader-click),
 .kagimoto span,
 .fukuda span {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 42px;
   height: 42px;
   background: #bdc3c7;
@@ -99,6 +101,18 @@ header h1 {
   color: white;
   box-shadow: 0 3px 8px rgba(46, 204, 113, 0.3);
   transform: scale(1.05);
+}
+
+.itoga span img,
+.imamura span img,
+.uchimura span img,
+.reader span img,
+.kagimoto span img,
+.fukuda span img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .reader-click {
@@ -164,6 +178,16 @@ header h1 {
     line-height: 38px;
     font-size: 0.9rem;
     margin: 3px 4px;
+  }
+
+  .itoga span img,
+  .imamura span img,
+  .uchimura span img,
+  .reader span img,
+  .kagimoto span img,
+  .fukuda span img {
+    width: 24px;
+    height: 24px;
   }
 
   .itoga,

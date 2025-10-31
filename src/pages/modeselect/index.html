@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Mode Selection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="./styles/modeselect.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="screen-frame" aria-hidden="true"></div>
@@ -125,6 +125,14 @@
       // 難易度選択のラジオボタンにイベントリスナーを追加
       difficultyRadios.forEach((radio) => {
         radio.addEventListener("change", function () {
+          if (this.id === "Hard") {
+            // 上級が選択された場合、読み取りモードを強制
+            disableModeSelection();
+            document.getElementById("Reading").checked = true;
+          } else {
+            // 初級・中級が選択された場合、すべてのモードを有効化
+            enableModeSelection();
+          }
           checkStartButtonState();
         });
       });
@@ -147,6 +155,41 @@
           radio.disabled = false;
         });
         difficultyLabels.forEach((label) => {
+          label.style.color = ""; // 元の色に戻す
+          label.style.cursor = "";
+        });
+      }
+
+      // モード選択を無効化する関数（読み取り以外）
+      function disableModeSelection() {
+        const modeRadios = document.querySelectorAll(".modeselect");
+        const modeLabels = document.querySelectorAll(
+          'label[for="Expression"], label[for="Dialect"]',
+        );
+
+        modeRadios.forEach((radio) => {
+          if (radio.id !== "Reading") {
+            radio.disabled = true;
+            radio.checked = false; // 選択を解除
+          }
+        });
+        modeLabels.forEach((label) => {
+          label.style.color = "#ccc"; // グレーアウト
+          label.style.cursor = "not-allowed";
+        });
+      }
+
+      // モード選択を有効化する関数
+      function enableModeSelection() {
+        const modeRadios = document.querySelectorAll(".modeselect");
+        const modeLabels = document.querySelectorAll(
+          'label[for="Reading"], label[for="Expression"], label[for="Dialect"]',
+        );
+
+        modeRadios.forEach((radio) => {
+          radio.disabled = false;
+        });
+        modeLabels.forEach((label) => {
           label.style.color = ""; // 元の色に戻す
           label.style.cursor = "";
         });

@@ -1,4 +1,4 @@
-import data from "../../../../data/shuwa.json";
+import data from "../../../../data/json.json";
 import { createButtonHTML } from "../../../components/button/button";
 import { createShuwaDetailHTML } from "../../../components/shuwa-detail/shuwa-detail";
 import {
@@ -18,11 +18,12 @@ const currentKeyword = params.get("keyword") || null;
 const currentShuwaId = params.get("id");
 const validShuwaId = currentShuwaId ? Number(currentShuwaId) : null;
 
-const isValidId =
-  validShuwaId !== null &&
-  Number.isInteger(validShuwaId) &&
-  validShuwaId > 0 &&
-  validShuwaId <= shuwaData.length;
+const targetShuwa =
+  validShuwaId !== null
+    ? shuwaData.find((shuwa) => shuwa.id === validShuwaId)
+    : null;
+
+const isValidId = targetShuwa !== null && targetShuwa !== undefined;
 
 function searchResults(
   shuwaData: ShuwaData[],
@@ -69,16 +70,15 @@ if (isValidId) {
     localStorage.setItem(LEARNED_SHUWA_COUNT_KEY, shuwaCount.toString());
   }
   shuwaItemsContainer.innerHTML = `
-    ${createShuwaDetailHTML(shuwaData[validShuwaId - 1])}
+    ${createShuwaDetailHTML(targetShuwa!)}
     ${createButtonHTML("戻る", "history.back()")}
   `;
 } else {
   shuwaItemsContainer.innerHTML = `
-    ${createSearchForm()}
+    ${createSearchForm(true)}
     <div id="shuwa-grid-container">
       ${createCardLayout(searchResults(shuwaData, currentLevelId, currentRankId, currentKeyword))}
-    </div>
-    ${createButtonHTML("戻る", "location.href='../'")}`;
+    </div>`;
 
   const searchInput = document.querySelector(
     ".shuwa-search-form input",

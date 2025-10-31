@@ -1,3 +1,43 @@
+/* 検索フォームと戻るボタンのラッパー */
+.search-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 戻るボタンのスタイル調整（検索フォーム全体と高さを揃える） */
+.search-form-wrapper .btn {
+  /* 検索フォームのpadding(1.25rem) + inputのpadding(0.75rem) = 2rem */
+  padding: 2rem 2.5rem;
+  margin: 0;
+  min-width: auto;
+  white-space: nowrap;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* md以上では横並び */
+@media (min-width: 48rem) {
+  .search-form-wrapper {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .search-form-wrapper .shuwa-search-form {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .search-form-wrapper .btn {
+    flex-shrink: 0;
+  }
+}
+
 /* フォーム全体 */
 .shuwa-search-form {
   display: flex;
@@ -6,7 +46,7 @@
   align-items: center;
   padding: 1.25rem;
   border-radius: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -14,6 +54,7 @@
 .shuwa-search-form input[type="text"] {
   flex: 1;
   min-width: 12.5rem;
+  max-width: 45rem;
   padding: 0.75rem 1rem;
   border: none;
   border-radius: 0.5rem;
@@ -102,7 +143,12 @@
 
 /* Nature Theme */
 body.theme-nature .shuwa-search-form {
-  background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+  background: linear-gradient(135deg, #2eb62c 0%, #abe098 100%);
+}
+
+body.theme-nature .search-form-wrapper .btn {
+  background: linear-gradient(135deg, #abe098 0%, #c5e8b7 100%);
+  color: black;
 }
 
 body.theme-nature .shuwa-search-form input[type="text"]:focus {

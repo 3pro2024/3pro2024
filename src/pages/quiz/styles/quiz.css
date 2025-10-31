@@ -1,281 +1,307 @@
 /* クイズページ用スタイル */
+
 #result-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
 }
 
 .modal-content {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 1.75rem;
-  border-radius: 1rem;
-  color: #1b3e26;
-  text-align: center;
-  box-shadow: 0 0.5rem 1.875rem rgba(76, 175, 80, 0.2);
-  border: 0.0625rem solid rgba(76, 175, 80, 0.1);
-  max-width: 85%;
-  width: 100%;
-  max-height: 85vh;
-  overflow-y: auto;
-  position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.75rem;
+    border-radius: 1rem;
+    color: #1b3e26;
+    text-align: center;
+    box-shadow: 0 0.5rem 1.875rem rgba(76, 175, 80, 0.2);
+    border: 0.0625rem solid rgba(76, 175, 80, 0.1);
+    max-width: 85%;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
 }
+
 
 /* 超ワイド画面での最適化 */
+
 @media (min-width: 120rem) {
-  .modal-content {
-    max-width: 80%;
-    padding: 3rem;
-  }
+    .modal-content {
+        max-width: 80%;
+        padding: 3rem;
+    }
 }
+
 
 /* ワイド画面での最適化 */
+
 @media (min-width: 75rem) and (max-width: 119.99rem) {
-  .modal-content {
-    max-width: 75%;
-    padding: 2.5rem;
-  }
+    .modal-content {
+        max-width: 75%;
+        padding: 2.5rem;
+    }
 }
 
+
 /* 標準画面での最適化 */
+
 @media (max-width: 74.99rem) and (min-width: 48.01rem) {
-  .modal-content {
-    max-width: 80%;
-    padding: 2rem;
-  }
+    .modal-content {
+        max-width: 80%;
+        padding: 2rem;
+    }
 }
 
 .video-comparison {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin: 2rem 0;
-  justify-content: center;
-  align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+    justify-content: center;
+    align-items: flex-start;
 }
+
 
 /* 超ワイド画面では余裕をもった表示 */
+
 @media (min-width: 120rem) {
-  .video-comparison {
-    gap: 3rem;
-    margin: 2.5rem 0;
-  }
+    .video-comparison {
+        gap: 3rem;
+        margin: 2.5rem 0;
+    }
 }
+
 
 /* ワイド画面では余裕をもった表示 */
+
 @media (min-width: 75rem) and (max-width: 119.99rem) {
-  .video-comparison {
-    gap: 2.5rem;
-    margin: 2rem 0;
-  }
+    .video-comparison {
+        gap: 2.5rem;
+        margin: 2rem 0;
+    }
 }
 
-.video-comparison > div {
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  min-height: 15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.video-comparison>div {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    min-height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .video-comparison video,
 .video-comparison iframe {
-  border: 0.125rem solid rgba(76, 175, 80, 0.2);
-  border-radius: 0.75rem;
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 1;
-  aspect-ratio: 16/9;
-  box-shadow: 0 0.25rem 0.9375rem rgba(76, 175, 80, 0.1);
+    border: 0.125rem solid rgba(76, 175, 80, 0.2);
+    border-radius: 0.75rem;
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 16/9;
+    box-shadow: 0 0.25rem 0.9375rem rgba(76, 175, 80, 0.1);
 }
 
 .video-comparison p {
-  margin-bottom: 1rem;
-  font-weight: 600;
-  color: #2e7d32;
-  font-size: 1.125rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 1.125rem;
 }
 
 .choice-buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  margin: 2rem 0;
-  max-width: 40rem;
-  margin-left: auto;
-  margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin: 2rem 0;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 /* 超ワイド画面では4列表示 */
+
 @media (min-width: 120rem) {
-  .choice-buttons {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 60rem;
-    gap: 1.5rem;
-  }
+    .choice-buttons {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 60rem;
+        gap: 1.5rem;
+    }
 }
 
+
 /* ワイド画面では余裕をもった2列表示 */
+
 @media (min-width: 75rem) and (max-width: 119.99rem) {
-  .choice-buttons {
-    max-width: 50rem;
-    gap: 1.5rem;
-  }
+    .choice-buttons {
+        max-width: 50rem;
+        gap: 1.5rem;
+    }
 }
 
 .choice-btn {
-  padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  color: #0d47a1;
-  border: 0.125rem solid rgba(76, 175, 80, 0.3);
-  border-radius: 0.75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    color: #0d47a1;
+    border: 0.125rem solid rgba(76, 175, 80, 0.3);
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .choice-btn:hover {
-  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
-  color: white;
-  transform: translateY(-0.125rem);
-  box-shadow: 0 0.25rem 0.9375rem rgba(76, 175, 80, 0.3);
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+    color: white;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.9375rem rgba(76, 175, 80, 0.3);
 }
 
 #video-container {
-  background: white;
-  border-radius: 1rem;
-  padding: 2.5rem;
-  box-shadow: 0 0.5rem 1.25rem rgba(76, 175, 80, 0.12);
-  margin-bottom: 2.5rem;
-  text-align: center;
-  max-width: 80%;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 0.5rem 1.25rem rgba(76, 175, 80, 0.12);
+    margin-bottom: 2.5rem;
+    text-align: center;
+    max-width: 70%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 /* 動画コンテナ内のiframe最適化 */
+
 #video-container iframe {
-  width: 100%;
-  min-height: 25rem;
-  aspect-ratio: 16/9;
-  border-radius: 0.75rem;
-  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-height: 25rem;
+    aspect-ratio: 16/9;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
 }
+
 
 /* ワイド画面での動画iframe最適化 */
+
 @media (min-width: 75rem) {
-  #video-container iframe {
-    min-height: 30rem;
-  }
+    #video-container iframe {
+        min-height: 30rem;
+    }
 }
+
 
 /* 超ワイド画面での動画iframe最適化 */
+
 @media (min-width: 120rem) {
-  #video-container iframe {
-    min-height: 35rem;
-  }
+    #video-container iframe {
+        min-height: 35rem;
+    }
 }
+
 
 /* 超ワイド画面での動画コンテナ最適化 */
+
 @media (min-width: 120rem) {
-  #video-container {
-    max-width: 90%;
-    padding: 1rem;
-  }
+    #video-container {
+        max-width: 90%;
+        padding: 1rem;
+    }
 }
+
 
 /* ワイド画面での動画コンテナ最適化 */
+
 @media (min-width: 75rem) and (max-width: 119.99rem) {
-  #video-container {
-    max-width: 85%;
-    padding: 3.5rem;
-  }
+    #video-container {
+        max-width: 95%;
+        padding: 3.5rem;
+    }
 }
+
 
 /* タブレット対応 */
+
 @media (max-width: 48rem) {
-  .video-comparison {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .modal-content {
-    padding: 1.5rem;
-    width: 95%;
-  }
-
-  .choice-buttons {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: none;
-  }
-
-  .choice-btn {
-    padding: 1rem 1.25rem;
-    font-size: 1rem;
-  }
-
-  #video-container {
-    padding: 2rem;
-    margin-bottom: 2rem;
-    max-width: 95%;
-  }
+    .video-comparison {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    .choice-buttons {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: none;
+    }
+    .choice-btn {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+    }
+    #video-container {
+        padding: 2rem;
+        margin-bottom: 2rem;
+        max-width: 100%;
+    }
 }
+
 
 /* 小画面モバイル対応 */
+
 @media (max-width: 30rem) {
-  .modal-content {
-    padding: 1.25rem;
-    width: 98%;
-  }
-
-  .choice-btn {
-    padding: 0.875rem 1rem;
-    font-size: 0.9rem;
-    min-height: 2.5rem;
-  }
-
-  .video-comparison p {
-    font-size: 1rem;
-  }
-
-  #video-container {
-    padding: 1.25rem;
-  }
+    .modal-content {
+        padding: 1.25rem;
+        width: 98%;
+    }
+    .choice-btn {
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+        min-height: 2.5rem;
+    }
+    .video-comparison p {
+        font-size: 1rem;
+    }
+    #video-container {
+        padding: 1.25rem;
+    }
 }
+
 
 /* アニメーション強化 */
+
 .choice-btn:active {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
-.video-comparison > div:hover {
-  transform: translateY(-0.125rem);
-  transition: transform 0.3s ease;
+.video-comparison>div:hover {
+    transform: translateY(-0.125rem);
+    transition: transform 0.3s ease;
 }
+
 
 /* アクセシビリティ向上 */
+
 @media (prefers-reduced-motion: reduce) {
-  .choice-btn:hover,
-  .video-comparison > div:hover {
-    transform: none;
-  }
+    .choice-btn:hover,
+    .video-comparison>div:hover {
+        transform: none;
+    }
 }
