@@ -26,3 +26,4 @@ dist-ssr
 # playwrite
 test-results/*
 playwright-report/*
+.playwright-mcp/*
