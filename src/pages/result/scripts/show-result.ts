@@ -98,9 +98,13 @@ function resultItems(): string {
  */
 function showExplanation(index: number) {
   const shuwaModal = document.querySelector<HTMLDivElement>(".shuwa-modal");
-  if (!shuwaModal) return;
+  const indexShuwaData = shuwaData.find((data) => data.id === index);
+  if (!shuwaModal || !indexShuwaData) return;
 
-  const detailHTML = createShuwaDetailHTML(shuwaData[index - 1]);
+  const detailHTML = createShuwaDetailHTML(
+    // indexとidが一致するshuwaDataを取得
+    indexShuwaData,
+  );
 
   // 閉じるボタンを.shuwa-detail内に配置
   const modifiedDetailHTML = detailHTML.replace(
