@@ -18,9 +18,10 @@ const currentKeyword = params.get("keyword") || null;
 const currentShuwaId = params.get("id");
 const validShuwaId = currentShuwaId ? Number(currentShuwaId) : null;
 
-const targetShuwa = validShuwaId !== null
-  ? shuwaData.find(shuwa => shuwa.id === validShuwaId)
-  : null;
+const targetShuwa =
+  validShuwaId !== null
+    ? shuwaData.find((shuwa) => shuwa.id === validShuwaId)
+    : null;
 
 const isValidId = targetShuwa !== null && targetShuwa !== undefined;
 
@@ -70,7 +71,7 @@ if (isValidId) {
   }
   shuwaItemsContainer.innerHTML = `
     ${createShuwaDetailHTML(targetShuwa!)}
-    ${createButtonHTML("タイトルへ戻る", "history.back()")}
+    ${createButtonHTML("戻る", "history.back()")}
   `;
 } else {
   shuwaItemsContainer.innerHTML = `
