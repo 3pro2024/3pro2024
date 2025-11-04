@@ -1,103 +1,103 @@
 .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    border: solid 0.3125rem black;
-    width: 12.5rem;
-    height: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.8125rem;
-    background-color: white;
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: solid 0.3125rem black;
+  width: 12.5rem;
+  height: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.8125rem;
+  background-color: white;
+  z-index: 10;
 }
 
 .menu p {
-    margin-bottom: 0;
-    /* 「説明」の下に少し広めの余白 */
+  margin-bottom: 0;
+  /* 「説明」の下に少し広めの余白 */
 }
 
 .menu a {
-    display: block;
-    /* リンクをブロック要素にして、marginを有効に */
-    margin-bottom: 1.25rem;
-    /* 各リンクの下に余白を設定 */
-    text-decoration: none;
-    /* 下線を消す */
-    color: #333;
-    /* 文字色を少し柔らかく */
+  display: block;
+  /* リンクをブロック要素にして、marginを有効に */
+  margin-bottom: 1.25rem;
+  /* 各リンクの下に余白を設定 */
+  text-decoration: none;
+  /* 下線を消す */
+  color: #333;
+  /* 文字色を少し柔らかく */
 }
 
 .menu #btn {
-    width: 6.25rem;
-    padding: 0.625rem;
-    font-size: 1.25rem;
-    margin-bottom: 0%;
-    position: absolute;
-    bottom: 20px;
-    /* メニューの下部から20pxの位置 */
-    transform: translateX(-50%);
-    /* 要素の幅の半分だけ左に戻して中央揃え */
+  width: 6.25rem;
+  padding: 0.625rem;
+  font-size: 1.25rem;
+  margin-bottom: 0%;
+  position: absolute;
+  bottom: 20px;
+  /* メニューの下部から20pxの位置 */
+  transform: translateX(-50%);
+  /* 要素の幅の半分だけ左に戻して中央揃え */
 }
 
 .explain {
-    margin-left: 220px;
-    /* メニューの幅(200px) + 余白(20px) */
-    padding: 20px;
-    width: calc(100% - 240px);
-    /* 画面幅からメニュー幅と余白を引く */
-    /* height: 100vh; */
+  margin-left: 220px;
+  /* メニューの幅(200px) + 余白(20px) */
+  padding: 20px;
+  width: calc(100% - 240px);
+  /* 画面幅からメニュー幅と余白を引く */
+  /* height: 100vh; */
 }
 
 .slide {
-    position: relative;
-    border: 1px solid white;
-    margin-bottom: 3em;
-    padding: 0 4em;
-    background: white;
-    /* border-radius: 20px; */
+  position: relative;
+  border: 1px solid white;
+  margin-bottom: 3em;
+  padding: 0 4em;
+  background: white;
+  /* border-radius: 20px; */
 }
 
 .slide p {
-    font-size: 2rem;
-    color: #333;
+  font-size: 2rem;
+  color: #333;
 }
 
 .heading {
-    font-size: 2rem;
-    font-weight: bold;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 ul {
-    font-size: 2rem;
-    color: black;
+  font-size: 2rem;
+  color: black;
 }
 
 .corner-circle {
-    position: absolute;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: blue;
-    border-radius: 50%;
-    box-shadow: 0.1rem 0.1rem 0.2rem black;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: blue;
+  border-radius: 50%;
+  box-shadow: 0.1rem 0.1rem 0.2rem black;
 }
 
 .top-left {
-    top: 1em;
-    left: 1em;
+  top: 1em;
+  left: 1em;
 }
 
 .top-right {
-    top: 1em;
-    right: 1em;
+  top: 1em;
+  right: 1em;
 }
 
 .bottom-left {
-    bottom: 1em;
-    left: 1em;
+  bottom: 1em;
+  left: 1em;
 }
 
 .bottom-right {
-    bottom: 1em;
-    right: 1em;
+  bottom: 1em;
+  right: 1em;
 }

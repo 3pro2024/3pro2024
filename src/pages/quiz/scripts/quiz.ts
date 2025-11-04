@@ -47,8 +47,8 @@ export async function startQuiz(
 
       // 上級の場合は初級・中級のデータを使用（動画の種類で差別化）
       if (difficulty === "hard") {
-        jsonData = jsonData.filter((item) =>
-          item.quiz_level === "初級" || item.quiz_level === "中級"
+        jsonData = jsonData.filter(
+          (item) => item.quiz_level === "初級" || item.quiz_level === "中級",
         );
       } else {
         jsonData = jsonData.filter((item) => item.quiz_level === targetLevel);
@@ -62,9 +62,7 @@ export async function startQuiz(
 
       // フィルタリング後のデータが0件の場合は警告
       if (jsonData.length === 0) {
-        console.warn(
-          `No data found for difficulty: ${difficulty}`,
-        );
+        console.warn(`No data found for difficulty: ${difficulty}`);
         return null;
       }
     }

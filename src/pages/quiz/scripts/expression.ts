@@ -78,16 +78,17 @@ function displayQuestion() {
   // 問題のidからnameまたはexample_sentenceを取得し書き換え
   const questionData = findDataById(questionId);
   // 上級の場合は例文、それ以外は単語名を表示
-  const questionWords = difficulty === "hard"
-    ? questionData?.example_sentence
-    : questionData?.name;
+  const questionWords =
+    difficulty === "hard" ? questionData?.example_sentence : questionData?.name;
   answerTag.innerHTML = `<p>${questionWords}</p>`;
 
   // 選択肢ボタンに単語とIDを割り当て、動画を表示
   choiceButtons.forEach((button, index) => {
     const choiceId = choices[index];
     const choiceData = findDataById(choiceId);
-    const choiceVideoUrl = choiceData ? getVideoUrl(choiceData, difficulty) : undefined;
+    const choiceVideoUrl = choiceData
+      ? getVideoUrl(choiceData, difficulty)
+      : undefined;
     // data属性にIDを保存しておくのが便利
     button.dataset.choiceId = choiceId.toString();
 
@@ -138,8 +139,12 @@ function showResultModal(
 
   const correctData = findDataById(correctId);
   const selectedData = findDataById(selectedId);
-  const correctVideoUrl = correctData ? getVideoUrl(correctData, difficulty) : undefined;
-  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData, difficulty) : undefined;
+  const correctVideoUrl = correctData
+    ? getVideoUrl(correctData, difficulty)
+    : undefined;
+  const selectedVideoUrl = selectedData
+    ? getVideoUrl(selectedData, difficulty)
+    : undefined;
 
   if (!correctVideoUrl || !selectedVideoUrl) return;
 

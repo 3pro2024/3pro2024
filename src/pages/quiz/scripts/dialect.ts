@@ -60,7 +60,9 @@ function displayQuestion() {
   const questionId = quizData.quizWords[currentQuestionIndex];
   const choices = quizData.choices[currentQuestionIndex];
   const questionData = findDataById(questionId);
-  const questionVideoUrl = questionData ? getVideoUrl(questionData, difficulty) : undefined;
+  const questionVideoUrl = questionData
+    ? getVideoUrl(questionData, difficulty)
+    : undefined;
 
   // 問題動画を表示
   if (questionVideoUrl) {
@@ -115,8 +117,12 @@ function showResultModal(
 
   const correctData = findDataById(correctId);
   const selectedData = findDataById(selectedId);
-  const correctVideoUrl = correctData ? getVideoUrl(correctData, difficulty) : undefined;
-  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData, difficulty) : undefined;
+  const correctVideoUrl = correctData
+    ? getVideoUrl(correctData, difficulty)
+    : undefined;
+  const selectedVideoUrl = selectedData
+    ? getVideoUrl(selectedData, difficulty)
+    : undefined;
 
   if (!correctVideoUrl || !selectedVideoUrl) return;
 

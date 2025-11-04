@@ -66,7 +66,9 @@ function displayQuestion() {
   const questionId = quizData.quizWords[currentQuestionIndex];
   const choices = quizData.choices[currentQuestionIndex];
   const questionData = findDataById(questionId);
-  const questionVideoUrl = questionData ? getVideoUrl(questionData, difficulty) : undefined;
+  const questionVideoUrl = questionData
+    ? getVideoUrl(questionData, difficulty)
+    : undefined;
 
   // 問題動画を表示
   if (questionVideoUrl) {
@@ -78,9 +80,8 @@ function displayQuestion() {
     const choiceId = choices[index];
     const choiceData = findDataById(choiceId);
     // 上級の場合は例文、それ以外は単語名を表示
-    const choiceWord = difficulty === "hard"
-      ? choiceData?.example_sentence
-      : choiceData?.name;
+    const choiceWord =
+      difficulty === "hard" ? choiceData?.example_sentence : choiceData?.name;
     button.value = choiceWord || "エラー";
     // data属性にIDを保存しておくのが便利
     button.dataset.choiceId = choiceId.toString();
@@ -125,8 +126,12 @@ function showResultModal(
 
   const correctData = findDataById(correctId);
   const selectedData = findDataById(selectedId);
-  const correctVideoUrl = correctData ? getVideoUrl(correctData, difficulty) : undefined;
-  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData, difficulty) : undefined;
+  const correctVideoUrl = correctData
+    ? getVideoUrl(correctData, difficulty)
+    : undefined;
+  const selectedVideoUrl = selectedData
+    ? getVideoUrl(selectedData, difficulty)
+    : undefined;
 
   if (!correctVideoUrl || !selectedVideoUrl) return;
 

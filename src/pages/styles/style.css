@@ -1,325 +1,313 @@
 :root {
-    --frame-color: #8b4f24;
-    /* 額縁の濃い茶色 */
-    --frame-thickness: 1.25rem;
-    /* 額縁の太さ（左右上下） */
-    --mat-thickness: 0.75rem;
-    /* 内側マットの幅（額縁とコンテンツの間） */
-    --radius: 0.875rem;
-    /* 角丸（必要なら調整） */
-    --outer-shadow: 1.125rem;
-    /* 外側の影の大きさ */
+  --frame-color: #8b4f24;
+  /* 額縁の濃い茶色 */
+  --frame-thickness: 1.25rem;
+  /* 額縁の太さ（左右上下） */
+  --mat-thickness: 0.75rem;
+  /* 内側マットの幅（額縁とコンテンツの間） */
+  --radius: 0.875rem;
+  /* 角丸（必要なら調整） */
+  --outer-shadow: 1.125rem;
+  /* 外側の影の大きさ */
 }
-
 
 /* 固定オーバーレイ（フレーム本体） */
 
 .screen-frame {
-    position: fixed;
-    inset: 0;
-    /* top:0; right:0; bottom:0; left:0; */
-    pointer-events: none;
-    /* ユーザー操作を邪魔しない */
-    z-index: 100;
-    /* コンテンツより下に置くなら小さく、上に置きたいなら大きく */
+  position: fixed;
+  inset: 0;
+  /* top:0; right:0; bottom:0; left:0; */
+  pointer-events: none;
+  /* ユーザー操作を邪魔しない */
+  z-index: 100;
+  /* コンテンツより下に置くなら小さく、上に置きたいなら大きく */
 }
-
 
 /* 擬似要素で額縁（内側の太い線）と影を表現 */
 
 .screen-frame::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    /* 主な「額縁」は inset の box-shadow で表現（太さ = var(--frame-thickness)） */
-    box-shadow: inset 0 0 0 var(--frame-thickness) var(--frame-color), /* 本体の茶色枠 */
-    inset 0 8px 12px rgba(255, 255, 255, 0.08), /* 上寄りのハイライト（木の光沢） */
-    inset 0 -6px 8px rgba(0, 0, 0, 0.12), /* 内側の下影で立体感 */
-    0 8px calc(var(--outer-shadow) / 1.2) rgba(0, 0, 0, 0.18);
-    /* 外側のドロップシャドウ */
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 主な「額縁」は inset の box-shadow で表現（太さ = var(--frame-thickness)） */
+  box-shadow:
+    inset 0 0 0 var(--frame-thickness) var(--frame-color),
+    /* 本体の茶色枠 */ inset 0 8px 12px rgba(255, 255, 255, 0.08),
+    /* 上寄りのハイライト（木の光沢） */ inset 0 -6px 8px rgba(0, 0, 0, 0.12),
+    /* 内側の下影で立体感 */ 0 8px calc(var(--outer-shadow) / 1.2)
+      rgba(0, 0, 0, 0.18);
+  /* 外側のドロップシャドウ */
+  pointer-events: none;
 }
-
 
 /* 内側に「マット」色を敷きたい場合（額縁の内側エリア） */
 
 .screen-frame::after {
-    content: "";
-    position: absolute;
-    /* マット領域は額縁の内側に inset させる */
-    inset: calc(var(--frame-thickness) + var(--mat-thickness));
-    background: var(--mat-color);
-    border-radius: calc(var(--radius) - 6px);
-    pointer-events: none;
-    /* マットの内側にほんの小さな内影を入れておくと自然 */
-    /*box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.04);*/
-    z-index: 1;
+  content: "";
+  position: absolute;
+  /* マット領域は額縁の内側に inset させる */
+  inset: calc(var(--frame-thickness) + var(--mat-thickness));
+  background: var(--mat-color);
+  border-radius: calc(var(--radius) - 6px);
+  pointer-events: none;
+  /* マットの内側にほんの小さな内影を入れておくと自然 */
+  /*box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.04);*/
+  z-index: 1;
 }
-
 
 /* コンテンツはフレームの上に表示したい（必要なら） */
 
 .app {
-    position: relative;
-    z-index: 20;
-    /* screen-frame より大きくすることで枠の上にコンテンツを出す */
-    min-height: 100vh;
-    /* 最小高さをビューポートに設定し、コンテンツに応じて拡張 */
-    background: #28a44a;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 0.625rem;
-    color: #1b3e26;
-    font-family: system-ui, -apple-system, "Helvetica Neue", "Noto Sans JP", "Yu Gothic", sans-serif;
-    box-sizing: border-box;
-    /* paddingを含めて高さを計算する */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  position: relative;
+  z-index: 20;
+  /* screen-frame より大きくすることで枠の上にコンテンツを出す */
+  min-height: 100vh;
+  /* 最小高さをビューポートに設定し、コンテンツに応じて拡張 */
+  background: #28a44a;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.625rem;
+  color: #1b3e26;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Helvetica Neue",
+    "Noto Sans JP",
+    "Yu Gothic",
+    sans-serif;
+  box-sizing: border-box;
+  /* paddingを含めて高さを計算する */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
 /* =================================== */
-
 
 /* COMMON CARD STYLES */
 
-
 /* =================================== */
-
 
 /* 基本カードスタイル */
 
 .page-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 0.375rem 1.25rem rgba(76, 175, 80, 0.1);
-    border: 0.0625rem solid rgba(76, 175, 80, 0.1);
-    margin: 1.25rem 0;
-    max-width: 98%;
-    width: 100%;
-    transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0.375rem 1.25rem rgba(76, 175, 80, 0.1);
+  border: 0.0625rem solid rgba(76, 175, 80, 0.1);
+  margin: 1.25rem 0;
+  max-width: 98%;
+  width: 100%;
+  transition: all 0.3s ease;
 }
-
 
 /* 超ワイド画面での最適化 */
 
 @media (min-width: 120rem) {
-    .page-card {
-        max-width: 95%;
-        padding: 3.5rem;
-    }
+  .page-card {
+    max-width: 95%;
+    padding: 3.5rem;
+  }
 }
-
 
 /* ワイド画面での最適化 */
 
 @media (min-width: 75rem) and (max-width: 119.99rem) {
-    .page-card {
-        max-width: 92%;
-        padding: 3rem;
-    }
+  .page-card {
+    max-width: 92%;
+    padding: 3rem;
+  }
 }
-
 
 /* 標準画面での最適化 */
 
 @media (max-width: 74.99rem) and (min-width: 48.01rem) {
-    .page-card {
-        max-width: 95%;
-        padding: 2.5rem;
-    }
+  .page-card {
+    max-width: 95%;
+    padding: 2.5rem;
+  }
 }
 
 .page-card:hover {
-    transform: translateY(-0.125rem);
-    box-shadow: 0 0.5rem 1.5625rem rgba(76, 175, 80, 0.15);
-    border-color: rgba(76, 175, 80, 0.2);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.5rem 1.5625rem rgba(76, 175, 80, 0.15);
+  border-color: rgba(76, 175, 80, 0.2);
 }
-
 
 /* メインコンテンツカード */
 
 .main-content-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 16px;
-    padding: 10px;
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.1);
-    border: 1px solid rgba(76, 175, 80, 0.1);
-    margin: 20px 0;
-    max-width: 60rem;
-    width: 100%;
-    text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  margin: 20px 0;
+  max-width: 60rem;
+  width: 100%;
+  text-align: center;
 }
-
 
 /* ボタンスタイル */
 
 .btn {
-    padding: 16px 32px;
-    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px;
-    min-width: 200px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  min-width: 200px;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
 }
 
 .btn:active {
-    transform: translateY(-1px);
+  transform: translateY(-1px);
 }
-
 
 /* タイトルスタイル */
 
 .page-title {
-    font-size: 48px;
-    font-weight: 800;
-    margin-bottom: 40px;
-    background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
 }
-
 
 /* サブタイトルスタイル */
 
 .page-subtitle {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #2e7d32;
-    text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2e7d32;
+  text-align: center;
 }
-
 
 /* セクションタイトル */
 
 .section-title {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: #1b5e20;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1b5e20;
 }
-
 
 /* フォームコンテナ */
 
 .form-container {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
-    border: 1px solid rgba(76, 175, 80, 0.1);
-    margin: 16px 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  margin: 16px 0;
 }
-
 
 /* セカンダリボタン */
 
 .btn.secondary {
-    background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
-    color: #424242;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+  color: #424242;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .btn.secondary:hover {
-    background: linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 100%);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
-
 
 /* ラジオボタングループ（基本スタイル） */
 
 .radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .radio-option {
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
 }
 
 .radio-option:hover {
-    background: rgba(76, 175, 80, 0.05);
+  background: rgba(76, 175, 80, 0.05);
 }
 
 .radio-option input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-    accent-color: #4caf50;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  accent-color: #4caf50;
 }
 
 .radio-option label {
-    font-size: 16px;
-    font-weight: 500;
-    color: #2e7d32;
-    cursor: pointer;
-    flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2e7d32;
+  cursor: pointer;
+  flex: 1;
 }
-
 
 /* レスポンシブ対応 */
 
 @media (max-width: 768px) {
-    .app {
-        padding: 20px;
-    }
-    .page-card,
-    .main-content-card {
-        padding: 20px;
-        margin: 10px 0;
-    }
-    .page-title {
-        font-size: 36px;
-        margin-bottom: 30px;
-    }
-    .page-subtitle {
-        font-size: 20px;
-    }
-    .btn {
-        min-width: 150px;
-        padding: 12px 24px;
-        font-size: 16px;
-    }
+  .app {
+    padding: 20px;
+  }
+  .page-card,
+  .main-content-card {
+    padding: 20px;
+    margin: 10px 0;
+  }
+  .page-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  .page-subtitle {
+    font-size: 20px;
+  }
+  .btn {
+    min-width: 150px;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 480px) {
-    .app {
-        padding: 15px;
-    }
-    .page-card,
-    .main-content-card {
-        padding: 16px;
-    }
-    .page-title {
-        font-size: 28px;
-    }
-    .btn {
-        min-width: 120px;
-        padding: 10px 20px;
-        font-size: 14px;
-        margin: 5px;
-    }
+  .app {
+    padding: 15px;
+  }
+  .page-card,
+  .main-content-card {
+    padding: 16px;
+  }
+  .page-title {
+    font-size: 28px;
+  }
+  .btn {
+    min-width: 120px;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 5px;
+  }
 }
