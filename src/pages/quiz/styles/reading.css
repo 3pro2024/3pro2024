@@ -96,6 +96,24 @@
     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
+/* 問題文スタイル */
+#question-text {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.question-sentence {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1b3e26;
+    margin: 0;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.1) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(76, 175, 80, 0.2);
+    display: inline-block;
+}
+
 #video-container {
     background: white;
     border-radius: 12px;
@@ -151,5 +169,9 @@
     .choice-btn {
         padding: 12px 16px;
         font-size: 14px;
+    }
+    .question-sentence {
+        font-size: 1.125rem;
+        padding: 0.75rem 1rem;
     }
 }

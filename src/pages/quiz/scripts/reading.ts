@@ -1,7 +1,7 @@
-import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
-import { type ShuwaData } from "../../../types/index.js";
 import data from "../../../../data/json.json";
 import VideoPlayer from "../../../components/video/video-player.js";
+import { type ShuwaData } from "../../../types/index.js";
+import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
 // shuwa.jsonのデータ構造を仮定（実際の構造に合わせて変更してください）
 // interface ShuwaData {
 //   id: number;
@@ -12,6 +12,9 @@ import VideoPlayer from "../../../components/video/video-player.js";
 // --- DOM要素の取得 ---
 const videoContainer = document.getElementById(
   "video-container",
+) as HTMLDivElement;
+const questionText = document.getElementById(
+  "question-text",
 ) as HTMLDivElement;
 const choiceButtons = [
   document.getElementById("choice1") as HTMLInputElement,
@@ -67,6 +70,12 @@ function displayQuestion() {
   const choices = quizData.choices[currentQuestionIndex];
   const questionData = findDataById(questionId);
   const questionVideoUrl = questionData ? getVideoUrl(questionData, difficulty) : undefined;
+
+  // 問題文を生成して表示
+  if (questionData) {
+    const questionSentence = `この手話表現は何でしょう？`;
+    questionText.innerHTML = `<p class="question-sentence">${questionSentence}</p>`;
+  }
 
   // 問題動画を表示
   if (questionVideoUrl) {
