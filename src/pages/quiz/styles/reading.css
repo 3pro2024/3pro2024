@@ -18,7 +18,6 @@
   background: rgba(255, 255, 255, 0.95);
   padding: 10px;
   border-radius: 16px;
-  color: #1b3e26;
   text-align: center;
   box-shadow: 0 8px 30px rgba(76, 175, 80, 0.2);
   border: 1px solid rgba(76, 175, 80, 0.1);
@@ -27,6 +26,16 @@
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
+}
+
+.modal-content .correct {
+  font-size: 7vh;
+  color: #22c55e;
+}
+
+.modal-content .incorrect {
+  font-size: 7vh;
+  color: #ef4444;
 }
 
 .video-comparison {

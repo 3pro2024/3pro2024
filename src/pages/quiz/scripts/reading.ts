@@ -122,7 +122,9 @@ function showResultModal(
   correctId: number,
   selectedId: number,
 ) {
-  modalMessage.textContent = isCorrect ? "正解！" : "不正解...";
+  modalMessage.innerHTML = isCorrect
+    ? "<span class='correct'>正解◯</span>"
+    : "<span class='incorrect'>不正解×</span>";
 
   const correctData = findDataById(correctId);
   const selectedData = findDataById(selectedId);

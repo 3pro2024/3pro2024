@@ -29,6 +29,16 @@
   position: relative;
 }
 
+.modal-content .correct {
+  font-size: 7vh;
+  color: #22c55e;
+}
+
+.modal-content .incorrect {
+  font-size: 7vh;
+  color: #ef4444;
+}
+
 .video-comparison {
   display: flex;
   gap: 30px;

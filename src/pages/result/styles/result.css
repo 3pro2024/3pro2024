@@ -336,12 +336,12 @@
 
 /* 正解・不正解の色分け */
 .result-correct {
-  color: #4caf50 !important;
+  color: #22c55e !important;
   text-shadow: 0.125rem 0.125rem 0.25rem rgba(76, 175, 80, 0.2);
 }
 
 .result-incorrect {
-  color: #f44336 !important;
+  color: #ef4444 !important;
   text-shadow: 0.125rem 0.125rem 0.25rem rgba(244, 67, 54, 0.2);
 }
 
