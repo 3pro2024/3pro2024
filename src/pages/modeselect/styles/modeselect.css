@@ -1,5 +1,10 @@
 /* モード選択ページ用スタイル */
 
+/* メインカードの中央寄せ */
+.main-content-card {
+  margin-top: 15vh;
+}
+
 /* 追加のラジオボタンスタイル（共通スタイルを拡張） */
 .radio-option input[type="radio"]:checked + label {
   background: rgba(76, 175, 80, 0.1);
