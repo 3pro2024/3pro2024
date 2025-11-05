@@ -7,9 +7,7 @@ import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
 const videoContainer = document.getElementById(
   "video-container",
 ) as HTMLDivElement;
-const questionText = document.getElementById(
-  "question-text",
-) as HTMLDivElement;
+const questionText = document.getElementById("question-text") as HTMLDivElement;
 const choiceButtons = [
   document.getElementById("choice1") as HTMLInputElement,
   document.getElementById("choice2") as HTMLInputElement,
@@ -171,7 +169,6 @@ function findDataById(id: number): ShuwaData | undefined {
 
 // 最終結果の表示（例）
 function showFinalResult() {
-  console.log("クイズ終了");
   // タイトル画面などに戻る処理
   //
   window.location.href = "../result/";

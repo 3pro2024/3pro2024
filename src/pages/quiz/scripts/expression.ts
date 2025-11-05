@@ -74,7 +74,6 @@ function displayQuestion() {
   const questionId = quizData.quizWords[currentQuestionIndex];
   const choices = quizData.choices[currentQuestionIndex];
   // この行は問題の動画を表示する場合に必要ですが、現在は使われていないようです。
-  // const questionVideoUrl = findDataById(questionId)?.youtube_url;
 
   // 問題のidからnameまたはexample_sentenceを取得し書き換え
   const questionData = findDataById(questionId);
@@ -192,7 +191,6 @@ function findDataById(id: number): ShuwaData | undefined {
 
 // 最終結果の表示（例）
 function showFinalResult() {
-  console.log("クイズ終了");
   // タイトル画面などに戻る処理
   //
   window.location.href = "../result/";
