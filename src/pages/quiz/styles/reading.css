@@ -107,20 +107,24 @@
 
 /* 問題文スタイル */
 #question-text {
-    margin: 20px 0;
-    text-align: center;
+  margin: 20px 0;
+  text-align: center;
 }
 
 .question-sentence {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1b3e26;
-    margin: 0;
-    padding: 1rem 1.5rem;
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.1) 100%);
-    border-radius: 12px;
-    border: 2px solid rgba(76, 175, 80, 0.2);
-    display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1b3e26;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 0.1) 0%,
+    rgba(139, 195, 74, 0.1) 100%
+  );
+  border-radius: 12px;
+  border: 2px solid rgba(76, 175, 80, 0.2);
+  display: inline-block;
 }
 
 #video-container {
@@ -170,7 +174,6 @@
 }
 
 @media (max-width: 480px) {
-<<<<<<< HEAD
   .modal-content {
     padding: 20px;
     width: 98%;
@@ -179,19 +182,8 @@
     padding: 12px 16px;
     font-size: 14px;
   }
+  .question-sentence {
+    font-size: 1.125rem;
+    padding: 0.75rem 1rem;
+  }
 }
-=======
-    .modal-content {
-        padding: 20px;
-        width: 98%;
-    }
-    .choice-btn {
-        padding: 12px 16px;
-        font-size: 14px;
-    }
-    .question-sentence {
-        font-size: 1.125rem;
-        padding: 0.75rem 1rem;
-    }
-}
->>>>>>> 484dc7d053e48f0a707e86fd171cca31365aeb86

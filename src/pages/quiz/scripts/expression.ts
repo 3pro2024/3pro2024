@@ -12,9 +12,7 @@ import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
 // --- DOM要素の取得 ---
 // 問題のタグ
 const answerTag = document.getElementById("video-container") as HTMLDivElement;
-const questionText = document.getElementById(
-  "question-text",
-) as HTMLDivElement;
+const questionText = document.getElementById("question-text") as HTMLDivElement;
 // 動画再生部分を取得
 const answerVideos = [
   document.getElementById("Answervideo1") as HTMLDivElement,
@@ -81,20 +79,14 @@ function displayQuestion() {
   // 問題のidからnameまたはexample_sentenceを取得し書き換え
   const questionData = findDataById(questionId);
   // 上級の場合は例文、それ以外は単語名を表示
-<<<<<<< HEAD
   const questionWords =
     difficulty === "hard" ? questionData?.example_sentence : questionData?.name;
   answerTag.innerHTML = `<p>${questionWords}</p>`;
-=======
-  const questionWords = difficulty === "hard"
-    ? questionData?.example_sentence
-    : questionData?.name;
->>>>>>> 484dc7d053e48f0a707e86fd171cca31365aeb86
-
   // 問題文を生成して表示（難易度に応じて異なる問題文）
-  const questionSentence = difficulty === "hard"
-    ? "この手話の動画に合う文章はどれでしょう？"
-    : "この手話の動画に合う単語はどれでしょう？";
+  const questionSentence =
+    difficulty === "hard"
+      ? "この手話の動画に合う文章はどれでしょう？"
+      : "この手話の動画に合う単語はどれでしょう？";
   questionText.innerHTML = `<p class="question-sentence">${questionSentence}</p>`;
 
   questionText.innerHTML = `<p class="question-sentence">${questionSentence}:「 ${questionWords}」</p>`;
