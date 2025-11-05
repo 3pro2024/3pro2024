@@ -7,7 +7,7 @@ const unlockChallenge = () => {
     dakutenTarget.textContent = "ダ";
   }
   if (lastQuestion) {
-    lastQuestion.textContent = "や";
+    lastQuestion.innerHTML = "<image src='/new/ya.png' alt='ya'/>";
     lastQuestion.classList.add("completed");
   }
 

@@ -1,263 +1,340 @@
 <!doctype html>
 <html lang="ja">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>explain</title>
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="./styles/yubimoji.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="screen-frame" aria-hidden="true"></div>
     <div class="app">
-        <div class="menu">
-            <p>説明</p>
-            <br />
-            <a href="#syuwapura">手話ぷらとは</a>
-            <a href="#signlang">手話とは</a>
-            <a href="#quiz">クイズモード</a>
-            <a href="#learn">学習モード</a>
-            <a href="#achieve">アチーブ画面</a>
-            <a href="#yubimoji">指文字表</a>
-            <input type="button" value="戻る" id="btn" onclick="location.href='../'" />
+      <div class="menu">
+        <p>説明</p>
+        <br />
+        <a href="#syuwapura">手話ぷらとは</a>
+        <a href="#signlang">手話とは</a>
+        <a href="#quiz">クイズモード</a>
+        <a href="#learn">学習モード</a>
+        <a href="#achieve">アチーブ画面</a>
+        <a href="#yubimoji">指文字表</a>
+        <input
+          type="button"
+          value="戻る"
+          id="btn"
+          onclick="location.href='../'"
+        />
+      </div>
+      <div class="explain">
+        <!--各スライドの一枚目のみidを付けてください-->
+        <div id="syuwapura" class="slide">
+          <div class="corner-circle top-left"></div>
+          <div class="corner-circle top-right"></div>
+          <div class="corner-circle bottom-left"></div>
+          <div class="corner-circle bottom-right"></div>
+          <p class="heading">手話ぷらとは？</p>
+          <p>
+            「手話ぷら」とは日本手話をクイズ形式で学べるWebアプリケーションです。
+          </p>
+          <ul>
+            <li>動画を活用した300単語以上の手話辞書</li>
+            <li>ランダム出題クイズ</li>
+            <li>全国手話検定難易度別の学習コンテンツ</li>
+            <li>方言手話のクイズ</li>
+          </ul>
+          <p>を提供し、自分のペースで学習を進めることができます。</p>
         </div>
-        <div class="explain">
-            <!--各スライドの一枚目のみidを付けてください-->
-            <div id="syuwapura" class="slide">
-                <div class="corner-circle top-left"></div>
-                <div class="corner-circle top-right"></div>
-                <div class="corner-circle bottom-left"></div>
-                <div class="corner-circle bottom-right"></div>
-                <p class="heading">手話ぷらとは？</p>
-                <p>「手話ぷら」とは日本手話をクイズ形式で学べるWebアプリケーションです。</p>
-                <ul>
-                    <li>動画を活用した300単語以上の手話辞書</li>
-                    <li>ランダム出題クイズ</li>
-                    <li>全国手話検定難易度別の学習コンテンツ</li>
-                    <li>方言手話のクイズ</li>
-                </ul>
-                <p>を提供し、自分のペースで学習を進めることができます。</p>
-            </div>
-            <div id="signlang" class="slide">
-                <div class="corner-circle top-left"></div>
-                <div class="corner-circle top-right"></div>
-                <div class="corner-circle bottom-left"></div>
-                <div class="corner-circle bottom-right"></div>
-                <p class="heading">手話とは？</p>
-                <p>手話とは、耳の聞こえない人(聴覚障害者・ろう者)のコミュニケーション手段の1つです。</p>
-                <p>手や指、腕の動き、顔の表情などを使用し、視覚的に表現されます。</p>
-                <p>手話には地域によって表現が変化する物があり、それらは「方言手話」と呼ばれます。</p>
-            </div>
-            <div id="quiz" class="slide">
-                <div class="corner-circle top-left"></div>
-                <div class="corner-circle top-right"></div>
-                <div class="corner-circle bottom-left"></div>
-                <div class="corner-circle bottom-right"></div>
-                <p class="heading">クイズモード</p>
-                <p>手話ぷらでは、難易度ごとに「読み取り」、「表現」、「方言」の3パターンから学習を行うことができます。</p>
-                <p>難易度は「初級」「中級」「上級」の3種類あり、問題数は5問から構成されます。</p>
-                <div style="text-align: center;">
-                    <img src="/quizmmode.png" width="960" height="462">
-                </div>
-                <p>読み取りクイズでは動画が再生され、手話表現を読み取り回答するモードとなっています。</p>
-                <p>動画の手話の意味が分かったら下の4つのボタンから回答しましょう。</p>
-                <div style="text-align: center;">
-                    <img src="/quiz_reading.png" width="960" height="462">
-                </div>
-                <p>表現クイズでは画面上部に手話の意味が表示されます。</p>
-                <p>その意味にあった表現を4つの動画から選び、左のボタンを押すことで回答ができます。</p>
-                <div style="text-align: center;">
-                    <img src="/quiz_expression.png" width="960" height="462">
-                </div>
-                <p>回答後、正しい回答と選択した回答が同時に再生され、2つの動画を見比べることができます。</p>
-                <div style="text-align: center;">
-                    <img src="/checkanswer_correct.png" width="960" height="462">
-                </div>
-                <div style="text-align: center;">
-                    <img src="/checkanswer_incorrect.png" width="960" height="462">
-                </div>
-                <p>全ての回答が終了すると、クイズ結果が一覧となって表示されます。</p>
-                <div style="text-align: center;">
-                    <img src="/result.png" width="960" height="462">
-                </div>
-                <p>解説ボタンを押すと、問題の解説ページへ遷移します。</p>
-                <div style="text-align: center;">
-                    <img src="/result_learn.png" width="960" height="462">
-                </div>
-                <p>※方言クイズは読み取りクイズのみで難易度は固定となっています。</p>
-
-            </div>
-            <div class="slide">
-                <div class="corner-circle top-left"></div>
-                <div class="corner-circle top-right"></div>
-                <div class="corner-circle bottom-left"></div>
-                <div class="corner-circle bottom-right"></div>
-                <h2 id="learn" class="heading">学習モード</h2>
-                <p>手話ぷらでは、単語のやり方や例文が動画で確認できる学習モードがあります。</p>
-                <p>学習モードでは単語名での検索、全国手話検定難易度ごとやクイズ難易度ごとによる検索が可能です。</p>
-                <div style="text-align: center;">
-                    <img src="/learn.png" width="960" height="462">
-                    <img src="/learn_words.png" width="960" height="462">
-                </div>
-
-            </div>
-            <div class="slide">
-                <div class="corner-circle top-left"></div>
-                <div class="corner-circle top-right"></div>
-                <div class="corner-circle bottom-left"></div>
-                <div class="corner-circle bottom-right"></div>
-                <h2 id="achieve" class="heading">アチーブ画面</h2>
-                <p>タイトル画面右上のアイコンを選択するとアチーブ画面へ遷移することができます。</p>
-                <div style="text-align: center;">
-                    <img src="/title_checked.png" width="960" height="462">
-                </div>
-                <p>ミッションをクリアすることでマスが解放されていきます。</p>
-                <div style="text-align: center;">
-                    <img src="/achieve.png" width="960" height="462">
-                </div>
-                <p>全てのミッションクリアを目指しましょう！</p>
-            </div>
-            <div class="slide">
-                <div class="corner-circle top-left"></div>
-                <div class="corner-circle top-right"></div>
-                <div class="corner-circle bottom-left"></div>
-                <div class="corner-circle bottom-right"></div>
-                <h2 id="yubimoji" class="heading">指文字表</h2>
-                <!-- 指文字表 -->
-                <table class="table table-bordered" id="hand_tab">
-                    <tbody>
-                        <tr>
-                            <td align="center" class="table-warning"><strong>わ</strong><br><img src="/new/wa.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ら</strong><br><img src="/new/ra.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>や</strong><br><img src="/new/ya.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ま</strong><br><img src="/new/ma.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>は</strong><br><img src="/new/ha.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>な</strong><br><img src="/new/na.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>た</strong><br><img src="/new/ta.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>さ</strong><br><img src="/new/sa.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>か</strong><br><img src="/new/ka.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>あ</strong><br><img src="/new/a.png">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td align="center" class="table-warning"><strong>長音「ー」</strong><br><img src="/new/-.gif">
-                            </td>
-                            <td align="center" class="table-warning"><strong>り</strong><br><img src="/new/ri.png">
-                            </td>
-                            <td></td>
-                            <td align="center" class="table-warning"><strong>み</strong><br><img src="/new/mi.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ひ</strong><br><img src="/new/hi.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>に</strong><br><img src="/new/ni.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ち</strong><br><img src="/new/ti.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>し</strong><br><img src="/new/si.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>き</strong><br><img src="/new/ki.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>い</strong><br><img src="/new/i.png">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td align="center" class="table-warning"><strong>を</strong><br><img src="/new/wo.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>る</strong><br><img src="/new/ru.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ゆ</strong><br><img src="/new/yu.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>む</strong><br><img src="/new/mu.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ふ</strong><br><img src="/new/fu.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ぬ</strong><br><img src="/new/nu.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>つ</strong><br><img src="/new/tu.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>す</strong><br><img src="/new/su.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>く</strong><br><img src="/new/ku.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>う</strong><br><img src="/new/u.png">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td align="center" class="table-warning"><strong>れ</strong><br><img src="/new/re.png">
-                            </td>
-                            <td></td>
-                            <td align="center" class="table-warning"><strong>め</strong><br><img src="/new/me.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>へ</strong><br><img src="/new/he.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ね</strong><br><img src="/new/ne.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>て</strong><br><img src="/new/te.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>せ</strong><br><img src="/new/se.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>け</strong><br><img src="/new/ke.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>え</strong><br><img src="/new/e.png">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td align="center" class="table-warning"><strong>ん</strong><br><img src="/new/n.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ろ</strong><br><img src="/new/ro.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>よ</strong><br><img src="/new/yo.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>も</strong><br><img src="/new/mo.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>ほ</strong><br><img src="/new/ho.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>の</strong><br><img src="/new/no.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>と</strong><br><img src="/new/to.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>そ</strong><br><img src="/new/so.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>こ</strong><br><img src="/new/ko.png">
-                            </td>
-                            <td align="center" class="table-warning"><strong>お</strong><br><img src="/new/o.png">
-                            </td>
-                        </tr>
-                        <tr align="center">
-                            <td colspan="3" class="table-warning"><strong>横移動すると濁音　例「が」</strong><br><img src="/new/ga.gif">
-                            </td>
-                            <td colspan="3" class="table-warning"><strong>上移動すると半濁音　例「ぱ」</strong><br><img src="/new/pa.gif">
-                                <td colspan="4" class="table-warning"><strong>遠ざかると拗音，促音　例「ゃ」</strong><br><img src="/new/lya.gif">
-                                </td>
-                        </tr>
-                        <tr align=”center”>
-
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- 指文字表ここまで -->
-                <p></p>
-            </div>
+        <div id="signlang" class="slide">
+          <div class="corner-circle top-left"></div>
+          <div class="corner-circle top-right"></div>
+          <div class="corner-circle bottom-left"></div>
+          <div class="corner-circle bottom-right"></div>
+          <p class="heading">手話とは？</p>
+          <p>
+            手話とは、耳の聞こえない人(聴覚障害者・ろう者)のコミュニケーション手段の1つです。
+          </p>
+          <p>手や指、腕の動き、顔の表情などを使用し、視覚的に表現されます。</p>
+          <p>
+            手話には地域によって表現が変化する物があり、それらは「方言手話」と呼ばれます。
+          </p>
         </div>
-    </div>
-    </div>
-</body>
+        <div id="quiz" class="slide">
+          <div class="corner-circle top-left"></div>
+          <div class="corner-circle top-right"></div>
+          <div class="corner-circle bottom-left"></div>
+          <div class="corner-circle bottom-right"></div>
+          <p class="heading">クイズモード</p>
+          <p>
+            手話ぷらでは、難易度ごとに「読み取り」、「表現」、「方言」の3パターンから学習を行うことができます。
+          </p>
+          <p>
+            難易度は「初級」「中級」「上級」の3種類あり、問題数は5問から構成されます。
+          </p>
+          <div style="text-align: center">
+            <img src="/quizmmode.png" width="960" height="462" />
+          </div>
+          <p>
+            読み取りクイズでは動画が再生され、手話表現を読み取り回答するモードとなっています。
+          </p>
+          <p>動画の手話の意味が分かったら下の4つのボタンから回答しましょう。</p>
+          <div style="text-align: center">
+            <img src="/quiz_reading.png" width="960" height="462" />
+          </div>
+          <p>表現クイズでは画面上部に手話の意味が表示されます。</p>
+          <p>
+            その意味にあった表現を4つの動画から選び、左のボタンを押すことで回答ができます。
+          </p>
+          <div style="text-align: center">
+            <img src="/quiz_expression.png" width="960" height="462" />
+          </div>
+          <p>
+            回答後、正しい回答と選択した回答が同時に再生され、2つの動画を見比べることができます。
+          </p>
+          <div style="text-align: center">
+            <img src="/checkanswer_correct.png" width="960" height="462" />
+          </div>
+          <div style="text-align: center">
+            <img src="/checkanswer_incorrect.png" width="960" height="462" />
+          </div>
+          <p>全ての回答が終了すると、クイズ結果が一覧となって表示されます。</p>
+          <div style="text-align: center">
+            <img src="/result.png" width="960" height="462" />
+          </div>
+          <p>解説ボタンを押すと、問題の解説ページへ遷移します。</p>
+          <div style="text-align: center">
+            <img src="/result_learn.png" width="960" height="462" />
+          </div>
+          <p>※方言クイズは読み取りクイズのみで難易度は固定となっています。</p>
+        </div>
+        <div class="slide">
+          <div class="corner-circle top-left"></div>
+          <div class="corner-circle top-right"></div>
+          <div class="corner-circle bottom-left"></div>
+          <div class="corner-circle bottom-right"></div>
+          <h2 id="learn" class="heading">学習モード</h2>
+          <p>
+            手話ぷらでは、単語のやり方や例文が動画で確認できる学習モードがあります。
+          </p>
+          <p>
+            学習モードでは単語名での検索、全国手話検定難易度ごとやクイズ難易度ごとによる検索が可能です。
+          </p>
+          <div style="text-align: center">
+            <img src="/learn.png" width="960" height="462" />
+            <img src="/learn_words.png" width="960" height="462" />
+          </div>
+        </div>
+        <div class="slide">
+          <div class="corner-circle top-left"></div>
+          <div class="corner-circle top-right"></div>
+          <div class="corner-circle bottom-left"></div>
+          <div class="corner-circle bottom-right"></div>
+          <h2 id="achieve" class="heading">アチーブ画面</h2>
+          <p>
+            タイトル画面右上のアイコンを選択するとアチーブ画面へ遷移することができます。
+          </p>
+          <div style="text-align: center">
+            <img src="/title_checked.png" width="960" height="462" />
+          </div>
+          <p>ミッションをクリアすることでマスが解放されていきます。</p>
+          <div style="text-align: center">
+            <img src="/achieve.png" width="960" height="462" />
+          </div>
+          <p>全てのミッションクリアを目指しましょう！</p>
+        </div>
+        <div class="slide">
+          <div class="corner-circle top-left"></div>
+          <div class="corner-circle top-right"></div>
+          <div class="corner-circle bottom-left"></div>
+          <div class="corner-circle bottom-right"></div>
+          <h2 id="yubimoji" class="heading">指文字表</h2>
+          <!-- 指文字表 -->
+          <table class="table table-bordered" id="hand_tab">
+            <tbody>
+              <tr>
+                <td align="center" class="table-warning">
+                  <strong>わ</strong><br /><img src="/new/wa.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ら</strong><br /><img src="/new/ra.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>や</strong><br /><img src="/new/ya.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ま</strong><br /><img src="/new/ma.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>は</strong><br /><img src="/new/ha.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>な</strong><br /><img src="/new/na.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>た</strong><br /><img src="/new/ta.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>さ</strong><br /><img src="/new/sa.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>か</strong><br /><img src="/new/ka.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>あ</strong><br /><img src="/new/a.png" />
+                </td>
+              </tr>
 
+              <tr>
+                <td align="center" class="table-warning">
+                  <strong>長音「ー」</strong><br /><img src="/new/-.gif" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>り</strong><br /><img src="/new/ri.png" />
+                </td>
+                <td></td>
+                <td align="center" class="table-warning">
+                  <strong>み</strong><br /><img src="/new/mi.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ひ</strong><br /><img src="/new/hi.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>に</strong><br /><img src="/new/ni.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ち</strong><br /><img src="/new/ti.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>し</strong><br /><img src="/new/si.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>き</strong><br /><img src="/new/ki.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>い</strong><br /><img src="/new/i.png" />
+                </td>
+              </tr>
+
+              <tr>
+                <td align="center" class="table-warning">
+                  <strong>を</strong><br /><img src="/new/wo.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>る</strong><br /><img src="/new/ru.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ゆ</strong><br /><img src="/new/yu.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>む</strong><br /><img src="/new/mu.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ふ</strong><br /><img src="/new/fu.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ぬ</strong><br /><img src="/new/nu.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>つ</strong><br /><img src="/new/tu.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>す</strong><br /><img src="/new/su.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>く</strong><br /><img src="/new/ku.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>う</strong><br /><img src="/new/u.png" />
+                </td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td align="center" class="table-warning">
+                  <strong>れ</strong><br /><img src="/new/re.png" />
+                </td>
+                <td></td>
+                <td align="center" class="table-warning">
+                  <strong>め</strong><br /><img src="/new/me.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>へ</strong><br /><img src="/new/he.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ね</strong><br /><img src="/new/ne.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>て</strong><br /><img src="/new/te.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>せ</strong><br /><img src="/new/se.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>け</strong><br /><img src="/new/ke.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>え</strong><br /><img src="/new/e.png" />
+                </td>
+              </tr>
+
+              <tr>
+                <td align="center" class="table-warning">
+                  <strong>ん</strong><br /><img src="/new/n.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ろ</strong><br /><img src="/new/ro.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>よ</strong><br /><img src="/new/yo.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>も</strong><br /><img src="/new/mo.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>ほ</strong><br /><img src="/new/ho.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>の</strong><br /><img src="/new/no.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>と</strong><br /><img src="/new/to.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>そ</strong><br /><img src="/new/so.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>こ</strong><br /><img src="/new/ko.png" />
+                </td>
+                <td align="center" class="table-warning">
+                  <strong>お</strong><br /><img src="/new/o.png" />
+                </td>
+              </tr>
+              <tr align="center">
+                <td colspan="3" class="table-warning">
+                  <strong>横移動すると濁音　例「が」</strong><br /><img
+                    src="/new/ga.gif"
+                  />
+                </td>
+                <td colspan="3" class="table-warning">
+                  <strong>上移動すると半濁音　例「ぱ」</strong><br /><img
+                    src="/new/pa.gif"
+                  />
+                </td>
+                <td colspan="4" class="table-warning">
+                  <strong>遠ざかると拗音，促音　例「ゃ」</strong><br /><img
+                    src="/new/lya.gif"
+                  />
+                </td>
+              </tr>
+              <tr align="”center”"></tr>
+            </tbody>
+          </table>
+          <!-- 指文字表ここまで -->
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
