@@ -28,16 +28,29 @@
   /* 文字色を少し柔らかく */
 }
 
-.menu #btn {
-  width: 6.25rem;
-  padding: 0.625rem;
-  font-size: 1.25rem;
-  margin-bottom: 0%;
+#btn {
   position: absolute;
-  bottom: 20px;
-  /* メニューの下部から20pxの位置 */
+  bottom: 2rem;
+  width: 8.25rem;
+  padding: 0.625rem;
+  margin-bottom: 0%;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
   transform: translateX(-50%);
-  /* 要素の幅の半分だけ左に戻して中央揃え */
+}
+
+#btn:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
 }
 
 .explain {
