@@ -1,7 +1,7 @@
-import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
-import { type ShuwaData } from "../../../types/index.js";
 import data from "../../../../data/json.json";
 import VideoPlayer from "../../../components/video/video-player.js";
+import { type ShuwaData } from "../../../types/index.js";
+import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
 // shuwa.jsonのデータ構造を仮定（実際の構造に合わせて変更してください）
 // interface ShuwaData {
 //   id: number;
@@ -12,6 +12,7 @@ import VideoPlayer from "../../../components/video/video-player.js";
 // --- DOM要素の取得 ---
 // 問題のタグ
 const answerTag = document.getElementById("video-container") as HTMLDivElement;
+const questionText = document.getElementById("question-text") as HTMLDivElement;
 // 動画再生部分を取得
 const answerVideos = [
   document.getElementById("Answervideo1") as HTMLDivElement,
@@ -73,21 +74,28 @@ function displayQuestion() {
   const questionId = quizData.quizWords[currentQuestionIndex];
   const choices = quizData.choices[currentQuestionIndex];
   // この行は問題の動画を表示する場合に必要ですが、現在は使われていないようです。
-  // const questionVideoUrl = findDataById(questionId)?.youtube_url;
 
   // 問題のidからnameまたはexample_sentenceを取得し書き換え
   const questionData = findDataById(questionId);
   // 上級の場合は例文、それ以外は単語名を表示
-  const questionWords = difficulty === "hard"
-    ? questionData?.example_sentence
-    : questionData?.name;
+  const questionWords =
+    difficulty === "hard" ? questionData?.example_sentence : questionData?.name;
   answerTag.innerHTML = `<p>${questionWords}</p>`;
+  // 問題文を生成して表示（難易度に応じて異なる問題文）
+  const questionSentence =
+    difficulty === "hard"
+      ? "この手話の動画に合う文章はどれでしょう？"
+      : "この手話の動画に合う単語はどれでしょう？";
+  questionText.innerHTML = `<p class="question-sentence">${questionSentence}</p>`;
 
+  questionText.innerHTML = `<p class="question-sentence">${questionSentence}:「 ${questionWords}」</p>`;
   // 選択肢ボタンに単語とIDを割り当て、動画を表示
   choiceButtons.forEach((button, index) => {
     const choiceId = choices[index];
     const choiceData = findDataById(choiceId);
-    const choiceVideoUrl = choiceData ? getVideoUrl(choiceData, difficulty) : undefined;
+    const choiceVideoUrl = choiceData
+      ? getVideoUrl(choiceData, difficulty)
+      : undefined;
     // data属性にIDを保存しておくのが便利
     button.dataset.choiceId = choiceId.toString();
 
@@ -134,12 +142,18 @@ function showResultModal(
   correctId: number,
   selectedId: number,
 ) {
-  modalMessage.textContent = isCorrect ? "正解！" : "不正解...";
+  modalMessage.innerHTML = isCorrect
+    ? "<span class='correct'>正解◯</span>"
+    : "<span class='incorrect'>不正解×</span>";
 
   const correctData = findDataById(correctId);
   const selectedData = findDataById(selectedId);
-  const correctVideoUrl = correctData ? getVideoUrl(correctData, difficulty) : undefined;
-  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData, difficulty) : undefined;
+  const correctVideoUrl = correctData
+    ? getVideoUrl(correctData, difficulty)
+    : undefined;
+  const selectedVideoUrl = selectedData
+    ? getVideoUrl(selectedData, difficulty)
+    : undefined;
 
   if (!correctVideoUrl || !selectedVideoUrl) return;
 
@@ -177,7 +191,6 @@ function findDataById(id: number): ShuwaData | undefined {
 
 // 最終結果の表示（例）
 function showFinalResult() {
-  console.log("クイズ終了");
   // タイトル画面などに戻る処理
   //
   window.location.href = "../result/";

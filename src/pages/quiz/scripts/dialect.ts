@@ -1,12 +1,13 @@
-import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
-import { type ShuwaData } from "../../../types/index.js";
 import data from "../../../../data/json.json";
 import VideoPlayer from "../../../components/video/video-player.js";
+import { type ShuwaData } from "../../../types/index.js";
+import { getVideoUrl, startQuiz, type QuizData } from "./quiz.js";
 
 // --- DOM要素の取得 ---
 const videoContainer = document.getElementById(
   "video-container",
 ) as HTMLDivElement;
+const questionText = document.getElementById("question-text") as HTMLDivElement;
 const choiceButtons = [
   document.getElementById("choice1") as HTMLInputElement,
   document.getElementById("choice2") as HTMLInputElement,
@@ -60,7 +61,15 @@ function displayQuestion() {
   const questionId = quizData.quizWords[currentQuestionIndex];
   const choices = quizData.choices[currentQuestionIndex];
   const questionData = findDataById(questionId);
-  const questionVideoUrl = questionData ? getVideoUrl(questionData, difficulty) : undefined;
+  const questionVideoUrl = questionData
+    ? getVideoUrl(questionData, difficulty)
+    : undefined;
+
+  // 問題文を生成して表示
+  if (questionData) {
+    const questionSentence = `「${questionData.name}」の手話はどれでしょう？`;
+    questionText.innerHTML = `<p class="question-sentence">${questionSentence}</p>`;
+  }
 
   // 問題動画を表示
   if (questionVideoUrl) {
@@ -111,12 +120,18 @@ function showResultModal(
   correctId: number,
   selectedId: number,
 ) {
-  modalMessage.textContent = isCorrect ? "正解！" : "不正解...";
+  modalMessage.innerHTML = isCorrect
+    ? "<span class='correct'>正解◯</span>"
+    : "<span class='incorrect'>不正解×</span>";
 
   const correctData = findDataById(correctId);
   const selectedData = findDataById(selectedId);
-  const correctVideoUrl = correctData ? getVideoUrl(correctData, difficulty) : undefined;
-  const selectedVideoUrl = selectedData ? getVideoUrl(selectedData, difficulty) : undefined;
+  const correctVideoUrl = correctData
+    ? getVideoUrl(correctData, difficulty)
+    : undefined;
+  const selectedVideoUrl = selectedData
+    ? getVideoUrl(selectedData, difficulty)
+    : undefined;
 
   if (!correctVideoUrl || !selectedVideoUrl) return;
 
@@ -154,7 +169,6 @@ function findDataById(id: number): ShuwaData | undefined {
 
 // 最終結果の表示（例）
 function showFinalResult() {
-  console.log("クイズ終了");
   // タイトル画面などに戻る処理
   //
   window.location.href = "../result/";

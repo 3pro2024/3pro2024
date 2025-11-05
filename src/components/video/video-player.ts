@@ -7,7 +7,7 @@ function getYouTubeVideoId(url: string): string {
   const regExp =
     /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
   const match = url.match(regExp);
-  return match && match[7].length === 11 ? match[7] : '';
+  return match && match[7].length === 11 ? match[7] : "";
 }
 
 /**
@@ -39,9 +39,9 @@ export function loadYouTubeAPI(): void {
   if (apiLoaded || apiLoading) return;
 
   apiLoading = true;
-  const tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  const firstScriptTag = document.getElementsByTagName('script')[0];
+  const tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  const firstScriptTag = document.getElementsByTagName("script")[0];
   firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
 }
 
@@ -86,7 +86,7 @@ function initializePlayer(playerId: string, videoId: string): void {
         // 再生速度を0.75倍に設定
         event.target.setPlaybackRate(0.75);
         // 画質を720pに設定
-        event.target.setPlaybackQuality('hd720');
+        event.target.setPlaybackQuality("hd720");
       },
     },
   });

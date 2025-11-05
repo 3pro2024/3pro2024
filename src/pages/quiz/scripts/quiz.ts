@@ -33,8 +33,6 @@ export async function startQuiz(
   let quizWords: number[] = []; //問題格納用配列
   const choices: number[][] = []; // 各問題の選択肢を格納する2次元配列
 
-  console.log("quiz.ts: startQuiz called with difficulty:", difficulty); // テスト用
-
   try {
     // わんちゃんエラーが起きそうな所
     //--jsonファイルの大きさ取得----
@@ -47,24 +45,16 @@ export async function startQuiz(
 
       // 上級の場合は初級・中級のデータを使用（動画の種類で差別化）
       if (difficulty === "hard") {
-        jsonData = jsonData.filter((item) =>
-          item.quiz_level === "初級" || item.quiz_level === "中級"
+        jsonData = jsonData.filter(
+          (item) => item.quiz_level === "初級" || item.quiz_level === "中級",
         );
       } else {
         jsonData = jsonData.filter((item) => item.quiz_level === targetLevel);
       }
 
-      console.log(
-        `Filtered data for difficulty "${difficulty}":`,
-        jsonData.length,
-        "items",
-      );
-
       // フィルタリング後のデータが0件の場合は警告
       if (jsonData.length === 0) {
-        console.warn(
-          `No data found for difficulty: ${difficulty}`,
-        );
+        console.warn(`No data found for difficulty: ${difficulty}`);
         return null;
       }
     }
@@ -127,9 +117,6 @@ export async function startQuiz(
       }
       choices.push(currentChoices);
     }
-
-    console.log(`生成された問題（重複なしランダム7件）:`, quizWords);
-    console.log(`生成された選択肢:`, choices);
 
     // 生成した問題と選択肢のセットを返す
     return { quizWords, choices };

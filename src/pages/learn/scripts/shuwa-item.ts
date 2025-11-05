@@ -41,16 +41,30 @@ function searchResults(
 }
 
 function createCardLayout(data: ShuwaData[]): string {
+  const learnedShuwas: string[] =
+    localStorage.getItem(LEARNED_SHUWA_LIST_KEY)?.split(",") || [];
+
   const items = data
-    .map(
-      (shuwa) => `
+    .map((shuwa) => {
+      const isLearned = learnedShuwas.includes(shuwa.id.toString());
+      const checkIcon = isLearned
+        ? `<div class="learned-check-icon" aria-label="学習済み">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <path d="M20 6L9 17l-5-5"/>
+             </svg>
+             <span class="tooltip">学習済み</span>
+           </div>`
+        : "";
+
+      return `
         <div class="shuwa-item">
           <a href="./?id=${shuwa.id}">
+            ${checkIcon}
             <h2 class="shuwa-item-name">${shuwa.name}</h2>
           </a>
         </div>
-      `,
-    )
+      `;
+    })
     .join("");
 
   return `<div class="shuwa-items-grid">${items}</div>`;
